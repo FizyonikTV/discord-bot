@@ -1,0 +1,1582 @@
+2025-04-10 12:26:33,433 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 12:26:33,434 - INFO - logging in using static token
+2025-04-10 12:26:35,282 - INFO - Shard ID None has connected to Gateway (Session ID: 56773edf8c046333186745e4bdbbfaf8).
+2025-04-10 12:26:37,303 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 12:26:57,233 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "warn" is not found
+2025-04-10 12:27:33,813 - ERROR - Ignoring exception in command botinfo
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\information.py", line 185, in botinfo
+    uptime_seconds = int(time.time() - self.bot.start_time if hasattr(self.bot, "start_time") else 0)
+                         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+2025-04-10 12:27:52,306 - ERROR - Ignoring exception in command botinfo
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\information.py", line 185, in botinfo
+    uptime_seconds = int(time.time() - self.bot.start_time if hasattr(self.bot, "start_time") else 0)
+                         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+2025-04-10 12:28:02,838 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "kullainici" is not found
+2025-04-10 12:28:39,260 - ERROR - Ignoring exception in command rank
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 3.79s
+2025-04-10 12:32:24,043 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 12:32:24,044 - INFO - logging in using static token
+2025-04-10 12:32:25,846 - INFO - Shard ID None has connected to Gateway (Session ID: 5dd21efae8c3312d127ab41562bff245).
+2025-04-10 12:32:27,874 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 12:32:40,746 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "notlar" is not found
+2025-04-10 12:58:40,509 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 12:58:40,511 - INFO - logging in using static token
+2025-04-10 12:58:42,389 - INFO - Shard ID None has connected to Gateway (Session ID: 170fc968490f7399e73fe13a71b5a590).
+2025-04-10 12:58:44,421 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 12:58:57,648 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 12:58:57,649 - INFO - logging in using static token
+2025-04-10 12:58:58,867 - INFO - Shard ID None has connected to Gateway (Session ID: ee0040fa5d8a0c22505a0d40c965b26b).
+2025-04-10 12:59:00,900 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 12:59:09,664 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "moderasyon" is not found
+2025-04-10 12:59:47,281 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "!yardim" is not found
+2025-04-10 12:59:59,885 - ERROR - Ignoring exception in command warn
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\moderation.py", line 16, in warn
+    await self.bot.kullanici_notlari_ekle(ctx, member.id, "uyarý", sebep)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+2025-04-10 13:00:23,285 - ERROR - Ignoring exception in command to
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\moderation.py", line 32, in to
+    await self.bot.kullanici_notlari_ekle(ctx, member.id, "timeout", sebep)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+2025-04-10 13:00:38,356 - ERROR - Ignoring exception in command ban
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\moderation.py", line 68, in ban
+    await self.bot.kullanici_notlari_ekle(ctx, member.id, "yasak", sebep)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'LunarisBot' object has no attribute 'kullanici_notlari_ekle'
+2025-04-10 13:00:46,619 - ERROR - Ignoring exception in command unto
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\moderation.py", line 52, in unto
+    await self.bot.islem_mesaji_gonder(ctx, "Timeout Kaldýrma", member,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LunarisBot' object has no attribute 'islem_mesaji_gonder'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'LunarisBot' object has no attribute 'islem_mesaji_gonder'
+2025-04-10 13:01:05,562 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user_id is a required argument that is missing.
+2025-04-10 13:01:26,715 - ERROR - Ignoring exception in command notsil
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user_id is a required argument that is missing.
+2025-04-10 13:05:33,410 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 13:05:33,411 - INFO - logging in using static token
+2025-04-10 13:05:35,315 - INFO - Shard ID None has connected to Gateway (Session ID: 7b9dedd73aeb95269e1c63b968c6000c).
+2025-04-10 13:05:37,337 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 13:20:47,623 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 13:20:47,624 - INFO - logging in using static token
+2025-04-10 13:20:49,274 - INFO - Shard ID None has connected to Gateway (Session ID: 988167b0e6df3f686d7ee2ec139ffa11).
+2025-04-10 13:20:51,320 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 13:21:09,388 - ERROR - Ignoring exception in command yardim
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1655, in invoke
+    await super().invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 1.69s
+2025-04-10 13:27:01,096 - INFO - Shard ID None has successfully RESUMED session 988167b0e6df3f686d7ee2ec139ffa11.
+2025-04-10 13:51:46,974 - INFO - Shard ID None has successfully RESUMED session 988167b0e6df3f686d7ee2ec139ffa11.
+2025-04-10 15:30:46,036 - INFO - Shard ID None has successfully RESUMED session 988167b0e6df3f686d7ee2ec139ffa11.
+2025-04-10 15:54:40,316 - INFO - Shard ID None has successfully RESUMED session 988167b0e6df3f686d7ee2ec139ffa11.
+2025-04-10 16:46:38,945 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 16:46:38,950 - INFO - logging in using static token
+2025-04-10 16:46:40,554 - INFO - Shard ID None has connected to Gateway (Session ID: 8e8de73c689ebe2f28289cd66f021de9).
+2025-04-10 16:46:42,575 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 16:52:22,432 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 16:52:22,433 - INFO - logging in using static token
+2025-04-10 16:52:24,188 - INFO - Shard ID None has connected to Gateway (Session ID: e77c18c8775bc08950c98a72f3238299).
+2025-04-10 16:52:26,217 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 16:53:10,174 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 16:53:10,175 - INFO - logging in using static token
+2025-04-10 16:53:11,421 - INFO - Shard ID None has connected to Gateway (Session ID: 9ef6a89f14e13cc57b47645987ce3cfc).
+2025-04-10 16:53:13,453 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:00:21,958 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:00:21,959 - INFO - logging in using static token
+2025-04-10 17:00:23,642 - INFO - Shard ID None has connected to Gateway (Session ID: 553474b93024fe1caed6c73f25d2ae58).
+2025-04-10 17:00:25,661 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:04:48,041 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:04:48,042 - INFO - logging in using static token
+2025-04-10 17:04:49,815 - INFO - Shard ID None has connected to Gateway (Session ID: e6c42a2fccf02cee189cdb2c0cd7e3fa).
+2025-04-10 17:04:51,881 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:05:21,647 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:05:21,648 - INFO - logging in using static token
+2025-04-10 17:05:23,027 - INFO - Shard ID None has connected to Gateway (Session ID: 60fcf035d4d5c4833d9c2b7998faa6f5).
+2025-04-10 17:05:25,044 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:08:49,701 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "bilgi" is not found
+2025-04-10 17:09:16,028 - ERROR - Ignoring exception in command botinfo
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\information.py", line 185, in botinfo
+    uptime_seconds = int(time.time() - self.bot.start_time if hasattr(self.bot, "start_time") else 0)
+                         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+2025-04-10 17:11:01,704 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:11:01,705 - INFO - logging in using static token
+2025-04-10 17:11:03,276 - INFO - Shard ID None has connected to Gateway (Session ID: ce40ca7ee11f55e7ddf3a341118f5bfe).
+2025-04-10 17:11:05,297 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:11:09,150 - ERROR - Ignoring exception in command botinfo
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\information.py", line 185, in botinfo
+    uptime_seconds = int(time.time() - self.bot.start_time if hasattr(self.bot, "start_time") else 0)
+                         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+2025-04-10 17:12:16,921 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:12:16,922 - INFO - logging in using static token
+2025-04-10 17:12:18,367 - INFO - Shard ID None has connected to Gateway (Session ID: 452e56c2d4ceab47a9ef62add6421834).
+2025-04-10 17:12:20,391 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:13:38,341 - ERROR - Ignoring exception in command botinfo
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\information.py", line 185, in botinfo
+    uptime_seconds = int(time.time() - self.bot.start_time if hasattr(self.bot, "start_time") else 0)
+                         ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: unsupported operand type(s) for -: 'float' and 'datetime.datetime'
+2025-04-10 17:18:12,228 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:18:12,228 - INFO - logging in using static token
+2025-04-10 17:18:13,893 - INFO - Shard ID None has connected to Gateway (Session ID: 690b2e3e26ad6938e0ca2d82b85fc35e).
+2025-04-10 17:18:15,918 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:19:30,576 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:19:30,577 - INFO - logging in using static token
+2025-04-10 17:19:31,791 - INFO - Shard ID None has connected to Gateway (Session ID: 93503bf0928bed91501b513b9876e1ce).
+2025-04-10 17:19:33,821 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:21:31,114 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:21:31,115 - INFO - logging in using static token
+2025-04-10 17:21:32,730 - INFO - Shard ID None has connected to Gateway (Session ID: 65b023e3ce9fd807c01f3d489c4095b8).
+2025-04-10 17:21:34,876 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:22:42,214 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user is a required argument that is missing.
+2025-04-10 17:26:53,035 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:26:53,036 - INFO - logging in using static token
+2025-04-10 17:26:55,127 - INFO - Shard ID None has connected to Gateway (Session ID: 4708d9e98e0ab0d21fa595c8ab9cbe16).
+2025-04-10 17:26:57,150 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:28:08,625 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "614559782355075083" not found.
+2025-04-10 17:38:37,507 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:38:37,508 - INFO - logging in using static token
+2025-04-10 17:38:39,327 - INFO - Shard ID None has connected to Gateway (Session ID: bbff180328d67cac1aac2e00cc3215d4).
+2025-04-10 17:38:41,364 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 17:38:46,695 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "warn" is not found
+2025-04-10 17:38:54,919 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "warn" is not found
+2025-04-10 17:39:22,070 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "warn" is not found
+2025-04-10 17:39:29,157 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: reason is a required argument that is missing.
+2025-04-10 17:51:48,970 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 17:51:48,971 - INFO - logging in using static token
+2025-04-10 17:51:50,793 - INFO - Shard ID None has connected to Gateway (Session ID: 7a8665650cf850dc77c31543819511ab).
+2025-04-10 17:51:52,816 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:02:33,233 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:02:33,234 - INFO - logging in using static token
+2025-04-10 18:02:35,061 - INFO - Shard ID None has connected to Gateway (Session ID: 46572ec81ef591863b6e64134d8e0984).
+2025-04-10 18:02:37,078 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:04:00,351 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:04:00,352 - INFO - logging in using static token
+2025-04-10 18:04:01,867 - INFO - Shard ID None has connected to Gateway (Session ID: a76f4bbef966a0c9ef5c675abc6bf0a2).
+2025-04-10 18:04:03,893 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:04:56,978 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: reason is a required argument that is missing.
+2025-04-10 18:05:27,602 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yyardýmm" is not found
+2025-04-10 18:07:17,587 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yasak" is not found
+2025-04-10 18:09:21,473 - ERROR - Ignoring exception in command notsil
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: 'Uyarý'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "index".
+2025-04-10 18:09:37,393 - ERROR - Ignoring exception in command notsil
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\notes.py", line 131, in delete_note
+    deleted_note = self.notes[user_id].pop(index)
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: KeyError: 0
+2025-04-10 18:10:13,973 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user_id is a required argument that is missing.
+2025-04-10 18:12:02,810 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "kullanýcý" is not found
+2025-04-10 18:12:47,976 - ERROR - Ignoring exception in command xpekle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: member is a required argument that is missing.
+2025-04-10 18:13:32,498 - ERROR - Ignoring exception in command top
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 3.12s
+2025-04-10 18:14:32,629 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "xpsýfýrlaleoleshea_sw" is not found
+2025-04-10 18:17:26,801 - ERROR - Ignoring exception in command temizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 0.26s
+2025-04-10 18:18:19,602 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yasakkaldýr" is not found
+2025-04-10 18:19:22,431 - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\leveling.py", line 49, in on_message
+    guild_id = str(message.guild.id)
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+2025-04-10 18:19:38,497 - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\leveling.py", line 49, in on_message
+    guild_id = str(message.guild.id)
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+2025-04-10 18:19:58,096 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700459991666748/messages/1281705828906434681 responded with 429. Retrying in 0.30 seconds.
+2025-04-10 18:20:30,844 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353452851765973123 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:20:31,936 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353371664615735347 responded with 429. Retrying in 0.40 seconds.
+2025-04-10 18:20:32,838 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353314635352379404 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:20:33,866 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353314088570064967 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:20:34,843 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353108802169475192 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:20:35,896 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353007352881877033 responded with 429. Retrying in 0.43 seconds.
+2025-04-10 18:20:36,900 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1353007351753478165 responded with 429. Retrying in 0.43 seconds.
+2025-04-10 18:20:37,890 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352660327971426355 responded with 429. Retrying in 0.44 seconds.
+2025-04-10 18:20:38,833 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352582614053027841 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:20:39,894 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352389476932124782 responded with 429. Retrying in 0.44 seconds.
+2025-04-10 18:20:40,891 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352388840882700380 responded with 429. Retrying in 0.45 seconds.
+2025-04-10 18:20:41,882 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352388804484530196 responded with 429. Retrying in 0.45 seconds.
+2025-04-10 18:20:42,922 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352388768832688275 responded with 429. Retrying in 0.41 seconds.
+2025-04-10 18:20:43,921 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352388517724033024 responded with 429. Retrying in 0.41 seconds.
+2025-04-10 18:20:44,876 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352329458480320535 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:20:45,823 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352329426934956112 responded with 429. Retrying in 0.51 seconds.
+2025-04-10 18:20:46,843 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352329418126921864 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:20:47,917 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352329409667010672 responded with 429. Retrying in 0.41 seconds.
+2025-04-10 18:20:48,841 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1352329398757494878 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:20:50,301 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1351249745448009838 responded with 429. Retrying in 0.30 seconds.
+2025-04-10 18:20:51,643 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1351244783322005647 responded with 429. Retrying in 0.69 seconds.
+2025-04-10 18:20:52,867 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1351244359185465494 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:20:53,916 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1351234614173372477 responded with 429. Retrying in 0.42 seconds.
+2025-04-10 18:20:54,850 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1351226015908892804 responded with 429. Retrying in 0.48 seconds.
+2025-04-10 18:20:55,824 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350875145157476383 responded with 429. Retrying in 0.52 seconds.
+2025-04-10 18:20:58,719 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350587810335162368 responded with 429. Retrying in 0.61 seconds.
+2025-04-10 18:20:59,843 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350573145794547726 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:21:00,878 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350543282509320365 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:23:02,636 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350541124464410674 responded with 429. Retrying in 0.30 seconds.
+2025-04-10 18:23:03,458 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350520675458355222 responded with 429. Retrying in 0.33 seconds.
+2025-04-10 18:23:04,410 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350471141898190948 responded with 429. Retrying in 0.38 seconds.
+2025-04-10 18:23:05,287 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1350399201045119006 responded with 429. Retrying in 0.49 seconds.
+2025-04-10 18:23:06,288 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349869276848328715 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:23:07,262 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349859778477690980 responded with 429. Retrying in 0.52 seconds.
+2025-04-10 18:23:08,313 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349856363660181524 responded with 429. Retrying in 0.47 seconds.
+2025-04-10 18:23:09,390 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349706921044873216 responded with 429. Retrying in 0.41 seconds.
+2025-04-10 18:23:10,285 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349488727201943674 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:23:11,251 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349451557883875358 responded with 429. Retrying in 0.54 seconds.
+2025-04-10 18:23:12,318 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349449681502994443 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:23:13,334 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349449675140501584 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:23:14,460 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349449668991385620 responded with 429. Retrying in 0.33 seconds.
+2025-04-10 18:23:15,262 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349449658316882001 responded with 429. Retrying in 0.52 seconds.
+2025-04-10 18:23:16,346 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349448950314434601 responded with 429. Retrying in 0.44 seconds.
+2025-04-10 18:23:17,255 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349448943372861514 responded with 429. Retrying in 0.53 seconds.
+2025-04-10 18:23:18,282 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349448925383364631 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:23:19,331 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349448914259939458 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:23:20,317 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349375927502635113 responded with 429. Retrying in 0.46 seconds.
+2025-04-10 18:23:21,283 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349348099033661574 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:23:22,251 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1349035185907302421 responded with 429. Retrying in 0.53 seconds.
+2025-04-10 18:23:23,288 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1348731328719360094 responded with 429. Retrying in 0.50 seconds.
+2025-04-10 18:23:24,722 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1348659333638131744 responded with 429. Retrying in 0.30 seconds.
+2025-04-10 18:23:25,610 - WARNING - We are being rate limited. DELETE https://discord.com/api/v10/channels/1281700552929185882/messages/1348659225479352491 responded with 429. Retrying in 0.30 seconds.
+2025-04-10 18:30:23,665 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:30:23,666 - INFO - logging in using static token
+2025-04-10 18:30:25,436 - INFO - Shard ID None has connected to Gateway (Session ID: 1a51fac6f18b294cec9035838df40cd1).
+2025-04-10 18:30:27,464 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:32:13,985 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: reason is a required argument that is missing.
+2025-04-10 18:32:46,634 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "not" is not found
+2025-04-10 18:36:50,939 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:36:50,940 - INFO - logging in using static token
+2025-04-10 18:36:52,508 - INFO - Shard ID None has connected to Gateway (Session ID: b41d67fad64d897820308ebed2bd1a8a).
+2025-04-10 18:36:54,535 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:39:58,330 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:39:58,331 - INFO - logging in using static token
+2025-04-10 18:39:59,937 - INFO - Shard ID None has connected to Gateway (Session ID: d6b332842a321f9150a07f606af5ada7).
+2025-04-10 18:40:01,962 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:40:11,191 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:40:11,192 - INFO - logging in using static token
+2025-04-10 18:40:12,460 - INFO - Shard ID None has connected to Gateway (Session ID: 95761218192fb858781d7b0b14a3698c).
+2025-04-10 18:40:14,493 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 18:41:52,564 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 18:41:52,564 - INFO - logging in using static token
+2025-04-10 18:41:54,150 - INFO - Shard ID None has connected to Gateway (Session ID: 172b92f2a3aeec5be20450085e3e6eb1).
+2025-04-10 18:41:56,186 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:10:45,230 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 19:10:45,231 - INFO - logging in using static token
+2025-04-10 19:10:47,093 - INFO - Shard ID None has connected to Gateway (Session ID: 87547ff27cbf8aa9064bbbee954cef91).
+2025-04-10 19:10:49,115 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:16:09,373 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "zamankaldýr" is not found
+2025-04-10 19:16:52,515 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2025-04-10 19:18:41,781 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2025-04-10 19:19:11,627 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 19:19:11,628 - INFO - logging in using static token
+2025-04-10 19:19:13,201 - INFO - Shard ID None has connected to Gateway (Session ID: 93c739082536735247820b075d79bd31).
+2025-04-10 19:19:15,228 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:19:17,646 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2025-04-10 19:20:06,307 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 19:20:06,308 - INFO - logging in using static token
+2025-04-10 19:20:07,657 - INFO - Shard ID None has connected to Gateway (Session ID: 933c97accea5e89259d89db13eca95d1).
+2025-04-10 19:20:09,687 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:20:18,885 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "ping" is not found
+2025-04-10 19:22:53,323 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 19:22:53,324 - INFO - logging in using static token
+2025-04-10 19:22:54,832 - INFO - Shard ID None has connected to Gateway (Session ID: 1735bd88134fe6d7acc13e0bd5000cb4).
+2025-04-10 19:22:56,851 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:57:30,816 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 19:57:30,817 - INFO - logging in using static token
+2025-04-10 19:57:32,597 - INFO - Shard ID None has connected to Gateway (Session ID: 819ab51cc589ae324d030253f22fa581).
+2025-04-10 19:57:34,621 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 19:59:25,853 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user_id is a required argument that is missing.
+2025-04-10 20:09:06,462 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:09:06,463 - INFO - logging in using static token
+2025-04-10 20:09:09,375 - INFO - Shard ID None has connected to Gateway (Session ID: 2f6351a8963c86670b57d3c9473534a0).
+2025-04-10 20:09:11,422 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:22:56,012 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:22:56,013 - INFO - logging in using static token
+2025-04-10 20:22:57,884 - INFO - Shard ID None has connected to Gateway (Session ID: 194beb211ddccae6b5cc73a85c731a64).
+2025-04-10 20:22:59,909 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:28:39,465 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:28:39,466 - INFO - logging in using static token
+2025-04-10 20:28:41,175 - INFO - Shard ID None has connected to Gateway (Session ID: d22f23804dfed07fa5985d18a27ade33).
+2025-04-10 20:28:43,203 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:33:35,000 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:33:35,001 - INFO - logging in using static token
+2025-04-10 20:33:36,855 - INFO - Shard ID None has connected to Gateway (Session ID: 768f751ebbfbdb6a931701f8274140e1).
+2025-04-10 20:33:38,876 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:34:02,037 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 183, in create_giveaway
+    await ctx.send_modal(modal)
+          ^^^^^^^^^^^^^^
+AttributeError: 'Context' object has no attribute 'send_modal'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Context' object has no attribute 'send_modal'
+2025-04-10 20:34:17,197 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 183, in create_giveaway
+    await ctx.send_modal(modal)
+          ^^^^^^^^^^^^^^
+AttributeError: 'Context' object has no attribute 'send_modal'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Context' object has no attribute 'send_modal'
+2025-04-10 20:34:45,740 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "temizle" is not found
+2025-04-10 20:38:07,054 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:38:07,055 - INFO - logging in using static token
+2025-04-10 20:38:08,789 - INFO - Shard ID None has connected to Gateway (Session ID: ce463b196b9bf147dc53a4a8ab70e3eb).
+2025-04-10 20:38:10,826 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:38:47,010 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 258, in create_giveaway
+    await ctx.send_modal(modal)
+          ^^^^^^^^^^^^^^
+AttributeError: 'Context' object has no attribute 'send_modal'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Context' object has no attribute 'send_modal'
+2025-04-10 20:39:17,129 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: message_id is a required argument that is missing.
+2025-04-10 20:41:28,946 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:41:28,947 - INFO - logging in using static token
+2025-04-10 20:41:30,491 - INFO - Shard ID None has connected to Gateway (Session ID: 8e1d6f06c7fdcd66df2c7faf0ca69d17).
+2025-04-10 20:41:32,516 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:41:41,053 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 315, in create_giveaway
+    raise e
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 255, in create_giveaway
+    await ctx.send_modal(modal)
+          ^^^^^^^^^^^^^^
+AttributeError: 'Context' object has no attribute 'send_modal'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Context' object has no attribute 'send_modal'
+2025-04-10 20:45:45,847 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:45:45,848 - INFO - logging in using static token
+2025-04-10 20:45:47,947 - INFO - Shard ID None has connected to Gateway (Session ID: d3d52e736a960ea427e46de5a86a8fd5).
+2025-04-10 20:45:49,988 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:45:58,559 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 323, in create_giveaway
+    raise e
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 258, in create_giveaway
+    await ctx.interaction.response.send_modal(modal)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'response'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'NoneType' object has no attribute 'response'
+2025-04-10 20:46:05,470 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 323, in create_giveaway
+    raise e
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 258, in create_giveaway
+    await ctx.interaction.response.send_modal(modal)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'response'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'NoneType' object has no attribute 'response'
+2025-04-10 20:48:30,987 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:48:30,988 - INFO - logging in using static token
+2025-04-10 20:48:32,688 - INFO - Shard ID None has connected to Gateway (Session ID: eccaa06d7527d08fb7a0cf08a13c888a).
+2025-04-10 20:48:34,718 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:49:10,603 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "çekiliþ" is not found
+2025-04-10 20:55:30,739 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:55:30,740 - INFO - logging in using static token
+2025-04-10 20:55:32,575 - INFO - Shard ID None has connected to Gateway (Session ID: 0e5eb927902a68525f0e24f98a8b80c2).
+2025-04-10 20:55:34,621 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:55:40,450 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 313, in create_giveaway
+    raise e
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 246, in create_giveaway
+    await ctx.interaction.response.send_modal(modal)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'response'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'NoneType' object has no attribute 'response'
+2025-04-10 20:58:01,516 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 20:58:01,517 - INFO - logging in using static token
+2025-04-10 20:58:02,722 - INFO - Shard ID None has connected to Gateway (Session ID: e1ab4057e3f31a670fbb840ecf3b2fe7).
+2025-04-10 20:58:04,765 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 20:58:08,210 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: süre is a required argument that is missing.
+2025-04-10 21:01:42,398 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:01:42,399 - INFO - logging in using static token
+2025-04-10 21:01:43,968 - INFO - Shard ID None has connected to Gateway (Session ID: f08c070fd898c5b8716dbb8535e8a5c7).
+2025-04-10 21:01:45,998 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 21:23:16,975 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:23:16,976 - INFO - logging in using static token
+2025-04-10 21:23:18,763 - INFO - Shard ID None has connected to Gateway (Session ID: 299162694e6b2a3989c03b6257cd3143).
+2025-04-10 21:23:20,781 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 21:24:48,213 - ERROR - Unhandled exception in internal background task 'check_giveaways'.
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 246, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 140, in check_giveaways
+    view = message.components[0].children[0].view  # View'ý al
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Button' object has no attribute 'view'
+2025-04-10 21:25:43,915 - ERROR - Task exception was never retrieved
+future: <Task finished name='discord-ext-tasks: Giveaway.check_giveaways' coro=<Loop._loop() done, defined at C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py:207> exception=AttributeError("'Button' object has no attribute 'view'")>
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 271, in _loop
+    raise exc
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 246, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 140, in check_giveaways
+    view = message.components[0].children[0].view  # View'ý al
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Button' object has no attribute 'view'
+2025-04-10 21:32:20,117 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:32:20,118 - INFO - logging in using static token
+2025-04-10 21:32:22,086 - INFO - Shard ID None has connected to Gateway (Session ID: 5667eeec26854d63c2bf44c8789de2b4).
+2025-04-10 21:32:24,103 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 21:32:47,000 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 737, in convert
+    raise RoleNotFound(argument)
+discord.ext.commands.errors.RoleNotFound: Role "Oha" not found.
+2025-04-10 21:35:30,433 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:35:30,434 - INFO - logging in using static token
+2025-04-10 21:35:31,809 - INFO - Shard ID None has connected to Gateway (Session ID: eb7239d98ec1c47b0e2c063f92bc2767).
+2025-04-10 21:35:33,871 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 21:36:34,268 - ERROR - Unhandled exception in internal background task 'check_giveaways'.
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 246, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 116, in check_giveaways
+    view = message.components[0].children[0].view
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Button' object has no attribute 'view'
+2025-04-10 21:36:46,002 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "çekiliþiptal" is not found
+2025-04-10 21:37:34,652 - ERROR - Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\leveling.py", line 83, in on_message
+    guild_id = str(message.guild.id)
+                   ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+2025-04-10 21:38:14,679 - ERROR - Task exception was never retrieved
+future: <Task finished name='discord-ext-tasks: Giveaway.check_giveaways' coro=<Loop._loop() done, defined at C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py:207> exception=AttributeError("'Button' object has no attribute 'view'")>
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 271, in _loop
+    raise exc
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\tasks\__init__.py", line 246, in _loop
+    await self.coro(*args, **kwargs)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\Lunaris Discord COG Bot\cogs\giveaway.py", line 116, in check_giveaways
+    view = message.components[0].children[0].view
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Button' object has no attribute 'view'
+2025-04-10 21:45:09,137 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:45:09,138 - INFO - logging in using static token
+2025-04-10 21:45:12,139 - INFO - Shard ID None has connected to Gateway (Session ID: a32c4dea6ec509840ae955b517f71463).
+2025-04-10 21:45:14,170 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 21:52:56,280 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 21:52:56,280 - INFO - logging in using static token
+2025-04-10 21:52:58,065 - INFO - Shard ID None has connected to Gateway (Session ID: 22fdb5733268d7d2f5a2ee749216234a).
+2025-04-10 21:53:00,093 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:10:34,864 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:10:34,865 - INFO - logging in using static token
+2025-04-10 22:10:36,538 - INFO - Shard ID None has connected to Gateway (Session ID: 84f716a7002b66ff0839ef9578dde919).
+2025-04-10 22:10:38,564 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:10:48,707 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "temizle" is not found
+2025-04-10 22:11:07,443 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "temizle" is not found
+2025-04-10 22:11:10,276 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "temizle" is not found
+2025-04-10 22:11:22,419 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: message_id is a required argument that is missing.
+2025-04-10 22:18:36,434 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:18:36,435 - INFO - logging in using static token
+2025-04-10 22:18:37,878 - INFO - Shard ID None has connected to Gateway (Session ID: c691ec632625e651320de8621dcdd244).
+2025-04-10 22:18:39,989 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:20:24,734 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "temizle" is not found
+2025-04-10 22:22:39,277 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yasakkaldýr" is not found
+2025-04-10 22:22:40,116 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yasak" is not found
+2025-04-10 22:22:53,830 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "yasak" is not found
+2025-04-10 22:23:15,748 - ERROR - Ignoring exception in command tree
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1283, in _call
+    command, options = self._get_app_command_options(data)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1187, in _get_app_command_options
+    raise CommandNotFound(name, parents)
+discord.app_commands.errors.CommandNotFound: Application command 'çekiliþ' not found
+2025-04-10 22:23:30,954 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: time is a required argument that is missing.
+2025-04-10 22:30:42,115 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:30:42,116 - INFO - logging in using static token
+2025-04-10 22:30:43,960 - INFO - Shard ID None has connected to Gateway (Session ID: 46963b41705b3069b290d334541c271d).
+2025-04-10 22:30:45,978 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:32:52,732 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:32:52,733 - INFO - logging in using static token
+2025-04-10 22:32:53,955 - INFO - Shard ID None has connected to Gateway (Session ID: 5d0e45bcc837db923b410d6176fe8f00).
+2025-04-10 22:32:55,988 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:34:35,765 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:34:35,766 - INFO - logging in using static token
+2025-04-10 22:34:37,467 - INFO - Shard ID None has connected to Gateway (Session ID: 1f1c261d2db041c6511a36b338a47bc7).
+2025-04-10 22:34:39,495 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:36:45,948 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:36:45,949 - INFO - logging in using static token
+2025-04-10 22:36:47,369 - INFO - Shard ID None has connected to Gateway (Session ID: 507b680081f65071587525a3eb9ff682).
+2025-04-10 22:36:49,400 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:37:33,669 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:37:33,670 - INFO - logging in using static token
+2025-04-10 22:37:35,024 - INFO - Shard ID None has connected to Gateway (Session ID: b25ff5f42a9c6a5fd1e933043822300f).
+2025-04-10 22:37:37,117 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:40:22,713 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:40:22,714 - INFO - logging in using static token
+2025-04-10 22:40:26,017 - INFO - Shard ID None has connected to Gateway (Session ID: f708efd944ee2f383fcda472c7e0b472).
+2025-04-10 22:40:28,050 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:45:51,361 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:45:51,362 - INFO - logging in using static token
+2025-04-10 22:45:53,121 - INFO - Shard ID None has connected to Gateway (Session ID: a8135c299d64c3208fd233d719dd8b45).
+2025-04-10 22:45:55,153 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:48:10,371 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-10 22:48:10,372 - INFO - logging in using static token
+2025-04-10 22:48:11,689 - INFO - Shard ID None has connected to Gateway (Session ID: fa06d2ce2c064888ac666f6d60b6ae14).
+2025-04-10 22:48:13,702 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-10 22:49:57,458 - ERROR - Ignoring exception in command xpekle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "100" not found.
+2025-04-10 22:50:18,650 - ERROR - Ignoring exception in command rank
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 5.19s
+2025-04-10 22:50:22,457 - ERROR - Ignoring exception in command rank
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 1.42s
+2025-04-11 15:22:53,893 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-11 15:22:53,899 - INFO - logging in using static token
+2025-04-11 15:22:56,725 - INFO - Shard ID None has connected to Gateway (Session ID: 1ad9ab7297e2e22326a9d2edeb3f04bd).
+2025-04-11 15:22:58,754 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-11 15:24:30,703 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-11 15:24:30,704 - INFO - logging in using static token
+2025-04-11 15:24:31,967 - INFO - Shard ID None has connected to Gateway (Session ID: bab6616db7a942d36639cfa16a3087e1).
+2025-04-11 15:24:33,997 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-11 15:45:08,403 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-11 15:45:08,409 - INFO - logging in using static token
+2025-04-11 15:45:10,116 - INFO - Shard ID None has connected to Gateway (Session ID: f2b73c4038d67366c3fdeeff1360a51f).
+2025-04-11 15:45:12,135 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-11 15:46:33,419 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-11 15:46:33,419 - INFO - logging in using static token
+2025-04-11 15:46:34,664 - INFO - Shard ID None has connected to Gateway (Session ID: 28cb1ee87ad40206b46f9a5c139f6c57).
+2025-04-11 15:46:36,678 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-11 15:53:34,861 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-11 15:53:34,862 - INFO - logging in using static token
+2025-04-11 15:53:36,289 - INFO - Shard ID None has connected to Gateway (Session ID: e44e52cad3a94b16725df98e9d73354a).
+2025-04-11 15:53:38,322 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-11 15:59:01,654 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: reason is a required argument that is missing.
+2025-04-12 01:16:18,889 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-12 01:16:18,895 - INFO - logging in using static token
+2025-04-12 01:16:21,878 - INFO - Shard ID None has connected to Gateway (Session ID: 000fe800ca2c6ecc0384869bcc77b80b).
+2025-04-12 01:16:23,895 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-12 01:17:02,861 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command uyar failed.
+2025-04-12 01:19:09,191 - ERROR - Ignoring exception in command sunucu
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command sunucu failed.
+2025-04-12 01:19:33,635 - ERROR - Ignoring exception in command avatar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command avatar failed.
+2025-04-12 01:19:39,631 - ERROR - Ignoring exception in command avatar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command avatar failed.
+2025-04-12 01:19:56,676 - ERROR - Ignoring exception in command kullanici
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command kullanici failed.
+2025-04-12 01:20:14,876 - ERROR - Ignoring exception in command temizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:21:16,839 - ERROR - Ignoring exception in command çekiliþ
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:22:18,997 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:22:28,895 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:22:37,426 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:22:48,201 - ERROR - Ignoring exception in command çekiliþbitir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:23:18,353 - ERROR - Ignoring exception in command yenidençek
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:23:28,702 - ERROR - Ignoring exception in command çekiliþler
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Manage Messages permission(s) to run this command.
+2025-04-12 01:24:34,405 - ERROR - Ignoring exception in command top
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 4.12s
+2025-04-12 01:24:45,850 - ERROR - Ignoring exception in command xpekle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Administrator permission(s) to run this command.
+2025-04-12 01:25:03,788 - ERROR - Ignoring exception in command xpsýfýrla
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Administrator permission(s) to run this command.
+2025-04-12 01:25:38,080 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command uyar failed.
+2025-04-12 01:25:48,564 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command uyar failed.
+2025-04-12 01:26:04,514 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Kick Members permission(s) to run this command.
+2025-04-12 01:26:46,669 - ERROR - Ignoring exception in command notsil
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Administrator permission(s) to run this command.
+2025-04-12 01:27:12,707 - ERROR - Ignoring exception in command nottemizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 925, in prepare
+    if not await self.can_run(ctx):
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in can_run
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\utils.py", line 725, in async_all
+    for elem in gen:
+                ^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1288, in <genexpr>
+    return await discord.utils.async_all(predicate(ctx) for predicate in predicates)  # type: ignore
+                                         ~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 2210, in predicate
+    raise MissingPermissions(missing)
+discord.ext.commands.errors.MissingPermissions: You are missing Administrator permission(s) to run this command.
+2025-04-12 01:27:40,807 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command zaman failed.
+2025-04-12 01:27:56,040 - ERROR - Ignoring exception in command zamankaldir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command zamankaldir failed.
+2025-04-12 01:28:16,428 - ERROR - Ignoring exception in command yasakla
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command yasakla failed.
+2025-04-12 01:28:30,848 - ERROR - Ignoring exception in command yasakkaldir
+Traceback (most recent call last):
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command yasakkaldir failed.
+2025-04-12 01:29:49,094 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-12 01:29:49,095 - INFO - logging in using static token
+2025-04-12 01:29:50,530 - INFO - Shard ID None has connected to Gateway (Session ID: bb08b0f932bee6485ee715972796a323).
+2025-04-12 01:29:52,580 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-12 01:35:56,509 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-12 01:35:56,510 - INFO - logging in using static token
+2025-04-12 01:35:58,278 - INFO - Shard ID None has connected to Gateway (Session ID: 36b88685c679a7dd654af811fbfe8f74).
+2025-04-12 01:36:00,295 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-12 01:41:32,133 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-12 01:41:32,135 - INFO - logging in using static token
+2025-04-12 01:41:33,952 - INFO - Shard ID None has connected to Gateway (Session ID: b4a4cf864d2ce924e2734c67bd0c8fd3).
+2025-04-12 01:41:35,983 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-04-12 01:46:39,360 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-04-12 01:46:39,361 - INFO - logging in using static token
+2025-04-12 01:46:41,222 - INFO - Shard ID None has connected to Gateway (Session ID: fb1b53cef90eb27168864bd63011b4da).
+2025-04-12 01:46:43,250 - INFO - Bot is ready as » Lunaris | Moderasyon Botu#6389

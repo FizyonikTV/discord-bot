@@ -29,6 +29,7 @@ class Moderation(commands.Cog):
             json.dump(self.notes, f, ensure_ascii=False, indent=4)
 
     async def add_mod_note(self, user_id: str, mod_type: str, reason: str, moderator, duration: int = None):
+        """Moderasyon notu ekler"""
         if str(user_id) not in self.notes:
             self.notes[str(user_id)] = {"UYARILAR": [], "TIMEOUTLAR": [], "BANLAR": []}
 
@@ -44,6 +45,11 @@ class Moderation(commands.Cog):
 
         self.notes[str(user_id)][mod_type].append(note_data)
         self.save_notes()
+        
+        # Notes cog'una haber ver
+        notes_cog = self.bot.get_cog("Notes")
+        if notes_cog:
+            await notes_cog.refresh_notes()
 
     async def get_member(self, ctx, user_id: Union[int, str]) -> Optional[discord.Member]:
         """Kullanıcıyı ID veya mention ile bulur"""

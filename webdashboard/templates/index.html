@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Lunaris Dashboard{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Welcome to Lunaris Dashboard</h1>
+    <p>Manage your Discord bot with ease and explore all its features.</p>
+    {% if not logged_in %}
+    <a href="/login" class="btn primary-btn">Login with Discord</a>
+    {% else %}
+    <a href="/dashboard" class="btn primary-btn">Go to Dashboard</a>
+    {% endif %}
+</section>
+
+<section class="stats-section">
+    <h2>Bot Statistics</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-server"></i>
+            <h3>{{ stats.guilds }}</h3>
+            <p>Servers</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h3>{{ stats.members }}</h3>
+            <p>Members</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-terminal"></i>
+            <h3>{{ stats.commands }}</h3>
+            <p>Commands</p>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-clock"></i>
+            <h3>{{ stats.uptime }}</h3>
+            <p>Uptime</p>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <h2>Features</h2>
+    <div class="feature-list">
+        <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Moderation</h3>
+            <p>Powerful tools to keep your server safe and clean.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Levels</h3>
+            <p>Engage your community with a customizable level system.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-gift"></i>
+            <h3>Giveaways</h3>
+            <p>Run exciting giveaways for your community members.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

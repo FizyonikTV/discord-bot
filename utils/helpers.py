@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 from datetime import datetime
 from config.config import (
     BAN_LOG_KANAL_ID, 
@@ -9,9 +10,27 @@ from config.config import (
     IZIN_VERILEN_ROLLER
 )
 
+COMMAND_CHANNELS = [
+    1357419585678086195,
+    1267939573976268930,
+    1267940282947604531
+]
+
 def izin_kontrol(ctx):
     """Kullanıcının yetkili rollerine sahip olup olmadığını kontrol eder"""
     return any(role.id in IZIN_VERILEN_ROLLER for role in ctx.author.roles)
+
+def command_check():
+    async def predicate(ctx):
+        # Komut kanalı kontrolü
+        if ctx.channel.id not in COMMAND_CHANNELS:
+            await ctx.message.delete()
+            await ctx.send("❌ Bu komutu sadece komut kanallarında kullanabilirsiniz!", delete_after=5)
+            return False
+            
+        # Return True if the check passes
+        return True
+    return predicate  # Return the predicate function, not commands.check(predicate)
 
 def create_embed(title, description, color=EMBED_COLOR, thumbnail_url=None):
     """Standart embed oluşturma yardımcısı"""

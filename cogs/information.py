@@ -191,5 +191,45 @@ class Information(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command(name="banner", aliases=["bn"])
+    async def banner(self, ctx, user: discord.User = None):
+        """Kullanıcının banner resmini gösterir."""
+        # Komut kanalı kontrolü
+        if ctx.channel.id not in COMMAND_CHANNELS:
+            await ctx.message.delete()
+            await ctx.send("❌ Bu komutu sadece komut kanallarında kullanabilirsiniz!", delete_after=5)
+            return
+        
+        user = user or ctx.author
+        
+        # Fetch the user to get banner info
+        try:
+            fetched_user = await self.bot.fetch_user(user.id)
+            
+            if not fetched_user.banner:
+                await ctx.send(f"❌ **{user.name}** kullanıcısının banner resmi bulunmuyor.")
+                return
+                
+            embed = discord.Embed(
+                title=f"🏞️ {user.name} Banner Resmi",
+                color=0x8B008B
+            )
+            
+            banner_formats = []
+            for fmt in ["png", "jpg", "webp"]:
+                banner_formats.append(f"[{fmt.upper()}]({fetched_user.banner.with_format(fmt).url})")
+            if fetched_user.banner.is_animated():
+                banner_formats.append(f"[GIF]({fetched_user.banner.with_format('gif').url})")
+                
+            embed.description = "**Format Bağlantıları:** " + " | ".join(banner_formats)
+            embed.set_image(url=fetched_user.banner.url)
+            embed.set_footer(text=f"Kullanıcı ID: {user.id} • Talep Eden: {ctx.author.name}")
+            
+            await ctx.send(embed=embed)
+            
+        except Exception as e:
+            await ctx.send(f"❌ Banner alınırken bir hata oluştu: {str(e)}")
+            print(f"Banner alınırken bir hata oluştu: {str(e)}")
+
 async def setup(bot):
     await bot.add_cog(Information(bot))

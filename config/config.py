@@ -3,13 +3,18 @@ import configparser
 import os
 
 def get_token():
-    # TOKEN çevresel değişkenini al
-    my_secret = os.environ['TOKEN']
+    config = configparser.ConfigParser()
+    config.read('sifrelenmistoken.ini')
 
-    if not my_secret:
-        raise ValueError("Token environment variable'ı bulunamadı. Lütfen Replit Secrets üzerinden ekleyin.")
-    
-    return my_secret
+    try:
+        token = config['Discord']['TOKEN']
+    except KeyError:
+        raise ValueError("sifrelenmistoken.ini dosyasından TOKEN alınamadı. 'discord' bölümü veya 'TOKEN' anahtarı eksik.")
+
+    if not token:
+        raise ValueError("TOKEN boş geldi. Lütfen sifrelenmistoken.ini dosyasını kontrol edin.")
+
+    return token
 
 # Kanal ID'leri
 BAN_LOG_KANAL_ID = 1281700459991666748
@@ -18,6 +23,7 @@ TIMEOUT_LOG_KANAL_ID = 1281700527473819699
 MESSAGE_LOG_KANAL_ID = 1281700552929185882
 USER_LOG_KANAL_ID = 1359645505948221572
 VOICE_LOG_KANAL_ID = 1359645396330090617
+WELCOME_CHANNEL_ID = 1267938558250057909
 
 # Seviye rol ID'leri
 LEVEL_ROLES = {
@@ -45,4 +51,20 @@ INTENTS.presences = True
 EMBED_COLOR = 0x8B008B
 
 # Otomatik Mesaj Kanalı
-AUTO_MESSAGE_CHANNEL = 1292912455390855233
+AUTO_MESSAGE_CHANNEL = 1371057475058401380
+
+# Dashboard için OAuth2 bilgileri
+OAUTH2 = {
+    "client_id": "1357403500761452675",  # Discord Developer Portal'dan alın
+    "client_secret": "OkEiJYmhzqjFiZeGYX9iU_3YmGs3dIb0",  # Discord Developer Portal'dan alın
+    "redirect_uri": "http://localhost:8080/callback"
+}
+
+def get_oauth_creds():
+    """Dashboard için OAuth bilgilerini döndürür"""
+    return OAUTH2
+
+# Dashboard OAuth2 Configuration
+DASHBOARD_CLIENT_ID = "1357403500761452675"  # Discord Developer Portal'dan alınan Client ID
+DASHBOARD_CLIENT_SECRET = "OkEiJYmhzqjFiZeGYX9iU_3YmGs3dIb0"  # Discord Developer Portal'dan alınan Client Secret
+DASHBOARD_REDIRECT_URI = "http://localhost:8080/callback"  # OAuth2 yönlendirme URI'si

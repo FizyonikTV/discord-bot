@@ -47,5 +47,42 @@
         "participants": [
             992110844886396978
         ]
+    },
+    "1367456125431054386": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1367456125431054386,
+        "prize": "deneme",
+        "winners": 1,
+        "end_time": 1746097376.491955,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978
+        ]
+    },
+    "1371063560544845855": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1371063560544845855,
+        "prize": "denemeödül",
+        "winners": 1,
+        "end_time": 1746957485.9724,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978
+        ]
+    },
+    "1371110535256477829": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1371110535256477829,
+        "prize": "deneme",
+        "winners": 1,
+        "end_time": 1746968685.683205,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978,
+            1344008184565862402
+        ]
     }
 }

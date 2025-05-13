@@ -211,6 +211,46 @@ def create_user_info_embed():
     embed.set_footer(text="Bu komutları herkes kullanabilir")
     return embed
 
+def create_invite_embed():
+    embed = discord.Embed(
+        title="🔗 Davet Sistemi",
+        description="Davet takibi ve yönetimi için komutlar:",
+        color=0x8B008B
+    )
+
+    embed.add_field(
+        name="📊 Davet Komutları",
+        value=(
+            "```\n!davet [@kullanıcı]```\n"
+            "• Kendi davet istatistiklerinizi veya belirtilen kullanıcının istatistiklerini görüntüler\n"
+            "```\n!davet sıralama [limit]```\n"
+            "• Sunucunun davet sıralamasını gösterir\n"
+            "```\n!davet istatistik```\n"
+            "• Sunucunun genel davet istatistiklerini gösterir\n"
+            "```\n!davet görüntüle [@kullanıcı]```\n"
+            "• Etkileşimli davet istatistikleri gösterir"
+        ),
+        inline=False
+    )
+
+    embed.add_field(
+        name="🛠️ Yönetim Komutları (Yönetici)",
+        value=(
+            "```\n!davet bonus [@kullanıcı] [miktar]```\n"
+            "• Kullanıcıya bonus davet ekler\n"
+            "```\n!davet sıfırla [@kullanıcı]```\n"
+            "• Kullanıcının veya tüm sunucunun davet istatistiklerini sıfırlar\n"
+            "```\n!davet ayarlar```\n"
+            "• Davet takip ayarlarını görüntüler ve değiştirir\n"
+            "```\n!davet oluştur [max-kullanım] [süre] [sebep]```\n"
+            "• Özelleştirilebilir davet bağlantısı oluşturur"
+        ),
+        inline=False
+    )
+
+    embed.set_footer(text="Davet takip sistemi sunucunuzdaki tüm davetleri otomatik olarak izler")
+    return embed
+
 class HelpView(View):
     def __init__(self, ctx):
         super().__init__(timeout=120)
@@ -256,6 +296,12 @@ class HelpView(View):
                     description="Bilgi komutları",
                     emoji="ℹ️",
                     value="bilgi"
+                ),
+                discord.SelectOption(
+                    label="Davet Sistemi",
+                    description="Davet takip ve yönetimi",
+                    emoji="🔗",
+                    value="invite"
                 )
             ]
         )
@@ -283,6 +329,8 @@ class HelpView(View):
             embed = create_cekilis_embed()
         elif selected == "bilgi":
             embed = create_info_embed()
+        elif selected == "invite":
+            embed = create_invite_embed()
         else:
             embed = create_home_embed()
             

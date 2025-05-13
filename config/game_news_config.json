@@ -1,0 +1,14 @@
+{
+    "enabled": true,
+    "webhook_url": "https://discord.com/api/webhooks/1371662532283990036/09E0vfcfCcmBYimDvPxIxdagbF8djL603j0JUvSAjNfGYV5Vy3OS6gxuysZ60Sulw1b0",
+    "check_interval_minutes": 30,
+    "news_sources": {
+        "epic_games": true,
+        "steam_deals": true
+    },
+    "min_discount_percent": 30,
+    "webhook_name": "Lunaris - Oyun Habercisi",
+    "webhook_avatar": "https://i.ibb.co/6RQcJQVX/Lunaris-Banner-Ekstra-Orijinal.webp",
+    "news_channel_id": 1353317993060237322,
+    "ping_role_id": 1353318526265331763
+}

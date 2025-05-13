@@ -4,9 +4,14 @@ import datetime
 import json
 from typing import Optional, Union
 from config.config import *
+from datetime import datetime, timedelta
 
 def has_mod_role():
+    """Komut kullanımını moderatör rolüne sahip kullanıcılara sınırlar"""
     async def predicate(ctx):
+        # IZIN_VERILEN_ROLLER config'den geliyor
+        if ctx.author.guild_permissions.administrator:
+            return True
         return any(role.id in IZIN_VERILEN_ROLLER for role in ctx.author.roles)
     return commands.check(predicate)
 
@@ -92,24 +97,77 @@ class Moderation(commands.Cog):
         await self.send_mod_message(ctx, member, embed, WARN_LOG_KANAL_ID, "Uyarı Aldınız")
 
     @commands.command(name="zaman", aliases=["to", "timeout", "mute"])
-    @has_mod_role()
+    @commands.has_permissions(moderate_members=True)
     async def timeout(self, ctx, member: discord.Member, duration: int, *, reason: str = None):
         """Kullanıcıya timeout verir"""
         if ctx.author.top_role <= member.top_role:
             return await ctx.send("❌ Bu kullanıcıya timeout veremezsiniz!")
 
         try:
-            await member.timeout(datetime.timedelta(seconds=duration), reason=f"{ctx.author}: {reason}")
-            await self.add_mod_note(member.id, "TIMEOUTLAR", reason or "Belirtilmedi", ctx.author, duration)
+            # Timeout uygula
+            await member.timeout(timedelta(seconds=duration), reason=f"{ctx.author}: {reason or 'Sebep belirtilmedi'}")
             
-            embed = self.create_base_embed(
-                "⏳ Timeout Verildi",
-                f"```diff\n- {member} kullanıcısı timeout aldı.\n+ Süre: {duration} saniye\n+ Sebep: {reason or 'Belirtilmedi'}```",
-                discord.Color.orange()
+            # Not ekle - doğru parametre sırası ve isimleri ile
+            notes_cog = self.bot.get_cog("Notes")
+            if notes_cog:
+                try:
+                    await notes_cog.add_note(
+                        user_id=member.id,
+                        note_type="TIMEOUTLAR",  # 'category' değil 'note_type' olmalı
+                        reason=f"{duration} saniye, Sebep: {reason or 'Belirtilmedi'}", 
+                        moderator=str(ctx.author),
+                        moderator_id=ctx.author.id
+                    )
+                except Exception as note_error:
+                    print(f"Not eklenirken hata: {note_error}")
+            
+            # Embed oluştur
+            embed = discord.Embed(
+                title="⏳ Timeout Verildi",
+                description=f"```diff\n- {member} kullanıcısı timeout aldı.\n+ Süre: {duration} saniye\n+ Sebep: {reason or 'Belirtilmedi'}```",
+                color=discord.Color.orange(),
+                timestamp=datetime.now()
             )
-            await self.send_mod_message(ctx, member, embed, TIMEOUT_LOG_KANAL_ID, "Timeout Aldınız")
+            
+            # Kullanıcı ve moderatör bilgilerini ekle
+            embed.add_field(
+                name="👤 Kullanıcı Bilgileri",
+                value=f"```yaml\nKullanıcı: {member}\nID: {member.id}```",
+                inline=False
+            )
+            embed.add_field(
+                name="👮 Moderatör Bilgileri",
+                value=f"```yaml\nModeratör: {ctx.author}\nID: {ctx.author.id}```",
+                inline=False
+            )
+            embed.set_thumbnail(url=member.display_avatar.url)
+            
+            # Log ve DM mesajlarını gönder
+            log_channel = self.bot.get_channel(TIMEOUT_LOG_KANAL_ID)
+            if log_channel:
+                await log_channel.send(embed=embed)
+            
+            # Kullanıcıya DM
+            try:
+                dm_embed = discord.Embed(
+                    title="⏳ Timeout Aldınız",
+                    description=f"**{ctx.guild.name}** sunucusunda timeout aldınız.",
+                    color=discord.Color.orange()
+                )
+                dm_embed.add_field(name="⏱️ Süre", value=f"{duration} saniye", inline=True)
+                dm_embed.add_field(name="📝 Sebep", value=reason or "Belirtilmedi", inline=True)
+                await member.send(embed=dm_embed)
+            except:
+                # DM kapalıysa devam et
+                pass
+                
+            # Komut kanalına mesajı gönder
+            await ctx.send(embed=embed)
+            
         except Exception as e:
             await ctx.send(f"❌ Bir hata oluştu: {e}")
+            import traceback
+            traceback.print_exc()
 
     @commands.command(name="zamankaldir", aliases=["untimeout", "unmute", "unto"])
     @has_mod_role()

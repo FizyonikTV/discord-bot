@@ -9,7 +9,7 @@ import asyncio
 import discord
 from .auth import get_session
 
-def setup_routes(app, dashboard):
+async def setup_routes(app, dashboard):
     """Setup routes for the dashboard."""
     # Setup Jinja2 templates
     aiohttp_jinja2.setup(
@@ -26,7 +26,7 @@ def setup_routes(app, dashboard):
     
     # Import and setup API routes
     from .api import setup_api_routes
-    setup_api_routes(app, dashboard)
+    await setup_api_routes(app, dashboard)
     
     # Error handler
     app.middlewares.append(error_middleware)

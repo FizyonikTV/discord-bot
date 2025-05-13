@@ -32,15 +32,27 @@ class LunarisBot(commands.Bot):
 
     async def setup_hook(self):
         """Initial setup and loading cogs."""
-        for filename in os.listdir('./cogs'):
-            if filename.endswith('.py') and not filename.startswith('__'):
-                try:
-                    await self.load_extension(f'cogs.{filename[:-3]}')
-                    logging.info(f'✅ Loaded cog: {filename}')
-                    print(f'✅ Loaded cog: {filename}')  # Terminal çıktısı için
-                except Exception as e:
-                    logging.error(f'❌ Failed to load cog {filename}: {e}')
-                    print(f'❌ Failed to load cog {filename}: {e}')  # Terminal çıktısı için
+        # Önce hangi cog'lar var görelim
+        cogs_to_load = [f for f in os.listdir('./cogs') if f.endswith('.py') and not f.startswith('__')]
+        
+        # Sorunlu cog'ları atla
+        skip_cogs = ['image_mod.py']
+        cogs_to_load = [cog for cog in cogs_to_load if cog not in skip_cogs]
+        
+        print(f"Yüklenecek {len(cogs_to_load)} cog bulundu: {cogs_to_load}")
+        
+        for filename in cogs_to_load:
+            try:
+                print(f"Yüklemeye çalışılıyor: {filename}...")
+                await self.load_extension(f'cogs.{filename[:-3]}')
+                logging.info(f'✅ Loaded cog: {filename}')
+                print(f'✅ Loaded cog: {filename}')
+            except Exception as e:
+                logging.error(f'❌ Failed to load cog {filename}: {e}')
+                print(f'❌ Failed to load cog {filename}: {e}')
+                # Hata ayrıntılarını göster
+                import traceback
+                traceback.print_exc()
         
         # Dashboard başlatma
         try:
@@ -78,16 +90,6 @@ async def main():
     token = get_token()
 
     async with LunarisBot() as bot:
-        # Start the dashboard
-        dashboard = Dashboard(
-            bot=bot,
-            client_id="1357403500761452675",  # Replace with your Discord Client ID
-            client_secret="cdrmP_mQm4WEcY6mc7kPuSug9zmzoahg",  # Replace with your Discord Client Secret
-            host="localhost",
-            port=8080
-        )
-        await dashboard.start()
-
         # Start the bot
         await bot.start(token)
 

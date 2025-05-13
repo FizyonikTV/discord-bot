@@ -1,0 +1,37 @@
+{
+    "epic_free": [
+        {
+            "title": "Touch Type Tale",
+            "description": "Touch Type Tale is a real-time strategy game with a typing twist, featuring a story rich campaign and online competitive play that will delight even the most hardened RTS veterans.",
+            "image": "https://cdn1.epicgames.com/offer/7029f6353d7f468eb6940bbe6041474e/EGS_TouchTypeTale_PumpernickelStudio_S2_1200x1600-445c7e11e96c1b6aceece2007b58645d",
+            "url": "https://www.epicgames.com/store/product/touch-type-tale",
+            "start_date": "2025-05-08T15:00:00.000Z",
+            "end_date": "2025-05-15T15:00:00.000Z",
+            "original_price": "$19.99",
+            "id": "ac63bc06c6d44a5d8c423675bd7208d9"
+        },
+        {
+            "title": "Deadtime Defenders",
+            "description": "Complete bounties, acquire legendary loot, upgrade your gear, and level up as you fight back against invading monsters in this side-scrolling looter shooter RPG.",
+            "image": "https://cdn1.epicgames.com/spt-assets/e2ab063cf7714c29ad3261312a24a264/deadtime-defenders-1r5me.png",
+            "url": "https://www.epicgames.com/store/product/828138b1254d4ea79bc50b9909c30a3f",
+            "start_date": "2025-05-08T15:00:00.000Z",
+            "end_date": "2025-05-15T15:00:00.000Z",
+            "original_price": "$9.99",
+            "id": "cff516f0708444ee8ee06a96e6986b34"
+        }
+    ],
+    "steam_deals": [
+        {
+            "title": "Unstoppable Gorg",
+            "discount_percent": 90,
+            "sale_price": "0.99",
+            "normal_price": "9.99",
+            "steam_rating": "Mostly Positive",
+            "steam_rating_count": "209",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/18120/header.jpg",
+            "url": "https://store.steampowered.com/app/18120",
+            "deal_id": "zrK7O7Xn368%2B5zXU%2B32aPdn1GSvWxy9xIrgdfi4uxUg%3D"
+        }
+    ]
+}

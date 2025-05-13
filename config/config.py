@@ -68,3 +68,13 @@ def get_oauth_creds():
 DASHBOARD_CLIENT_ID = "1357403500761452675"  # Discord Developer Portal'dan alınan Client ID
 DASHBOARD_CLIENT_SECRET = "OkEiJYmhzqjFiZeGYX9iU_3YmGs3dIb0"  # Discord Developer Portal'dan alınan Client Secret
 DASHBOARD_REDIRECT_URI = "http://localhost:8080/callback"  # OAuth2 yönlendirme URI'si
+
+# Görsel moderasyon için API anahtarı 
+# (Azure Content Moderator, Google Vision API veya benzer servis kullanılabilir)
+IMAGE_MOD_API_KEY = "AIzaSyBFh67ij3-9amoIDLdWBABdHvnobwr4LIs"
+
+# Özel Webhook URL'si - Discord mesajlarını başka bir yere iletmek için
+WEBHOOK_URL = "https://discord.com/api/webhooks/1371650400008142949/hM7Z6Ame5r0xWNdMwbPfRx3R-LqZJk5mYXlCvst9VQr3OG57QiRYj1wzLvGiE14uvyJz"
+
+# Oyun Haberleri Webhook URL'si
+GAME_WEBHOOK_URL = "https://discord.com/api/webhooks/1371662532283990036/09E0vfcfCcmBYimDvPxIxdagbF8djL603j0JUvSAjNfGYV5Vy3OS6gxuysZ60Sulw1b0"

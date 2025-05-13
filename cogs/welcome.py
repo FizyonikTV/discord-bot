@@ -14,7 +14,7 @@ class Welcome(commands.Cog):
         if not welcome_channel:
             return
 
-        embed_gif = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG00MDAzMnIzdnliN2ZoN2ZuaG9jZnVhYmx4aTJ2ZmV5bWFnNjZhMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUPGGDNsLvqsBOhuU0/giphy.gif"
+        embed_gif = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTdzb3l3Y3dldWU4YnBxcHY0eGRwcHd6dmEzdmV5c2dkYmc1cWVpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/74udlvnj8DBFgJSc0X/giphy.gif"
 
         embed = discord.Embed(
             title="**★ Sunucuya hoş geldin! ★**",

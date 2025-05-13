@@ -6995,3 +6995,658 @@ discord.ext.commands.errors.CheckFailure: The check functions for command automo
 2025-05-12 19:55:41,988 - INFO - Shard ID None has successfully RESUMED session 1a3148befb448aa5a8d11bef1dfa0c33.
 2025-05-12 20:51:20,947 - INFO - Shard ID None has successfully RESUMED session 1a3148befb448aa5a8d11bef1dfa0c33.
 2025-05-12 21:55:52,603 - INFO - Shard ID None has successfully RESUMED session 1a3148befb448aa5a8d11bef1dfa0c33.
+2025-05-13 03:29:56,885 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:29:56,900 - INFO - \u2705 Dashboard started on http://localhost:8080
+2025-05-13 03:29:56,901 - INFO - logging in using static token
+2025-05-13 03:29:57,753 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:29:57,782 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:29:57,788 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 03:29:57,791 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 03:29:57,794 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 03:29:57,797 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 03:29:57,799 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 03:29:58,817 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 03:29:59,585 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 03:29:59,590 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 03:29:59,592 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 03:29:59,592 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 03:30:00,269 - INFO - Shard ID None has connected to Gateway (Session ID: e239fc2eba68a4fc1a06050648a3fa61).
+2025-05-13 03:30:02,296 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 03:31:53,667 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000024BF17C8C20>
+2025-05-13 03:31:53,668 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000024BF1925590>
+2025-05-13 03:50:40,977 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:50:40,987 - INFO - \u2705 Dashboard started on http://localhost:8080
+2025-05-13 03:50:40,987 - INFO - logging in using static token
+2025-05-13 03:50:41,960 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:50:41,967 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:50:41,970 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 03:51:06,799 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000028C34A28C20>
+2025-05-13 03:51:11,605 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:51:11,614 - INFO - \u2705 Dashboard started on http://localhost:8080
+2025-05-13 03:51:11,614 - INFO - logging in using static token
+2025-05-13 03:51:12,286 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:51:12,293 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:51:12,296 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 03:53:14,904 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002A370DE8C20>
+2025-05-13 03:53:53,413 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:53:53,414 - INFO - logging in using static token
+2025-05-13 03:53:54,110 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:53:54,118 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:53:54,120 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 03:54:13,043 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:54:13,044 - INFO - logging in using static token
+2025-05-13 03:54:13,697 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:54:13,704 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:54:13,707 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 03:58:27,209 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 03:58:27,210 - INFO - logging in using static token
+2025-05-13 03:58:28,110 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 03:58:28,117 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 03:58:28,120 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:01:56,467 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:01:56,468 - INFO - logging in using static token
+2025-05-13 04:01:57,197 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:01:57,205 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:01:57,207 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:01:57,208 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:01:57,209 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:01:57,210 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:01:57,211 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:01:58,214 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:01:58,243 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:01:58,244 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:01:58,245 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:01:58,251 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:01:59,232 - INFO - Shard ID None has connected to Gateway (Session ID: 00848356b99d9933038af3c06b992e93).
+2025-05-13 04:02:01,264 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:05:26,918 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '1m'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "duration".
+2025-05-13 04:05:46,555 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '10m'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "duration".
+2025-05-13 04:05:58,298 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '10m'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "duration".
+2025-05-13 04:06:02,482 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '10m'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "duration".
+2025-05-13 04:07:28,547 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "xp" is not found
+2025-05-13 04:10:06,472 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001C8E6C5F4D0>
+2025-05-13 04:14:45,099 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:14:45,100 - INFO - logging in using static token
+2025-05-13 04:14:46,037 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:14:46,061 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:14:46,064 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:14:46,065 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:14:46,067 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:14:46,067 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:14:46,078 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:14:47,082 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:14:48,091 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:14:48,092 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:14:48,093 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:14:48,103 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:14:48,929 - INFO - Shard ID None has connected to Gateway (Session ID: 64ac7a3814000c43af19cad65a0eccfa).
+2025-05-13 04:14:50,966 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:15:32,198 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002C8DB5BF610>
+2025-05-13 04:16:11,617 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:16:11,617 - INFO - logging in using static token
+2025-05-13 04:16:12,325 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:16:12,332 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:16:12,334 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:16:12,335 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:16:12,342 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:16:12,343 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:16:12,346 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:16:13,362 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:16:13,391 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:16:13,393 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:16:13,394 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:16:13,397 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:16:13,992 - INFO - Shard ID None has connected to Gateway (Session ID: ad2f1343f7ced8c6f47ac16bf84b7c03).
+2025-05-13 04:16:16,026 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:18:50,344 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000027F01FEF610>
+2025-05-13 04:18:54,936 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:18:54,936 - INFO - logging in using static token
+2025-05-13 04:18:55,948 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:18:55,956 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:18:55,958 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:18:55,959 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:18:55,960 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:18:55,961 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:18:55,972 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:18:56,977 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:18:57,009 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:18:57,010 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:18:57,011 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:18:57,014 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:18:57,530 - INFO - Shard ID None has connected to Gateway (Session ID: f5aa7841f65cab6e4172ab135d61540b).
+2025-05-13 04:18:59,554 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:19:48,526 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001E5EFE7F610>
+2025-05-13 04:20:20,884 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:20:20,885 - INFO - logging in using static token
+2025-05-13 04:20:22,381 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:20:22,388 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:20:22,390 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:20:22,391 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:20:22,398 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:20:22,399 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:20:22,410 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:20:23,423 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:20:23,451 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:20:23,452 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:20:23,453 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:20:23,457 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:20:24,291 - INFO - Shard ID None has connected to Gateway (Session ID: 608a228300f959dc8e8da5888d5cf2b6).
+2025-05-13 04:20:26,323 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:23:07,551 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000022DA14AF610>
+2025-05-13 04:23:10,513 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:23:10,513 - INFO - logging in using static token
+2025-05-13 04:23:11,634 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:23:11,641 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:23:11,643 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:23:11,644 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:23:11,652 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:23:11,653 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:23:11,666 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:23:12,668 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:23:12,699 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:23:12,701 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:23:12,701 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:23:12,705 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:23:13,210 - INFO - Shard ID None has connected to Gateway (Session ID: 66352c8ce9ca3f038941d65906a94e24).
+2025-05-13 04:23:15,236 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:25:32,694 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000278FAA2F610>
+2025-05-13 04:25:34,853 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:25:34,854 - INFO - logging in using static token
+2025-05-13 04:25:35,655 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:25:35,662 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:25:35,665 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:25:35,666 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:25:35,667 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:25:35,668 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:25:35,680 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:25:36,682 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:25:36,711 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:25:36,712 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:25:36,713 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:25:36,717 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:25:37,455 - INFO - Shard ID None has connected to Gateway (Session ID: 8e3f227406eda30e5b35c216247cbdfa).
+2025-05-13 04:25:39,478 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:26:04,656 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000028819B1F610>
+2025-05-13 04:30:12,375 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:30:12,375 - INFO - logging in using static token
+2025-05-13 04:30:13,553 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:30:13,560 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:30:13,563 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:30:13,564 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:30:13,565 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:30:13,565 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:30:13,567 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:30:14,579 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:30:14,608 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:30:14,610 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:30:14,610 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:30:14,614 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:30:15,385 - INFO - Shard ID None has connected to Gateway (Session ID: 3c3a461e7481f38ef25e16521f6eb32a).
+2025-05-13 04:30:17,419 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:31:04,713 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000238153D3610>
+2025-05-13 04:49:16,313 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:49:16,313 - INFO - logging in using static token
+2025-05-13 04:49:17,213 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:49:17,221 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:49:17,236 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 04:49:17,238 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:49:17,239 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:49:17,240 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:49:17,241 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:49:17,242 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:49:18,243 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:49:18,274 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:49:18,276 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:49:18,276 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:49:18,282 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:49:19,245 - INFO - Shard ID None has connected to Gateway (Session ID: e9dfae24341d0e22f0127a6a8baf0255).
+2025-05-13 04:49:21,268 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:49:23,550 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002B7A63239D0>
+2025-05-13 04:51:57,486 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:51:57,487 - INFO - logging in using static token
+2025-05-13 04:51:58,272 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:51:58,279 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:51:58,303 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 04:51:58,306 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:51:58,307 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:51:58,308 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:51:58,309 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:51:58,310 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:51:59,314 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:51:59,343 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:51:59,344 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:51:59,345 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:51:59,352 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:51:59,920 - INFO - Shard ID None has connected to Gateway (Session ID: d3e84fdd0b38028d5b19221c5651be3e).
+2025-05-13 04:52:01,948 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:52:29,104 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001D5739039D0>
+2025-05-13 04:58:00,817 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 04:58:00,818 - INFO - logging in using static token
+2025-05-13 04:58:01,790 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 04:58:01,799 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 04:58:01,815 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 04:58:01,817 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 04:58:01,818 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 04:58:01,820 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 04:58:01,821 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 04:58:01,822 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 04:58:02,824 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 04:58:02,862 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 04:58:02,863 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 04:58:02,864 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 04:58:02,873 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 04:58:03,675 - INFO - Shard ID None has connected to Gateway (Session ID: a6cc521e26b57bb872b315e849580277).
+2025-05-13 04:58:05,700 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 04:58:21,994 - ERROR - Ignoring exception in command oyunhaber
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1655, in invoke
+    await super().invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command oyunhaber failed.
+2025-05-13 04:58:43,741 - ERROR - Ignoring exception in command oyunhaber aralýk
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1650, in invoke
+    await ctx.invoked_subcommand.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: minutes is a required argument that is missing.
+2025-05-13 04:58:50,185 - ERROR - Ignoring exception in command oyunhaber aralýk
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '30m'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1650, in invoke
+    await ctx.invoked_subcommand.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "minutes".
+2025-05-13 04:59:40,689 - ERROR - Ignoring exception in command oyunhaber kaynak
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1650, in invoke
+    await ctx.invoked_subcommand.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: source_type is a required argument that is missing.
+2025-05-13 05:01:15,404 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002122E0B3B10>
+2025-05-13 05:01:18,730 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:01:18,730 - INFO - logging in using static token
+2025-05-13 05:01:19,577 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 05:01:19,584 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 05:01:19,593 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 05:01:19,595 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 05:01:19,596 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 05:01:19,603 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 05:01:19,604 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 05:01:19,605 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 05:01:20,611 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 05:01:20,639 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 05:01:20,641 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 05:01:20,642 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 05:01:20,647 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 05:01:21,165 - INFO - Shard ID None has connected to Gateway (Session ID: 53a18b27be9bc4c8492e99c9c1b18630).
+2025-05-13 05:01:23,193 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 05:04:29,127 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000027991123890>
+2025-05-13 05:04:33,439 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:04:33,439 - INFO - logging in using static token
+2025-05-13 05:05:00,660 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:05:00,660 - INFO - logging in using static token
+2025-05-13 05:10:14,422 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:10:14,422 - INFO - logging in using static token
+2025-05-13 05:10:31,714 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:10:31,714 - INFO - logging in using static token
+2025-05-13 05:12:01,076 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:12:01,077 - INFO - logging in using static token
+2025-05-13 05:13:20,703 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:13:20,703 - INFO - logging in using static token
+2025-05-13 05:16:51,365 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:16:51,365 - INFO - logging in using static token
+2025-05-13 05:20:49,968 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:20:49,968 - INFO - logging in using static token
+2025-05-13 05:20:51,867 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 05:20:51,874 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 05:20:51,881 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 05:20:51,883 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 05:20:51,884 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 05:20:51,885 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 05:20:51,886 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 05:20:51,889 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 05:20:52,905 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 05:20:52,939 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 05:20:52,940 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 05:20:52,942 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 05:20:52,947 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 05:20:53,883 - INFO - Shard ID None has connected to Gateway (Session ID: f73d250b11f78cd42ddd8029196dbe37).
+2025-05-13 05:20:55,907 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 05:21:23,176 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002488825BED0>
+2025-05-13 05:22:04,116 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 05:22:04,116 - INFO - logging in using static token
+2025-05-13 05:22:04,741 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 05:22:04,748 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 05:22:04,764 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 05:22:04,766 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 05:22:04,767 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 05:22:04,774 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 05:22:04,775 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 05:22:04,776 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 05:22:05,777 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 05:22:05,811 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 05:22:05,812 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 05:22:05,812 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 05:22:05,818 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 05:22:06,463 - INFO - Shard ID None has connected to Gateway (Session ID: 6f13469a94276a85a3282bcc429a941d).
+2025-05-13 05:22:08,488 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 13:32:17,502 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 13:32:17,503 - INFO - logging in using static token
+2025-05-13 13:32:18,212 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 13:32:18,242 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 13:32:18,253 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 13:32:18,259 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 13:32:18,261 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 13:32:18,266 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 13:32:18,268 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 13:32:18,269 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 13:32:19,277 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 13:32:20,446 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 13:32:20,447 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 13:32:20,447 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 13:32:20,454 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 13:32:21,248 - INFO - Shard ID None has connected to Gateway (Session ID: bc0c586a781ec25e0328b3d07d212553).
+2025-05-13 13:32:23,272 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 13:32:25,214 - INFO - 127.0.0.1 [13/May/2025:13:32:25 +0300] "GET / HTTP/1.1" 404 175 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 13:32:25,234 - INFO - 127.0.0.1 [13/May/2025:13:32:25 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 13:42:08,293 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000022A5D393890>
+2025-05-13 13:43:50,675 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 13:43:50,675 - INFO - logging in using static token
+2025-05-13 13:43:51,716 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 13:43:51,742 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 13:43:51,753 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 13:43:51,762 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 13:43:51,763 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 13:43:51,769 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 13:43:51,771 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 13:43:51,772 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 13:43:52,774 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 13:43:53,860 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 13:43:53,861 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 13:43:53,861 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 13:43:53,873 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 13:43:54,623 - INFO - Shard ID None has connected to Gateway (Session ID: 4aa0ebafe677d8adc4eadd7cde7d3e59).
+2025-05-13 13:43:56,659 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 13:44:01,840 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "raid" is not found
+2025-05-13 13:44:32,785 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "raid" is not found
+2025-05-13 13:44:39,892 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002660EBA3890>
+2025-05-13 13:46:06,707 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 13:46:06,708 - INFO - logging in using static token
+2025-05-13 13:46:07,694 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 13:46:07,702 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 13:46:07,705 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 13:46:07,707 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 13:46:53,147 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 13:46:53,148 - INFO - logging in using static token
+2025-05-13 13:46:53,815 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 13:46:53,823 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 13:46:53,826 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 13:46:53,827 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 13:46:53,828 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 13:46:53,829 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 13:46:53,830 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 13:46:53,831 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 13:46:54,842 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 13:46:54,855 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 13:46:54,888 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 13:46:54,890 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 13:46:54,891 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 13:46:54,899 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 13:46:55,442 - INFO - Shard ID None has connected to Gateway (Session ID: 69853b3cd5f0db896b356bed515dcf77).
+2025-05-13 13:46:57,467 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 13:54:47,967 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000182865A3D90>
+2025-05-13 13:56:16,556 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 13:56:16,556 - INFO - logging in using static token
+2025-05-13 13:56:17,538 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 13:56:17,545 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 13:56:17,547 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 13:56:17,549 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 13:56:17,550 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 13:56:17,558 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 13:56:17,559 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 13:56:17,560 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 13:56:18,570 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 13:56:18,593 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 13:56:18,624 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 13:56:18,625 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 13:56:18,626 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 13:56:18,632 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 13:56:19,636 - INFO - Shard ID None has connected to Gateway (Session ID: b78daac440fb64a19ed0ad547515f24a).
+2025-05-13 13:56:21,696 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 13:58:01,539 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000028538CB3D90>
+2025-05-13 14:03:00,336 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 14:03:00,336 - INFO - logging in using static token
+2025-05-13 14:03:01,214 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 14:03:01,222 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 14:03:01,225 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 14:03:01,227 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 14:03:01,227 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 14:03:01,235 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 14:03:01,236 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 14:03:01,238 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 14:03:02,247 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 14:03:02,261 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 14:03:02,292 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 14:03:02,293 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 14:03:02,294 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 14:03:02,300 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 14:03:03,287 - INFO - Shard ID None has connected to Gateway (Session ID: 1201eed7402e3cae201e56c8e7b366de).
+2025-05-13 14:03:05,310 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 14:10:27,268 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000190193D3D90>
+2025-05-13 14:17:45,094 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 14:17:45,095 - INFO - logging in using static token
+2025-05-13 14:17:46,025 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 14:17:46,032 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 14:17:46,035 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 14:17:46,036 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 14:17:46,037 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 14:17:46,044 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 14:17:46,045 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 14:17:46,047 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 14:17:47,051 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 14:17:47,067 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 14:17:47,104 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 14:17:47,105 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 14:17:47,106 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 14:17:47,113 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 14:17:47,974 - INFO - Shard ID None has connected to Gateway (Session ID: 132d4ec994c14697f13fa19fcb9c1517).
+2025-05-13 14:17:50,008 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 14:25:24,236 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001825D423D90>
+2025-05-13 16:26:32,251 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 16:26:32,252 - INFO - logging in using static token
+2025-05-13 16:26:33,257 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 16:26:33,271 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 16:26:33,274 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 16:26:33,277 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 16:26:33,279 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 16:26:33,304 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 16:26:33,314 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 16:26:33,317 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 16:26:33,318 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 16:26:34,325 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 16:26:34,344 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 16:26:34,404 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 16:26:34,426 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 16:26:34,428 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 16:26:34,442 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 16:26:35,387 - INFO - Shard ID None has connected to Gateway (Session ID: 454a84952b32463fb5dc3e0adb210d65).
+2025-05-13 16:26:37,423 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:07:58,730 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000218E7E6C410>

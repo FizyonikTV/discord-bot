@@ -1,0 +1,12 @@
+{
+    "enabled": true,
+    "threshold": 20,
+    "time_window": 30,
+    "raid_action": "verification",
+    "raid_timeout": 10,
+    "exempt_roles": [],
+    "verification_message": "Sunucumuz şu anda raid koruması altındadır. Lütfen bir emoji ile tepki vererek insan olduğunuzu doğrulayın.",
+    "log_channel_id": 1371808931923365959,
+    "verification_channel_id": 1371809706510778448,
+    "verified_role_id": 1357383137109479665
+}

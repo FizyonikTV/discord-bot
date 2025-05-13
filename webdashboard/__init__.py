@@ -47,7 +47,7 @@ class Dashboard:
             # Setup routes
             setup_auth_routes(self.app, self)
             setup_routes(self.app, self)
-            setup_api_routes(self.app, self)
+            await setup_api_routes(self.app, self)
             
             # Start the web server
             self.runner = web.AppRunner(self.app)

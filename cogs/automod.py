@@ -14,8 +14,10 @@ class AutoMod(commands.Cog):
         self.violation_counts = {}  # Yasaklı kelime ihlallerini izlemek için
         self.config_path = "config/automod_config.json"
         self.notes_file = "data/notes.json"
+        self.regex_patterns = []
         self.load_config()
         self.load_notes()
+        self.load_regex_patterns()
         
     def load_config(self):
         """Yapılandırma dosyasını yükler veya oluşturur"""
@@ -109,6 +111,31 @@ class AutoMod(commands.Cog):
         except Exception as e:
             print(f"AutoMod: Notes yükleme hatası: {e}")
             return False
+
+    def load_regex_patterns(self):
+        """Regex kalıplarını yükle"""
+        try:
+            pattern_file = "config/regex_patterns.json"
+            if os.path.exists(pattern_file):
+                with open(pattern_file, 'r', encoding='utf-8') as f:
+                    self.regex_patterns = json.load(f)
+            else:
+                self.regex_patterns = []
+                with open(pattern_file, 'w', encoding='utf-8') as f:
+                    json.dump([], f)
+        except Exception as e:
+            print(f"Regex desenleri yüklenirken hata: {e}")
+            self.regex_patterns = []
+
+    def save_regex_patterns(self):
+        """Regex kalıplarını kaydet"""
+        try:
+            with open("config/regex_patterns.json", 'w', encoding='utf-8') as f:
+                json.dump(self.regex_patterns, f, indent=4, ensure_ascii=False)
+            return True
+        except Exception as e:
+            print(f"Regex desenleri kaydedilirken hata: {e}")
+            return False
             
     async def add_mod_note(self, user_id: int, mod_type: str, reason: str, duration: str = None):
         """Kullanıcıya moderasyon notu ekler"""
@@ -128,6 +155,32 @@ class AutoMod(commands.Cog):
 
         self.notes[user_id_str][mod_type].append(note_data)
         self.save_notes()
+
+    async def add_timeout_note(self, user_id, reason, moderator, moderator_id):
+        """Timeout notları için yardımcı metod"""
+        user_id_str = str(user_id)
+        if user_id_str not in self.notes:
+            self.notes[user_id_str] = {"UYARILAR": [], "TIMEOUTLAR": [], "BANLAR": []}
+
+        note_data = {
+            "sebep": reason,
+            "moderator": moderator,
+            "moderator_id": moderator_id,
+            "tarih": datetime.now().strftime("%d.%m.%Y %H:%M")
+        }
+
+        # Süre bilgisini çıkarma (varsa)
+        duration_match = re.search(r"(\d+) saniye", reason)
+        if duration_match:
+            note_data["süre"] = f"{duration_match.group(1)} saniye"
+
+        self.notes[user_id_str]["TIMEOUTLAR"].append(note_data)
+        self.save_notes()
+        
+        # Notes cog'una haber ver
+        notes_cog = self.bot.get_cog("Notes")
+        if notes_cog:
+            await notes_cog.refresh_notes()
     
     async def log_moderation_action(self, guild, user, action, reason, duration=None, log_channel_id=None):
         """Moderasyon işlemlerini log kanalına kaydeder"""
@@ -422,8 +475,18 @@ class AutoMod(commands.Cog):
             if domain.lower() in content:
                 await self.handle_word_violation(message, domain)
                 return
+
+        # 4. Regex kalıp kontrolü
+        for pattern in self.regex_patterns:
+            try:
+                if re.search(pattern["pattern"], content, re.IGNORECASE):
+                    await self.handle_word_violation(message, pattern["name"])
+                    return
+            except re.error:
+                # Hatalı regex desenini atla
+                continue
                 
-        # 4. Etiket spam kontrolü
+        # 5. Etiket spam kontrolü
         if len(message.mentions) > self.config["max_mentions"]:
             await message.delete()
             self.add_violation(message.author.id, f"Çok fazla kullanıcı etiketleme ({len(message.mentions)} kişi)")
@@ -448,7 +511,8 @@ class AutoMod(commands.Cog):
             "`!automod settings` - Tüm ayarları görüntüler\n"
             "`!automod exempt role/channel add/remove <id>` - Muaf rol/kanal ekler/kaldırır\n"
             "`!automod setlog <kanal>` - Log kanalı ayarlar\n"
-            "`!automod setresettime <gün>` - İhlal sıfırlama süresini ayarlar"
+            "`!automod setresettime <gün>` - İhlal sıfırlama süresini ayarlar\n"
+            "`!automod regex add/remove/test` - Regex kalıpları ekler/kaldırır/test eder"
         ), inline=False)
         
         await ctx.send(embed=embed)
@@ -801,6 +865,123 @@ class AutoMod(commands.Cog):
             count = len(self.violation_counts)
             self.violation_counts = {}
             await ctx.send(f"✅ Tüm kullanıcıların ({count} kullanıcı) ihlalleri sıfırlandı.")
+
+    @automod.group(name="regex", invoke_without_command=True)
+    @commands.has_permissions(administrator=True)
+    async def automod_regex(self, ctx):
+        """Regex kalıp listesini gösterir"""
+        if not self.regex_patterns:
+            await ctx.send("❌ Henüz tanımlanmış regex kalıbı yok.")
+            return
+            
+        # Sayfalar halinde gönder
+        pages = []
+        items_per_page = 5
+        
+        for i in range(0, len(self.regex_patterns), items_per_page):
+            page_patterns = self.regex_patterns[i:i + items_per_page]
+            embed = discord.Embed(
+                title="⚙️ Regex Kalıpları",
+                description="Düzenli ifadelerle tespit edilen içerikler:",
+                color=discord.Color.purple()
+            )
+            
+            for idx, pattern in enumerate(page_patterns, 1):
+                embed.add_field(
+                    name=f"{idx+i}. {pattern['name']}",
+                    value=f"```{pattern['pattern']}```",
+                    inline=False
+                )
+            
+            embed.set_footer(text=f"Sayfa {i//items_per_page + 1}/{(len(self.regex_patterns)-1)//items_per_page + 1}")
+            pages.append(embed)
+        
+        # İlk sayfayı gönder
+        current_page = 0
+        message = await ctx.send(embed=pages[current_page])
+        
+        # Birden fazla sayfa varsa navigasyon ekle
+        if len(pages) > 1:
+            await message.add_reaction("◀️")
+            await message.add_reaction("▶️")
+            
+            def check(reaction, user):
+                return user == ctx.author and str(reaction.emoji) in ["◀️", "▶️"] and reaction.message.id == message.id
+                
+            while True:
+                try:
+                    reaction, user = await self.bot.wait_for("reaction_add", timeout=60.0, check=check)
+                    
+                    if str(reaction.emoji) == "▶️" and current_page < len(pages) - 1:
+                        current_page += 1
+                        await message.edit(embed=pages[current_page])
+                        await message.remove_reaction(reaction, user)
+                        
+                    elif str(reaction.emoji) == "◀️" and current_page > 0:
+                        current_page -= 1
+                        await message.edit(embed=pages[current_page])
+                        await message.remove_reaction(reaction, user)
+                        
+                    else:
+                        await message.remove_reaction(reaction, user)
+                        
+                except asyncio.TimeoutError:
+                    break
+                    
+                except Exception:
+                    break
+
+    @automod_regex.command(name="add")
+    @commands.has_permissions(administrator=True)
+    async def regex_add(self, ctx, name: str, *, pattern: str):
+        """Regex kalıbı ekler"""
+        # Regex'i test et
+        try:
+            re.compile(pattern)
+        except re.error:
+            return await ctx.send("❌ Geçersiz regex kalıbı. Lütfen geçerli bir regex deseni girin.")
+        
+        # Aynı isimde kalıp var mı kontrol et
+        if any(p["name"] == name for p in self.regex_patterns):
+            return await ctx.send(f"❌ `{name}` isimli bir kalıp zaten mevcut.")
+        
+        self.regex_patterns.append({
+            "name": name,
+            "pattern": pattern
+        })
+        self.save_regex_patterns()
+        
+        await ctx.send(f"✅ `{name}` isimli regex kalıbı eklendi.")
+
+    @automod_regex.command(name="remove")
+    @commands.has_permissions(administrator=True)
+    async def regex_remove(self, ctx, *, name: str):
+        """Regex kalıbı kaldırır"""
+        for i, pattern in enumerate(self.regex_patterns):
+            if pattern["name"] == name:
+                self.regex_patterns.pop(i)
+                self.save_regex_patterns()
+                return await ctx.send(f"✅ `{name}` isimli regex kalıbı kaldırıldı.")
+        
+        await ctx.send("❌ Bu isimde bir regex kalıbı bulunamadı.")
+
+    @automod_regex.command(name="test")
+    @commands.has_permissions(administrator=True)
+    async def regex_test(self, ctx, *, text: str):
+        """Metni regex kalıplarına karşı test eder"""
+        matches = []
+        
+        for pattern in self.regex_patterns:
+            try:
+                if re.search(pattern["pattern"], text, re.IGNORECASE):
+                    matches.append(pattern["name"])
+            except re.error:
+                continue
+        
+        if matches:
+            await ctx.send(f"⚠️ Metin şu kalıplarla eşleşti: `{', '.join(matches)}`")
+        else:
+            await ctx.send("✅ Metin hiçbir kalıpla eşleşmedi.")
 
 async def setup(bot):
     await bot.add_cog(AutoMod(bot))

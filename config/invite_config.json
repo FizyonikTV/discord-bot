@@ -1,0 +1,10 @@
+{
+    "enabled": true,
+    "welcome_channel_id": 1371841541848436806,
+    "welcome_message": "{user.mention}, aramıza hoş geldin! {inviter.mention} tarafından davet edildin.",
+    "welcome_with_unknown_inviter": "{user.mention}, aramıza hoş geldin!",
+    "log_channel_id": 1371841541848436806,
+    "bonus_invites": {
+        "992110844886396978": 50
+    }
+}

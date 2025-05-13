@@ -8142,3 +8142,195 @@ ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114
 2025-05-13 18:35:27,243 - INFO - ::1 [13/May/2025:18:35:27 +0300] "GET /api/guild/1253037947247267930 HTTP/1.1" 200 14961 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
 2025-05-13 18:35:28,777 - INFO - ::1 [13/May/2025:18:35:28 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
 2025-05-13 18:35:42,260 - INFO - ::1 [13/May/2025:18:35:42 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:40,425 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:57:40,425 - INFO - logging in using static token
+2025-05-13 18:57:41,212 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:57:41,223 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:57:41,226 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:57:41,228 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:57:41,229 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:57:41,230 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:57:41,231 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:57:41,232 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:57:41,233 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:57:42,246 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:57:42,248 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:57:42,288 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:57:42,289 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:57:42,290 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:57:42,295 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 18:57:43,064 - INFO - Shard ID None has connected to Gateway (Session ID: bd989b72bc4f49acee3d8716b9aded99).
+2025-05-13 18:57:44,925 - INFO - ::1 [13/May/2025:18:57:44 +0300] "GET /server/1253037947247267930 HTTP/1.1" 302 185 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:44,928 - INFO - ::1 [13/May/2025:18:57:44 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:45,094 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:57:49,166 - INFO - ::1 [13/May/2025:18:57:48 +0300] "GET /callback?code=FLSizMCEWjsjXCnAaEbXaoc87EyjaH HTTP/1.1" 302 541 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:49,176 - INFO - ::1 [13/May/2025:18:57:49 +0300] "GET /dashboard HTTP/1.1" 200 4340 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:49,197 - INFO - ::1 [13/May/2025:18:57:49 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:49,200 - INFO - ::1 [13/May/2025:18:57:49 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:49,208 - INFO - ::1 [13/May/2025:18:57:49 +0300] "GET /static/css/style.css HTTP/1.1" 200 239 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:50,223 - INFO - ::1 [13/May/2025:18:57:50 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 64970 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:50,233 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 18:57:50,236 - INFO - ::1 [13/May/2025:18:57:50 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:50,251 - INFO - ::1 [13/May/2025:18:57:50 +0300] "GET /static/js/server.js HTTP/1.1" 200 246 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:50,494 - INFO - ::1 [13/May/2025:18:57:50 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:51,728 - INFO - ::1 [13/May/2025:18:57:51 +0300] "GET / HTTP/1.1" 200 9495 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:51,738 - INFO - ::1 [13/May/2025:18:57:51 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:51,739 - INFO - ::1 [13/May/2025:18:57:51 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:51,745 - INFO - ::1 [13/May/2025:18:57:51 +0300] "GET /static/img/grid-pattern.svg HTTP/1.1" 404 173 "http://localhost:8080/static/css/style.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:56,474 - INFO - ::1 [13/May/2025:18:57:56 +0300] "GET /dashboard HTTP/1.1" 200 4340 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:56,486 - INFO - ::1 [13/May/2025:18:57:56 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:56,487 - INFO - ::1 [13/May/2025:18:57:56 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:57,563 - INFO - ::1 [13/May/2025:18:57:57 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 64970 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:57,573 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 18:57:57,574 - INFO - ::1 [13/May/2025:18:57:57 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:57:57,575 - INFO - ::1 [13/May/2025:18:57:57 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:58:01,049 - INFO - ::1 [13/May/2025:18:58:01 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:58:07,568 - INFO - ::1 [13/May/2025:18:58:07 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,849 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET / HTTP/1.1" 200 9495 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,868 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,871 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,871 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,879 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET /static/img/grid-pattern.svg HTTP/1.1" 404 173 "http://localhost:8080/static/css/style.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:21:43,923 - INFO - ::1 [13/May/2025:20:21:43 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:25,952 - INFO - ::1 [13/May/2025:20:22:25 +0300] "GET /dashboard HTTP/1.1" 200 4340 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:25,963 - INFO - ::1 [13/May/2025:20:22:25 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:29,748 - INFO - ::1 [13/May/2025:20:22:29 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 64970 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:29,758 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 20:22:29,761 - INFO - ::1 [13/May/2025:20:22:29 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:29,763 - INFO - ::1 [13/May/2025:20:22:29 +0300] "GET /static/js/server.js HTTP/1.1" 304 180 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:29,813 - INFO - ::1 [13/May/2025:20:22:29 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:32,778 - INFO - ::1 [13/May/2025:20:22:32 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:22:36,031 - INFO - ::1 [13/May/2025:20:22:36 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,079 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 64970 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,097 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 20:32:13,099 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,101 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,101 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /static/js/server.js HTTP/1.1" 304 180 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,133 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,789 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 64970 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,796 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 20:32:13,797 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:32:13,803 - INFO - ::1 [13/May/2025:20:32:13 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 20:43:11,307 - INFO - Shard ID None has successfully RESUMED session bd989b72bc4f49acee3d8716b9aded99.
+2025-05-13 21:12:22,964 - INFO - ::1 [13/May/2025:21:12:22 +0300] "GET / HTTP/1.1" 200 9495 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:22,980 - INFO - ::1 [13/May/2025:21:12:22 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:22,981 - INFO - ::1 [13/May/2025:21:12:22 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:22,982 - INFO - ::1 [13/May/2025:21:12:22 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:22,986 - INFO - ::1 [13/May/2025:21:12:22 +0300] "GET /static/img/grid-pattern.svg HTTP/1.1" 404 173 "http://localhost:8080/static/css/style.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:23,020 - INFO - ::1 [13/May/2025:21:12:23 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:24,979 - INFO - ::1 [13/May/2025:21:12:24 +0300] "GET /dashboard HTTP/1.1" 200 4340 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:24,986 - INFO - ::1 [13/May/2025:21:12:24 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:26,003 - INFO - ::1 [13/May/2025:21:12:25 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 121816 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:26,011 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 21:12:26,012 - INFO - ::1 [13/May/2025:21:12:26 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:26,026 - INFO - ::1 [13/May/2025:21:12:26 +0300] "GET /static/js/server.js HTTP/1.1" 200 246 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:26,060 - INFO - ::1 [13/May/2025:21:12:26 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:27,012 - INFO - ::1 [13/May/2025:21:12:27 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:28,320 - INFO - ::1 [13/May/2025:21:12:28 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:31,241 - INFO - ::1 [13/May/2025:21:12:31 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:32,123 - INFO - ::1 [13/May/2025:21:12:32 +0300] "GET /api/guild/1253037947247267930/settings?type=general HTTP/1.1" 405 206 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:33,157 - INFO - ::1 [13/May/2025:21:12:33 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:40,517 - INFO - ::1 [13/May/2025:21:12:40 +0300] "GET /api/guild/1253037947247267930/game-news/settings HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:12:56,235 - INFO - ::1 [13/May/2025:21:12:56 +0300] "GET /api/guild/1253037947247267930/notes/540962213108908032 HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"

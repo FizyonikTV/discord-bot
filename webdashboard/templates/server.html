@@ -12,148 +12,608 @@
         {% endif %}
         <div class="ms-3">
             <h1>{{ guild.name }}</h1>
-            <p>{{ guild.member_count }} üye</p>
+            <div class="server-stats">
+                <span class="server-stat"><i class="fas fa-users"></i> {{ guild.member_count }} üye</span>
+                <span class="server-stat"><i class="fas fa-hashtag"></i> {{ guild.channels|length }} kanal</span>
+                <span class="server-stat"><i class="fas fa-tag"></i> {{ guild.roles|length }} rol</span>
+            </div>
         </div>
     </div>
 </div>
 
-<nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-general-tab" data-bs-toggle="tab" data-bs-target="#nav-general">Genel</button>
-        <button class="nav-link" id="nav-invite-tab" data-bs-toggle="tab" data-bs-target="#nav-invite">Davet Sistemi</button>
-        <button class="nav-link" id="nav-moderation-tab" data-bs-toggle="tab" data-bs-target="#nav-moderation">Moderasyon</button>
-        <button class="nav-link" id="nav-giveaway-tab" data-bs-toggle="tab" data-bs-target="#nav-giveaway">Çekilişler</button>
-        <button class="nav-link" id="nav-automod-tab" data-bs-toggle="tab" data-bs-target="#nav-automod">AutoMod</button>
-        <button class="nav-link" id="nav-logs-tab" data-bs-toggle="tab" data-bs-target="#nav-logs">Loglar</button>
-    </div>
-</nav>
-
-<div class="tab-content" id="nav-tabContent">
-    <!-- Genel Ayarlar -->
-    <div class="tab-pane fade show active" id="nav-general">
-        <div class="settings-panel">
-            <h3>Genel Ayarlar</h3>
-            <form id="general-settings-form">
-                <div class="mb-3">
-                    <label for="prefix" class="form-label">Komut Öneki</label>
-                    <input type="text" class="form-control" id="prefix" value="!" maxlength="5">
-                    <div class="form-text">Bot komutları için kullanılacak önek.</div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="log-channel" class="form-label">Log Kanalı</label>
-                    <select class="form-select" id="log-channel">
-                        <option value="">Seçiniz</option>
-                        {% for channel in guild.channels %}
-                            {% if channel.type == 'text' %}
-                            <option value="{{ channel.id }}">{{ channel.name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <div class="form-text">Bot işlemlerinin kayıtları bu kanala gönderilecektir.</div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Kaydet</button>
-            </form>
+<div class="row">
+    <!-- Sol kenar çubuğu - navigasyon linkleri -->
+    <div class="col-md-3">
+        <div class="sidebar">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-general-tab" data-bs-toggle="pill" data-bs-target="#v-pills-general" type="button" role="tab">
+                    <i class="fas fa-cog"></i> Genel
+                </button>
+                <button class="nav-link" id="v-pills-invite-tab" data-bs-toggle="pill" data-bs-target="#v-pills-invite" type="button" role="tab">
+                    <i class="fas fa-user-plus"></i> Davet Sistemi
+                </button>
+                <button class="nav-link" id="v-pills-moderation-tab" data-bs-toggle="pill" data-bs-target="#v-pills-moderation" type="button" role="tab">
+                    <i class="fas fa-gavel"></i> Moderasyon
+                </button>
+                <button class="nav-link" id="v-pills-automod-tab" data-bs-toggle="pill" data-bs-target="#v-pills-automod" type="button" role="tab">
+                    <i class="fas fa-shield-alt"></i> AutoMod
+                </button>
+                <button class="nav-link" id="v-pills-giveaway-tab" data-bs-toggle="pill" data-bs-target="#v-pills-giveaway" type="button" role="tab">
+                    <i class="fas fa-gift"></i> Çekilişler
+                </button>
+                <button class="nav-link" id="v-pills-logs-tab" data-bs-toggle="pill" data-bs-target="#v-pills-logs" type="button" role="tab">
+                    <i class="fas fa-history"></i> Loglar
+                </button>
+                <button class="nav-link" id="v-pills-game-news-tab" data-bs-toggle="pill" data-bs-target="#v-pills-game-news" type="button" role="tab">
+                    <i class="fas fa-gamepad"></i> Oyun Haberleri
+                </button>
+                <button class="nav-link" id="v-pills-notes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-notes" type="button" role="tab">
+                    <i class="fas fa-sticky-note"></i> Moderasyon Kayıtları
+                </button>
+            </div>
         </div>
     </div>
     
-    <!-- Davet Sistemi -->
-    <div class="tab-pane fade" id="nav-invite">
-        <div class="settings-panel">
-            <h3>Davet Takip Sistemi</h3>
-            
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h5>Davet İstatistikleri</h5>
+    <!-- Sağ kısım - içerikler -->
+    <div class="col-md-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <!-- Genel Ayarlar -->
+            <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-cog"></i> Genel Ayarlar</h3>
+                        <p>Botun temel davranışlarını ve ayarlarını yapılandırın</p>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i> Yapılan değişiklikler otomatik olarak kaydedilecektir.
+                    </div>
+                    
+                    <form id="general-settings-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="settings-card">
+                                    <div class="settings-card-header">
+                                        <h5>Temel Ayarlar</h5>
+                                    </div>
+                                    <div class="settings-card-body">
+                                        <div class="mb-3">
+                                            <label for="prefix" class="form-label">Komut Öneki</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-terminal"></i></span>
+                                                <input type="text" class="form-control" id="prefix" value="!" maxlength="5">
+                                            </div>
+                                            <div class="form-text">Bot komutları için kullanılacak önek.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="settings-card">
+                                    <div class="settings-card-header">
+                                        <h5>Log Ayarları</h5>
+                                    </div>
+                                    <div class="settings-card-body">
+                                        <div class="mb-3">
+                                            <label for="log-channel" class="form-label">Log Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="log-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Bot işlemlerinin kayıtları bu kanala gönderilecektir.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-around text-center">
-                        <div>
-                            <h3 id="total-invites">0</h3>
-                            <p>Toplam Davetler</p>
+            </div>
+            
+            <!-- Davet Sistemi -->
+            <div class="tab-pane fade" id="v-pills-invite" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-user-plus"></i> Davet Takip Sistemi</h3>
+                        <p>Davet takibi, karşılama mesajları ve davet istatistikleri ayarları</p>
+                    </div>
+                    
+                    <!-- İstatistikler kartı -->
+                    <div class="stats-cards mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="stats-card">
+                                    <div class="stats-card-icon">
+                                        <i class="fas fa-link"></i>
+                                    </div>
+                                    <div class="stats-card-value" id="total-invites">0</div>
+                                    <div class="stats-card-label">Toplam Davetler</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stats-card">
+                                    <div class="stats-card-icon">
+                                        <i class="fas fa-user-tag"></i>
+                                    </div>
+                                    <div class="stats-card-value" id="active-inviters">0</div>
+                                    <div class="stats-card-label">Aktif Davetçiler</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stats-card">
+                                    <div class="stats-card-icon">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                    <div class="stats-card-value" id="tracked-users">0</div>
+                                    <div class="stats-card-label">Takip Edilen Kullanıcılar</div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 id="active-inviters">0</h3>
-                            <p>Aktif Davetçiler</p>
+                    </div>
+                    
+                    <!-- Ayarlar formu -->
+                    <form id="invite-settings-form">
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h5>Davet Takip Ayarları</h5>
+                            </div>
+                            <div class="settings-card-body">
+                                <!-- Sistem açık/kapalı -->
+                                <div class="form-switch form-switch-lg mb-4">
+                                    <input class="form-check-input" type="checkbox" id="invite-system-toggle" checked>
+                                    <label class="form-check-label" for="invite-system-toggle">Davet Takip Sistemi</label>
+                                    <div class="form-text">Davet takip sistemini etkinleştir veya devre dışı bırak.</div>
+                                </div>
+                                
+                                <!-- Kanallar -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="welcome-channel" class="form-label">Karşılama Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="welcome-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Yeni üyelere hoş geldin mesajları bu kanala gönderilir.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="invite-log-channel" class="form-label">Davet Log Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="invite-log-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Davet olayları hakkında bilgiler bu kanala gönderilir.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Karşılama mesajı -->
+                                <div class="mb-3">
+                                    <label for="welcome-message" class="form-label">Karşılama Mesajı</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
+                                        <textarea class="form-control" id="welcome-message" rows="3">{user.mention}, aramıza hoş geldin! {inviter.mention} tarafından davet edildin.</textarea>
+                                    </div>
+                                    <div class="form-text">
+                                        <strong>Kullanılabilir değişkenler:</strong> {user.mention}, {user.name}, {inviter.mention}, {inviter.name}, {guild.name}, {invite_count}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 id="tracked-users">0</h3>
-                            <p>Takip Edilen Kullanıcılar</p>
+                        
+                        <div class="action-buttons mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Davet Liderlik Tablosu -->
+                    <div class="settings-card mt-4">
+                        <div class="settings-card-header">
+                            <h5>En İyi Davetçiler</h5>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="invite-leaderboard">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Kullanıcı</th>
+                                            <th>Toplam</th>
+                                            <th>Bonus</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="text-center py-4">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Yükleniyor...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <form id="invite-settings-form">
-                <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" id="invite-system-toggle" checked>
-                    <label class="form-check-label" for="invite-system-toggle">Davet Takip Sistemi</label>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="welcome-channel" class="form-label">Karşılama Kanalı</label>
-                    <select class="form-select" id="welcome-channel">
-                        <option value="">Seçiniz</option>
-                        {% for channel in guild.channels %}
-                            {% if channel.type == 'text' %}
-                            <option value="{{ channel.id }}">{{ channel.name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="invite-log-channel" class="form-label">Davet Log Kanalı</label>
-                    <select class="form-select" id="invite-log-channel">
-                        <option value="">Seçiniz</option>
-                        {% for channel in guild.channels %}
-                            {% if channel.type == 'text' %}
-                            <option value="{{ channel.id }}">{{ channel.name }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="welcome-message" class="form-label">Karşılama Mesajı</label>
-                    <textarea class="form-control" id="welcome-message" rows="3">{user.mention}, aramıza hoş geldin! {inviter.mention} tarafından davet edildin.</textarea>
-                    <div class="form-text">
-                        Kullanılabilir değişkenler: {user.mention}, {user.name}, {inviter.mention}, {inviter.name}, {guild.name}, {invite_count}
+            <!-- Oyun Haberleri -->
+            <div class="tab-pane fade" id="v-pills-game-news" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-gamepad"></i> Oyun Haberleri Ayarları</h3>
+                        <p>Epic Games ücretsiz oyunlar ve Steam indirimleri için bildirim ayarları</p>
                     </div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Kaydet</button>
-            </form>
-            
-            <div class="mt-4">
-                <h4>En İyi Davetçiler</h4>
-                <div class="table-responsive">
-                    <table class="table table-striped" id="invite-leaderboard">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Kullanıcı</th>
-                                <th>Toplam</th>
-                                <th>Bonus</th>
-                                <th>İşlemler</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="5" class="text-center">Yükleniyor...</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
+                    <form id="game-news-settings-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="settings-card">
+                                    <div class="settings-card-header">
+                                        <h5>Bildirim Ayarları</h5>
+                                    </div>
+                                    <div class="settings-card-body">
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="enable-game-news" checked>
+                                            <label class="form-check-label" for="enable-game-news">Oyun Haberleri Aktif</label>
+                                            <div class="form-text">Sistem tamamen açık veya kapalı.</div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="news-channel" class="form-label">Haber Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="news-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Haberlerin gönderileceği kanal.</div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="ping-role" class="form-label">Bildirim Rolü</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                <select class="form-select" id="ping-role">
+                                                    <option value="">Seçiniz (Etiket Yok)</option>
+                                                    {% for role in guild.roles %}
+                                                    <option value="{{ role.id }}">{{ role.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Oyun haberleri paylaşıldığında etiketlenecek rol.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="settings-card">
+                                    <div class="settings-card-header">
+                                        <h5>Haber Kaynakları</h5>
+                                    </div>
+                                    <div class="settings-card-body">
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="epic-games-source" checked>
+                                            <label class="form-check-label" for="epic-games-source">Epic Games Ücretsiz Oyunlar</label>
+                                        </div>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="steam-deals-source" checked>
+                                            <label class="form-check-label" for="steam-deals-source">Steam İndirimleri</label>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="check-interval" class="form-label">Kontrol Aralığı (dakika)</label>
+                                            <input type="number" class="form-control" id="check-interval" min="30" max="1440" value="60">
+                                            <div class="form-text">Yeni haberlerin kontrol edilme sıklığı.</div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="min-discount" class="form-label">Minimum İndirim Oranı (%)</label>
+                                            <input type="number" class="form-control" id="min-discount" min="1" max="100" value="75">
+                                            <div class="form-text">Bu değerin üzerindeki indirimler bildirilir.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="settings-card mt-3">
+                                    <div class="settings-card-header d-flex justify-content-between align-items-center">
+                                        <h5>Son Gönderilen Haberler</h5>
+                                        <button type="button" id="test-webhook" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-paper-plane"></i> Test Et
+                                        </button>
+                                    </div>
+                                    <div class="settings-card-body">
+                                        <div id="last-news-container" class="small text-muted">
+                                            Henüz haber gönderilmedi veya veriler yüklenemiyor.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            
+            <!-- Moderasyon Kayıtları -->
+            <div class="tab-pane fade" id="v-pills-notes" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-sticky-note"></i> Moderasyon Kayıtları</h3>
+                        <p>Kullanıcılara uygulanan moderasyon işlemlerinin geçmişini görüntüleyin</p>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control" id="notes-search-input" placeholder="Kullanıcı ID'si girin...">
+                                <button class="btn btn-primary" id="notes-search-button">Ara</button>
+                            </div>
+                            <div class="form-text">
+                                Kullanıcı ID'sini girerek ilgili moderasyon kayıtlarını görüntüleyin
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notes-result-container">
+                        <div class="notes-placeholder text-center py-5">
+                            <i class="fas fa-search fa-3x mb-3 text-muted"></i>
+                            <p>Moderasyon kayıtlarını görüntülemek için bir kullanıcı ID'si arayın</p>
+                        </div>
+                        
+                        <div class="notes-data" style="display: none;">
+                            <div class="user-info-card mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="" id="notes-user-avatar" class="rounded-circle me-3" width="64" height="64" alt="Kullanıcı avatarı">
+                                    <div>
+                                        <h5 id="notes-user-name">Kullanıcı Adı</h5>
+                                        <p class="text-muted" id="notes-user-id">ID: 000000000000000000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <ul class="nav nav-tabs mb-3" id="notesTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="warnings-tab" data-bs-toggle="tab" data-bs-target="#warnings-content" type="button" role="tab">
+                                        <i class="fas fa-exclamation-triangle"></i> Uyarılar
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="timeouts-tab" data-bs-toggle="tab" data-bs-target="#timeouts-content" type="button" role="tab">
+                                        <i class="fas fa-clock"></i> Timeout'lar
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bans-tab" data-bs-toggle="tab" data-bs-target="#bans-content" type="button" role="tab">
+                                        <i class="fas fa-gavel"></i> Banlar
+                                    </button>
+                                </li>
+                            </ul>
+                            
+                            <div class="tab-content" id="notesTabContent">
+                                <div class="tab-pane fade show active" id="warnings-content" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tarih</th>
+                                                    <th>Sebep</th>
+                                                    <th>Moderatör</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="warnings-table-body">
+                                                <!-- JavaScript ile doldurulacak -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="no-warnings-message" class="text-center py-3 d-none">
+                                        <p class="text-muted">Bu kullanıcı için uyarı bulunmuyor</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="timeouts-content" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tarih</th>
+                                                    <th>Sebep</th>
+                                                    <th>Süre</th>
+                                                    <th>Moderatör</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="timeouts-table-body">
+                                                <!-- JavaScript ile doldurulacak -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="no-timeouts-message" class="text-center py-3 d-none">
+                                        <p class="text-muted">Bu kullanıcı için timeout bulunmuyor</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-pane fade" id="bans-content" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Tarih</th>
+                                                    <th>Sebep</th>
+                                                    <th>Moderatör</th>
+                                                    <th>İşlemler</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="bans-table-body">
+                                                <!-- JavaScript ile doldurulacak -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="no-bans-message" class="text-center py-3 d-none">
+                                        <p class="text-muted">Bu kullanıcı için ban bulunmuyor</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Not silme onay modalı -->
+                            <div class="modal fade" id="delete-note-modal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Kaydı Sil</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Bu moderasyon kaydını silmek istediğinize emin misiniz?</p>
+                                            <p class="text-danger">Bu işlem geri alınamaz!</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                                            <button type="button" class="btn btn-danger" id="confirm-delete-note">Evet, Sil</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AutoMod -->
+            <div class="tab-pane fade" id="v-pills-automod" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-shield-alt"></i> AutoMod Ayarları</h3>
+                        <p>Otomatik moderasyon ayarlarını yapılandırın</p>
+                    </div>
+                    
+                    <!-- AutoMod sekmesi içine ek özellikler -->
+                    <div class="settings-card mt-4">
+                        <div class="settings-card-header">
+                            <h5>Yasaklı Kelime Yönetimi</h5>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="blacklisted-word" class="form-label">Yasaklı Kelime Ekle</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="blacklisted-word" placeholder="Kelime girin...">
+                                            <button class="btn btn-success" id="add-blacklisted-word">
+                                                <i class="fas fa-plus"></i> Ekle
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="blacklisted-domain" class="form-label">Yasaklı Domain Ekle</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="blacklisted-domain" placeholder="Domain girin...">
+                                            <button class="btn btn-success" id="add-blacklisted-domain">
+                                                <i class="fas fa-plus"></i> Ekle
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <h6>Yasaklı Kelimeler</h6>
+                                    <div class="blacklisted-items-container words-container border rounded p-2" style="height: 200px; overflow-y: auto;">
+                                        <!-- JavaScript ile doldurulacak -->
+                                        <div class="d-flex justify-content-center align-items-center h-100 text-muted">
+                                            <span>Yükleniyor...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h6>Yasaklı Domainler</h6>
+                                    <div class="blacklisted-items-container domains-container border rounded p-2" style="height: 200px; overflow-y: auto;">
+                                        <!-- JavaScript ile doldurulacak -->
+                                        <div class="d-flex justify-content-center align-items-center h-100 text-muted">
+                                            <span>Yükleniyor...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diğer sekmeler benzer şekilde geliştirilir -->
+            
         </div>
     </div>
-    
-    <!-- Diğer sekmelerin içeriği benzer şekilde detaylı olarak tanımlansın -->
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script src="{{ url('static', filename='js/server.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}

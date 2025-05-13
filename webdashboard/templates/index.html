@@ -1,61 +1,93 @@
 {% extends "base.html" %}
 
-{% block title %}Home - Lunaris Dashboard{% endblock %}
+{% block title %}LunarisBot - Discord Yönetim Botu{% endblock %}
 
 {% block content %}
-<section class="hero">
-    <h1>Welcome to Lunaris Dashboard</h1>
-    <p>Manage your Discord bot with ease and explore all its features.</p>
-    {% if not logged_in %}
-    <a href="/login" class="btn primary-btn">Login with Discord</a>
-    {% else %}
-    <a href="/dashboard" class="btn primary-btn">Go to Dashboard</a>
-    {% endif %}
-</section>
+<div class="hero">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h1>LunarisBot ile Discord Sunucunuzu Güçlendirin</h1>
+            <p class="lead">
+                Gelişmiş moderasyon, davet takibi, çekilişler ve daha fazlası için tasarlanmış 
+                çok yönlü bir Discord yönetim botu.
+            </p>
+            {% if not user %}
+            <a href="/login" class="btn btn-primary btn-lg mt-3">
+                <i class="fab fa-discord"></i> Discord ile Giriş Yap
+            </a>
+            {% else %}
+            <a href="/dashboard" class="btn btn-primary btn-lg mt-3">
+                <i class="fas fa-tachometer-alt"></i> Dashboard'a Git
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-lg-6">
+            <img src="https://i.ibb.co/6RQcJQVX/Lunaris-Banner-Ekstra-Orijinal.webp" alt="LunarisBot" class="img-fluid">
+        </div>
+    </div>
+</div>
 
-<section class="stats-section">
-    <h2>Bot Statistics</h2>
-    <div class="stats-grid">
-        <div class="stat-card">
-            <i class="fas fa-server"></i>
-            <h3>{{ stats.guilds }}</h3>
-            <p>Servers</p>
+<section class="features py-5">
+    <h2 class="text-center mb-5">Özellikler</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Gelişmiş Moderasyon</h3>
+                    <p>Uyarılar, susturma, yasaklama ve otomatik moderasyon ile sunucunuzu güvenli tutun.</p>
+                </div>
+            </div>
         </div>
-        <div class="stat-card">
-            <i class="fas fa-users"></i>
-            <h3>{{ stats.members }}</h3>
-            <p>Members</p>
+        <div class="col-md-4 mb-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Davet Takibi</h3>
+                    <p>Kimin kimi davet ettiğini izleyin ve davet sıralaması ile ödül sistemi oluşturun.</p>
+                </div>
+            </div>
         </div>
-        <div class="stat-card">
-            <i class="fas fa-terminal"></i>
-            <h3>{{ stats.commands }}</h3>
-            <p>Commands</p>
-        </div>
-        <div class="stat-card">
-            <i class="fas fa-clock"></i>
-            <h3>{{ stats.uptime }}</h3>
-            <p>Uptime</p>
+        <div class="col-md-4 mb-4">
+            <div class="card feature-card">
+                <div class="card-body">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Çekilişler</h3>
+                    <p>Katılımcıları izleyen ve kazananları otomatik seçen gelişmiş çekiliş sistemi.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="features">
-    <h2>Features</h2>
-    <div class="feature-list">
-        <div class="feature-item">
-            <i class="fas fa-shield-alt"></i>
-            <h3>Moderation</h3>
-            <p>Powerful tools to keep your server safe and clean.</p>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-chart-line"></i>
-            <h3>Levels</h3>
-            <p>Engage your community with a customizable level system.</p>
-        </div>
-        <div class="feature-item">
-            <i class="fas fa-gift"></i>
-            <h3>Giveaways</h3>
-            <p>Run exciting giveaways for your community members.</p>
+<section class="stats py-5 bg-light">
+    <div class="container text-center">
+        <h2 class="mb-5">İstatistikler</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">{{ bot.guilds|length }}</div>
+                    <div class="stat-label">Sunucu</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">{{ bot_stats.user_count }}</div>
+                    <div class="stat-label">Kullanıcı</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-item">
+                    <div class="stat-number">{{ bot_stats.command_count }}</div>
+                    <div class="stat-label">Komut Kullanımı</div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

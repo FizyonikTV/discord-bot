@@ -1,236 +1,50 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard - Lunaris{% endblock %}
+{% block title %}Dashboard - LunarisBot{% endblock %}
 
 {% block content %}
-<div class="dashboard-container">
-    <div class="sidebar">
-        <div class="user-info">
-            <img src="https://cdn.discordapp.com/avatars/{{ user.id }}/{{ user.avatar }}.png" alt="{{ user.username }}" class="avatar">
-            <h3>{{ user.username }}</h3>
-        </div>
-        <ul class="sidebar-menu">
-            <li class="active"><a href="/dashboard"><i class="fas fa-home"></i> Overview</a></li>
-            <li><a href="/guilds"><i class="fas fa-server"></i> Guilds</a></li>
-            <li><a href="/commands"><i class="fas fa-terminal"></i> Commands</a></li>
-            <li><a href="/settings"><i class="fas fa-cog"></i> Settings</a></li>
-        </ul>
-    </div>
-    
-    <div class="main-content">
-        <h1>Dashboard Overview</h1>
-        
-        <div class="status-bar">
-            <div class="status-item {{ 'active' if bot_status == 'Online' else 'inactive' }}">
-                <span class="status-dot"></span>
-                <span class="status-text">Bot Status: {{ bot_status }}</span>
-            </div>
-            <div class="status-item">
-                <i class="fas fa-clock"></i>
-                <span class="status-text">Uptime: {{ uptime }}</span>
-            </div>
-        </div>
-        
-        <div class="dashboard-grid">
-            <div class="dash-card">
-                <div class="card-header">
-                    <i class="fas fa-server"></i>
-                    <h3>Guilds</h3>
-                </div>
-                <div class="card-content">
-                    <div class="stat-number">{{ guild_count }}</div>
-                    <a href="/guilds" class="btn secondary-btn">View All</a>
-                </div>
-            </div>
-            
-            <div class="dash-card">
-                <div class="card-header">
-                    <i class="fas fa-users"></i>
-                    <h3>Members</h3>
-                </div>
-                <div class="card-content">
-                    <div class="stat-number">{{ member_count }}</div>
-                </div>
-            </div>
-            
-            <div class="dash-card">
-                <div class="card-header">
-                    <i class="fas fa-terminal"></i>
-                    <h3>Commands</h3>
-                </div>
-                <div class="card-content">
-                    <div class="stat-number">{{ command_count }}</div>
-                    <a href="/commands" class="btn secondary-btn">View All</a>
-                </div>
-            </div>
-            
-            <div class="dash-card">
-                <div class="card-header">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Performance</h3>
-                </div>
-                <div class="card-content">
-                    <div class="performance-metric">
-                        <span>CPU</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="--progress-width: {{ cpu_percent }}%" style="width: var(--progress-width);"></div>
-                        </div>
-                        <span>{{ cpu_percent }}%</span>
-                    </div>
-                    <div class="performance-metric">
-                        <span>RAM</span>
-                        <div class="progress-bar">
-                            <div class="progress" style="--progress-width: {{ ram_percent }}%" style="width: var(--progress-width);"></div>
-                        </div>
-                        <span>{{ ram_percent }}%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p>Sunucularınızı yönetin ve LunarisBot ayarlarını yapılandırın.</p>
 </div>
-{% endblock %}
 
-{% block extra_css %}
-<style>
-.dashboard-container {
-    display: flex;
-    min-height: calc(100vh - 140px);
-}
-
-.sidebar {
-    width: 250px;
-    background: #2c2f33;
-    color: white;
-    padding: 1.5rem 0;
-}
-
-.user-info {
-    text-align: center;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #3e4247;
-}
-
-.user-info .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0 0;
-}
-
-.sidebar-menu li a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-    color: #dcddde;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.sidebar-menu li a:hover, .sidebar-menu li.active a {
-    background: rgba(114, 137, 218, 0.3);
-    color: white;
-}
-
-.sidebar-menu li a i {
-    margin-right: 0.75rem;
-    width: 20px;
-}
-
-.main-content {
-    flex: 1;
-    padding: 2rem;
-}
-
-.status-bar {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.status-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #f0f2f5;
-    border-radius: 4px;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ff5555;
-}
-
-.status-item.active .status-dot {
-    background: #43b581;
-}
-
-.dash-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    overflow: hidden;
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #f0f2f5;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.card-header i {
-    color: var(--primary-color);
-}
-
-.card-content {
-    padding: 1.5rem;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.secondary-btn {
-    background: var(--primary-color);
-    color: white;
-}
-
-.secondary-btn:hover {
-    background: var(--primary-dark);
-}
-
-.performance-metric {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 10px;
-    background: #f0f2f5;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.progress {
-    height: 100%;
-    background: var(--primary-color);
-    border-radius: 5px;
-}
-</style>
+<div class="server-list">
+    <h2>Sunucularınız</h2>
+    
+    {% if guilds|length > 0 %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for guild in guilds %}
+        <div class="col">
+            <div class="card server-card h-100">
+                {% if guild.icon_url %}
+                <img src="{{ guild.icon_url }}" class="card-img-top server-icon" alt="{{ guild.name }}">
+                {% else %}
+                <div class="default-icon">{{ guild.name[0] }}</div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ guild.name }}</h5>
+                    <p class="card-text">{{ guild.member_count }} üye</p>
+                </div>
+                <div class="card-footer">
+                    {% if guild.bot_in_guild %}
+                    <a href="/server/{{ guild.id }}" class="btn btn-primary">
+                        <i class="fas fa-cog"></i> Yönet
+                    </a>
+                    {% else %}
+                    <a href="https://discord.com/api/oauth2/authorize?client_id={{ bot.id }}&permissions=8&scope=bot&guild_id={{ guild.id }}" 
+                       class="btn btn-success" target="_blank">
+                        <i class="fas fa-plus"></i> Ekle
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <p>Herhangi bir sunucuya erişiminiz yok veya henüz hiçbir sunucuda yönetici değilsiniz.</p>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

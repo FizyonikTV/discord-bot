@@ -7650,3 +7650,495 @@ client_session: <aiohttp.client.ClientSession object at 0x000001825D423D90>
 2025-05-13 16:26:37,423 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
 2025-05-13 17:07:58,730 - ERROR - Unclosed client session
 client_session: <aiohttp.client.ClientSession object at 0x00000218E7E6C410>
+2025-05-13 17:08:46,790 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:08:46,790 - INFO - logging in using static token
+2025-05-13 17:08:47,729 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:08:47,758 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:08:47,761 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:08:47,762 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:08:47,763 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:08:47,765 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:08:47,766 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:08:47,766 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:08:47,767 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:08:48,776 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:08:48,778 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:08:50,068 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:08:50,072 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:08:50,072 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:08:50,075 - INFO - \u2705 Dashboard started on http://0.0.0.0:8080
+2025-05-13 17:08:50,837 - INFO - Shard ID None has connected to Gateway (Session ID: 435ac7da4ac29a9ff44917e033dee908).
+2025-05-13 17:08:51,314 - ERROR - Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000296B5CC3ED0>
+2025-05-13 17:27:16,529 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:27:16,529 - INFO - logging in using static token
+2025-05-13 17:27:17,491 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:27:17,499 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:27:17,503 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:27:17,504 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:27:17,505 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:27:17,507 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:27:17,508 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:27:17,508 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:27:17,509 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:27:18,521 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:27:18,522 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:27:18,556 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:27:18,557 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:27:18,558 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:27:18,559 - ERROR - Failed to start dashboard: 'BotAPI' object has no attribute 'update_guild_settings'
+2025-05-13 17:27:19,318 - INFO - Shard ID None has connected to Gateway (Session ID: d87e9d45ec8d1db64ea3ca3b16f54295).
+2025-05-13 17:27:21,339 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:27:51,838 - ERROR - Ignoring exception in command davet
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1655, in invoke
+    await super().invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command davet failed.
+2025-05-13 17:29:17,114 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:29:17,114 - INFO - logging in using static token
+2025-05-13 17:29:18,060 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:29:18,067 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:29:18,073 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:29:18,074 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:29:18,075 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:29:18,081 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:29:18,086 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:29:18,087 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:29:18,088 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:29:19,089 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:29:19,091 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:29:19,120 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:29:19,121 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:29:19,121 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:29:19,123 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 17:29:19,759 - INFO - Shard ID None has connected to Gateway (Session ID: b0e433afaa60b1a7bfa78691c7e84e05).
+2025-05-13 17:29:21,802 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:29:25,360 - INFO - ::1 [13/May/2025:17:29:25 +0300] "GET / HTTP/1.1" 500 243 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:29:25,379 - INFO - ::1 [13/May/2025:17:29:25 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:31:41,019 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:31:41,020 - INFO - logging in using static token
+2025-05-13 17:31:41,786 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:31:41,793 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:31:41,797 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:31:41,799 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:31:41,800 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:31:41,802 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:31:41,802 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:31:41,803 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:31:41,804 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:31:42,810 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:31:42,812 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:31:42,840 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:31:42,841 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:31:42,841 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:31:42,843 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 17:31:43,676 - INFO - Shard ID None has connected to Gateway (Session ID: e8f14e89ebe73177942fed8fe9ea7037).
+2025-05-13 17:31:45,715 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:31:47,664 - INFO - ::1 [13/May/2025:17:31:47 +0300] "GET / HTTP/1.1" 500 243 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:31:48,207 - INFO - ::1 [13/May/2025:17:31:48 +0300] "GET / HTTP/1.1" 500 243 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:31:48,353 - INFO - ::1 [13/May/2025:17:31:48 +0300] "GET / HTTP/1.1" 500 243 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:31:48,484 - INFO - ::1 [13/May/2025:17:31:48 +0300] "GET / HTTP/1.1" 500 243 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 17:40:26,267 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:40:26,267 - INFO - logging in using static token
+2025-05-13 17:40:27,437 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:40:27,444 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:40:27,448 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:40:27,449 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:40:27,450 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:40:27,453 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:40:27,454 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:40:27,454 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:40:27,455 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:40:28,466 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:40:28,468 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:40:28,495 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:40:28,496 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:40:28,497 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:40:28,497 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:40:29,348 - INFO - Shard ID None has connected to Gateway (Session ID: 7fb742da12c1e3418d5e58f8c0ac80fa).
+2025-05-13 17:40:31,385 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:42:16,756 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:42:16,757 - INFO - logging in using static token
+2025-05-13 17:42:17,523 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:42:17,530 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:42:17,534 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:42:17,535 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:42:17,536 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:42:17,538 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:42:17,539 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:42:17,540 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:42:17,541 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:42:18,552 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:42:18,553 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:42:18,581 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:42:18,582 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:42:18,582 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:42:18,583 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:42:19,109 - INFO - Shard ID None has connected to Gateway (Session ID: bd2cd8ea085e268b79e3c1ca1b798b13).
+2025-05-13 17:42:21,139 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:44:21,504 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:44:21,505 - INFO - logging in using static token
+2025-05-13 17:44:22,574 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:44:22,581 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:44:22,585 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:44:22,587 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:44:22,588 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:44:22,590 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:44:22,591 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:44:22,591 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:44:22,592 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:44:23,600 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:44:23,602 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:44:23,630 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:44:23,631 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:44:23,631 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:44:23,632 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:44:24,246 - INFO - Shard ID None has connected to Gateway (Session ID: beb029635d48c3c2b2dd2d29b984f291).
+2025-05-13 17:44:26,271 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:45:15,334 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:45:15,334 - INFO - logging in using static token
+2025-05-13 17:45:16,157 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:45:16,164 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:45:16,168 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:45:16,170 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:45:16,171 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:45:16,173 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:45:16,174 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:45:16,174 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:45:16,175 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:45:17,180 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:45:17,182 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:45:17,210 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:45:17,211 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:45:17,211 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:45:17,212 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:45:19,149 - INFO - Shard ID None has connected to Gateway (Session ID: af747f675205ae94c7a328eb0233536d).
+2025-05-13 17:45:21,184 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:47:25,017 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:47:25,017 - INFO - logging in using static token
+2025-05-13 17:47:25,731 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:47:25,738 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:47:25,742 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:47:25,744 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:47:25,745 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:47:25,746 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:47:25,747 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:47:25,748 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:47:25,749 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:47:26,755 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:47:26,757 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:47:26,785 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:47:26,785 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:47:26,786 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:47:26,786 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:47:27,407 - INFO - Shard ID None has connected to Gateway (Session ID: b93e2402fecee63fe5ce370605778d52).
+2025-05-13 17:47:29,430 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:50:39,065 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:50:39,065 - INFO - logging in using static token
+2025-05-13 17:50:40,097 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:50:40,104 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:50:40,108 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:50:40,110 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:50:40,111 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:50:40,113 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:50:40,114 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:50:40,115 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:50:40,115 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:50:41,131 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:50:41,133 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:50:41,160 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:50:41,161 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:50:41,161 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:50:41,162 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:50:41,930 - INFO - Shard ID None has connected to Gateway (Session ID: af95a7066eabbcea6c3c2b0c103d171f).
+2025-05-13 17:50:44,022 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 17:53:14,062 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 17:53:14,062 - INFO - logging in using static token
+2025-05-13 17:53:14,765 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 17:53:14,772 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 17:53:14,776 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 17:53:14,778 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 17:53:14,779 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 17:53:14,781 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 17:53:14,782 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 17:53:14,782 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 17:53:14,783 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 17:53:15,796 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 17:53:15,798 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 17:53:15,825 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 17:53:15,827 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 17:53:15,827 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 17:53:15,828 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 17:53:16,376 - INFO - Shard ID None has connected to Gateway (Session ID: dcc5e1469aa6e6c90c6f79d2ef3b91bd).
+2025-05-13 17:53:18,402 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:00:07,274 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:00:07,274 - INFO - logging in using static token
+2025-05-13 18:00:08,166 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:00:08,175 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:00:08,177 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:00:08,179 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:00:08,179 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:00:08,182 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:00:08,182 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:00:08,183 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:00:08,184 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:00:09,198 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:00:09,199 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:00:09,231 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:00:09,232 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:00:09,232 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:00:09,233 - ERROR - \u274c Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:00:09,233 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:00:10,214 - INFO - Shard ID None has connected to Gateway (Session ID: 053c53362d412c3c8ade877c7883e25a).
+2025-05-13 18:00:12,250 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:03:04,018 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:03:04,018 - INFO - logging in using static token
+2025-05-13 18:03:04,693 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:03:04,702 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:03:04,704 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:03:04,705 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:03:04,706 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:03:04,708 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:03:04,709 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:03:04,709 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:03:04,710 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:03:05,713 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:03:05,715 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:03:05,743 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:03:05,744 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:03:05,745 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:03:05,745 - ERROR - \u274c Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:03:05,745 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:03:06,352 - INFO - Shard ID None has connected to Gateway (Session ID: 15b205063a220be955376d1c1d6059f1).
+2025-05-13 18:03:08,375 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:05:22,566 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:05:22,566 - INFO - logging in using static token
+2025-05-13 18:05:23,595 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:05:23,604 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:05:23,606 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:05:23,608 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:05:23,609 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:05:23,612 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:05:23,612 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:05:23,613 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:05:23,614 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:05:24,628 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:05:24,630 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:05:24,657 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:05:24,658 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:05:24,659 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:05:24,666 - ERROR - Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:05:24,666 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:05:25,480 - INFO - Shard ID None has connected to Gateway (Session ID: da33c7637ee4ea8986d99e81b833be9c).
+2025-05-13 18:05:27,677 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:08:04,576 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:08:04,577 - INFO - logging in using static token
+2025-05-13 18:08:05,415 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:08:05,424 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:08:05,426 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:08:05,428 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:08:05,429 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:08:05,431 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:08:05,432 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:08:05,432 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:08:05,433 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:08:06,441 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:08:06,443 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:08:06,471 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:08:06,472 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:08:06,473 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:08:06,480 - ERROR - Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:08:06,480 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:08:07,126 - INFO - Shard ID None has connected to Gateway (Session ID: 68fa7e7d85f46235a5120cb923dae7b8).
+2025-05-13 18:08:09,199 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:08:17,460 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:08:17,461 - INFO - logging in using static token
+2025-05-13 18:08:18,106 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:08:18,115 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:08:18,117 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:08:18,119 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:08:18,120 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:08:18,122 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:08:18,122 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:08:18,123 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:08:18,124 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:08:19,129 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:08:19,130 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:08:19,161 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:08:19,162 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:08:19,163 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:08:19,164 - ERROR - Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:08:19,164 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:08:19,776 - INFO - Shard ID None has connected to Gateway (Session ID: f846c23f7009f6f2671e31fbd0845c3e).
+2025-05-13 18:08:21,812 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:10:00,218 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:10:00,219 - INFO - logging in using static token
+2025-05-13 18:10:01,167 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:10:01,177 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:10:01,179 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:10:01,181 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:10:01,181 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:10:01,183 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:10:01,184 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:10:01,185 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:10:01,186 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:10:02,192 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:10:02,193 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:10:02,222 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:10:02,223 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:10:02,224 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:10:02,224 - ERROR - Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:10:02,224 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:10:03,025 - INFO - Shard ID None has connected to Gateway (Session ID: cbee3e918f87e8c2893a6870e9b65930).
+2025-05-13 18:10:05,062 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:12:47,033 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:12:47,033 - INFO - logging in using static token
+2025-05-13 18:12:47,689 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:12:47,696 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:12:47,700 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:12:47,701 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:12:47,702 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:12:47,704 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:12:47,705 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:12:47,705 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:12:47,707 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:12:48,715 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:12:48,717 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:12:48,745 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:12:48,746 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:12:48,746 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:12:48,747 - ERROR - Session kurulumu sýrasýnda hata: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:12:48,747 - ERROR - Failed to start dashboard: Fernet key must be 32 url-safe base64-encoded bytes.
+2025-05-13 18:12:49,329 - INFO - Shard ID None has connected to Gateway (Session ID: a6c8ec613b5492e758c42a68d2ae6c1f).
+2025-05-13 18:12:51,368 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:20:48,297 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:20:48,297 - INFO - logging in using static token
+2025-05-13 18:20:49,222 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:20:49,230 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:20:49,232 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:20:49,234 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:20:49,235 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:20:49,237 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:20:49,238 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:20:49,238 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:20:49,239 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:20:50,255 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:20:50,256 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:20:50,284 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:20:50,285 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:20:50,286 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:20:50,288 - ERROR - Failed to start dashboard: unterminated string literal (detected at line 32) (routes.py, line 32)
+2025-05-13 18:20:51,179 - INFO - Shard ID None has connected to Gateway (Session ID: 3e92ba1533c08a97714970bdcd6406e3).
+2025-05-13 18:20:53,218 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:21:48,263 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:21:48,263 - INFO - logging in using static token
+2025-05-13 18:21:49,040 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:21:49,050 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:21:49,052 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:21:49,053 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:21:49,054 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:21:49,056 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:21:49,057 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:21:49,057 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:21:49,058 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:21:50,073 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:21:50,075 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:21:50,102 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:21:50,103 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:21:50,104 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:21:50,114 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 18:21:50,808 - INFO - Shard ID None has connected to Gateway (Session ID: 8cb55fbe537a2fa405601ed81be0bf81).
+2025-05-13 18:21:52,838 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:21:53,888 - INFO - ::1 [13/May/2025:18:21:53 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:21:53,894 - INFO - ::1 [13/May/2025:18:21:53 +0300] "GET /static/css/style.css HTTP/1.1" 200 237 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:21:54,275 - INFO - ::1 [13/May/2025:18:21:54 +0300] "GET /static/js/main.js HTTP/1.1" 200 245 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:21:55,072 - INFO - ::1 [13/May/2025:18:21:55 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:03,342 - INFO - ::1 [13/May/2025:18:22:03 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:46,163 - INFO - ::1 [13/May/2025:18:22:45 +0300] "GET /callback?code=OLduN9nB59dtqvoNAELDiNXMlOYTxt HTTP/1.1" 302 180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:46,165 - INFO - ::1 [13/May/2025:18:22:46 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:50,858 - INFO - ::1 [13/May/2025:18:22:50 +0300] "GET / HTTP/1.1" 200 5477 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:52,953 - INFO - ::1 [13/May/2025:18:22:52 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:57,970 - INFO - ::1 [13/May/2025:18:22:57 +0300] "GET /callback?code=HVGM1maYjQaQ97F7dZXy2KKo2Q1gPX HTTP/1.1" 302 180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:22:57,972 - INFO - ::1 [13/May/2025:18:22:57 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:00,506 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:30:00,507 - INFO - logging in using static token
+2025-05-13 18:30:01,577 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:30:01,586 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:30:01,588 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:30:01,590 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:30:01,590 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:30:01,592 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:30:01,593 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:30:01,593 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:30:01,594 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:30:02,608 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:30:02,610 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:30:02,640 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:30:02,641 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:30:02,641 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:30:02,646 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 18:30:03,391 - INFO - Shard ID None has connected to Gateway (Session ID: c2d1423b63e9e693c6259eea28761de3).
+2025-05-13 18:30:04,532 - INFO - ::1 [13/May/2025:18:30:04 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:04,538 - INFO - ::1 [13/May/2025:18:30:04 +0300] "GET /static/css/style.css HTTP/1.1" 200 237 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:05,160 - INFO - ::1 [13/May/2025:18:30:05 +0300] "GET /static/js/main.js HTTP/1.1" 200 245 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:05,427 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:30:07,323 - INFO - ::1 [13/May/2025:18:30:07 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:24,246 - INFO - ::1 [13/May/2025:18:30:23 +0300] "GET /callback?code=yDRFI3JCiA0QIdCMvg69nS66ryu3QE HTTP/1.1" 302 180 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:30:24,247 - INFO - ::1 [13/May/2025:18:30:24 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:48,318 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 18:33:48,319 - INFO - logging in using static token
+2025-05-13 18:33:49,084 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 18:33:49,093 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 18:33:49,095 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 18:33:49,096 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 18:33:49,097 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 18:33:49,099 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 18:33:49,100 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 18:33:49,101 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 18:33:49,101 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 18:33:50,114 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 18:33:50,116 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 18:33:50,148 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 18:33:50,149 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 18:33:50,149 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 18:33:50,153 - INFO - \u2705 Dashboard started at http://localhost:8080
+2025-05-13 18:33:50,957 - INFO - Shard ID None has connected to Gateway (Session ID: 5a46180b2d704db6bff95506bf9e1da1).
+2025-05-13 18:33:52,872 - INFO - ::1 [13/May/2025:18:33:52 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:52,879 - INFO - ::1 [13/May/2025:18:33:52 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:52,880 - INFO - ::1 [13/May/2025:18:33:52 +0300] "GET /static/css/style.css HTTP/1.1" 304 179 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:52,992 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 18:33:54,811 - INFO - ::1 [13/May/2025:18:33:54 +0300] "GET / HTTP/1.1" 200 5477 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:55,887 - INFO - ::1 [13/May/2025:18:33:55 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:59,354 - INFO - ::1 [13/May/2025:18:33:58 +0300] "GET /callback?code=NNPHmSzxp2hi8Tmem6gzNY80QTtmTl HTTP/1.1" 302 541 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:59,358 - INFO - ::1 [13/May/2025:18:33:59 +0300] "GET /dashboard HTTP/1.1" 200 4340 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:33:59,367 - INFO - ::1 [13/May/2025:18:33:59 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:27,216 - INFO - ::1 [13/May/2025:18:35:27 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 36812 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:27,223 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 228, in wrapped
+    context = await func(*args)
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\auth.py", line 89, in wrapper
+    return await func(request)
+           ^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\views.py", line 52, in server_view
+    guild = request.app['bot'].get_guild(int(guild_id))
+                                         ~~~^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114bb894'
+2025-05-13 18:35:27,239 - INFO - ::1 [13/May/2025:18:35:27 +0300] "GET /server/a489b7ef27db279cfa475677114bb894 HTTP/1.1" 500 247 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:27,241 - INFO - ::1 [13/May/2025:18:35:27 +0300] "GET /static/js/server.js HTTP/1.1" 200 245 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:27,243 - INFO - ::1 [13/May/2025:18:35:27 +0300] "GET /api/guild/1253037947247267930 HTTP/1.1" 200 14961 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:28,777 - INFO - ::1 [13/May/2025:18:35:28 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 18:35:42,260 - INFO - ::1 [13/May/2025:18:35:42 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"

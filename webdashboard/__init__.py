@@ -1,70 +1,59 @@
-import asyncio
+import logging
 import aiohttp
 from aiohttp import web
-import discord
-import logging
+import asyncio
+import os
 import jinja2
 import aiohttp_jinja2
-import os
+import jwt
+import time
+import secrets
 
 class Dashboard:
-    def __init__(self, bot, client_id, client_secret, host="0.0.0.0", port=8080):
-        """Initialize the dashboard with the bot instance and configuration."""
+    def __init__(self, bot, client_id, client_secret, base_url="http://localhost", port=8080):
         self.bot = bot
         self.client_id = client_id
         self.client_secret = client_secret
-        self.host = host
+        self.base_url = base_url
         self.port = port
+        self.redirect_uri = f"{base_url}:{port}/callback"
+        # JWT için gizli anahtar
+        self.jwt_secret = secrets.token_hex(32)
         self.app = web.Application()
-        self.runner = None
-        self.site = None
-        self.session = None
+        self.setup_app()
         
+    def setup_app(self):
+        # Static dosyalar için klasör tanımla
+        static_dir = os.path.join(os.path.dirname(__file__), 'static')
+        if not os.path.exists(static_dir):
+            os.makedirs(static_dir)
+        self.app.router.add_static('/static/', path=static_dir, name='static')
+        
+        # Template sistemi kurulumu
+        template_dir = os.path.join(os.path.dirname(__file__), 'templates')
+        if not os.path.exists(template_dir):
+            os.makedirs(template_dir)
+        aiohttp_jinja2.setup(
+            self.app,
+            loader=jinja2.FileSystemLoader(template_dir)
+        )
+        
+        # JWT gizli anahtarını app'e ekle
+        self.app['jwt_secret'] = self.jwt_secret
+        
+        # Bot referansını app'e ekle
+        self.app['bot'] = self.bot
+        
+        # Route'ları yükle
+        from webdashboard.routes import setup_routes
+        setup_routes(self.app, self.bot, self.client_id, self.client_secret, self.redirect_uri)
+        
+        print("✅ Dashboard kurulumu tamamlandı")
+
     async def start(self):
-        """Start the dashboard web server."""
-        try:
-            # Create session
-            self.session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30))
-            
-            # Setup Jinja2 templates
-            aiohttp_jinja2.setup(
-                self.app, 
-                loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates'))
-            )
-            
-            # Setup static routes for CSS, JS, etc.
-            static_path = os.path.join(os.path.dirname(__file__), 'static')
-            if os.path.exists(static_path):
-                self.app.router.add_static('/static/', path=static_path, name='static')
-            else:
-                logging.warning(f"Static directory does not exist: {static_path}")
-            
-            # Import route setup functions
-            from .auth import setup_auth_routes
-            from .routes import setup_routes
-            from .api import setup_api_routes
-            
-            # Setup routes
-            setup_auth_routes(self.app, self)
-            setup_routes(self.app, self)
-            await setup_api_routes(self.app, self)
-            
-            # Start the web server
-            self.runner = web.AppRunner(self.app)
-            await self.runner.setup()
-            self.site = web.TCPSite(self.runner, self.host, self.port)
-            await self.site.start()
-            
-            logging.info(f"✅ Dashboard started on http://{self.host}:{self.port}")
-            print(f"✅ Dashboard started on http://{self.host}:{self.port}")
-        except Exception as e:
-            logging.error(f"Failed to start dashboard: {e}")
-            print(f"❌ Failed to start dashboard: {e}")
-    
-    async def stop(self):
-        """Stop the dashboard web server."""
-        if self.runner:
-            await self.runner.cleanup()
-        if self.session:
-            await self.session.close()
-        logging.info("Dashboard stopped")
+        runner = web.AppRunner(self.app)
+        await runner.setup()
+        self.site = web.TCPSite(runner, 'localhost', self.port)
+        await self.site.start()
+        logging.info(f"✅ Dashboard started at http://localhost:{self.port}")
+        print(f"✅ Web panel başlatıldı: http://localhost:{self.port}")

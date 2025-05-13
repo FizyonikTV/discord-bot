@@ -56,7 +56,7 @@ AUTO_MESSAGE_CHANNEL = 1371057475058401380
 # Dashboard için OAuth2 bilgileri
 OAUTH2 = {
     "client_id": "1357403500761452675",  # Discord Developer Portal'dan alın
-    "client_secret": "OkEiJYmhzqjFiZeGYX9iU_3YmGs3dIb0",  # Discord Developer Portal'dan alın
+    "client_secret": "bnrGDb9c3pSKWFEBDswAxeYaaFnDpSzE",  # Discord Developer Portal'dan alın
     "redirect_uri": "http://localhost:8080/callback"
 }
 
@@ -66,7 +66,7 @@ def get_oauth_creds():
 
 # Dashboard OAuth2 Configuration
 DASHBOARD_CLIENT_ID = "1357403500761452675"  # Discord Developer Portal'dan alınan Client ID
-DASHBOARD_CLIENT_SECRET = "OkEiJYmhzqjFiZeGYX9iU_3YmGs3dIb0"  # Discord Developer Portal'dan alınan Client Secret
+DASHBOARD_CLIENT_SECRET = "bnrGDb9c3pSKWFEBDswAxeYaaFnDpSzE"  # Discord Developer Portal'dan alınan Client Secret
 DASHBOARD_REDIRECT_URI = "http://localhost:8080/callback"  # OAuth2 yönlendirme URI'si
 
 # Görsel moderasyon için API anahtarı 

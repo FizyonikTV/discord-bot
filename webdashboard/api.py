@@ -1,8 +1,9 @@
+from datetime import datetime, timedelta
+from aiohttp_session import get_session
 import discord
 from aiohttp import web
 import json
-from datetime import datetime, timedelta
-from .auth import get_session
+from webdashboard.auth import get_user_from_token
 import logging
 import traceback
 
@@ -28,59 +29,83 @@ class BotAPI:
         return web.json_response(stats)
     
     async def get_guilds(self, request):
-        """Botun bulunduğu sunucuları listeler"""
-        session = await get_user_session(request)
-        if not session or "user_id" not in session:
-            return web.json_response({"error": "Authentication required"}, status=401)
-            
-        user_id = int(session["user_id"])
+        """Kullanıcının erişimi olan sunucuları listele"""
+        user = get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
         
-        # Bot sahibi kontrolü
-        is_owner = await self.bot.is_owner(discord.Object(user_id))
-        
+        # Kullanıcının erişimi olan sunucuları al
         guilds = []
         for guild in self.bot.guilds:
-            # Eğer kullanıcı bot sahibi değilse, sadece yönetici olduğu sunucuları görebilsin
-            if not is_owner:
-                member = guild.get_member(user_id)
-                if not member or not member.guild_permissions.administrator:
-                    continue
-                    
-            guilds.append({
-                "id": guild.id,
-                "name": guild.name,
-                "icon_url": str(guild.icon.url) if guild.icon else None,
-                "member_count": guild.member_count
-            })
-            
-        return web.json_response({"guilds": guilds})
+            member = guild.get_member(int(user['user_id']))
+            if member and member.guild_permissions.administrator:
+                guilds.append({
+                    "id": guild.id,
+                    "name": guild.name,
+                    "icon_url": str(guild.icon.url) if guild.icon else None,
+                    "member_count": guild.member_count,
+                    "bot_in_guild": True
+                })
         
+        return web.json_response({"guilds": guilds})
+    
     async def get_guild_info(self, request):
-        """Belirli bir sunucu hakkında detaylı bilgi verir"""
-        guild_id = request.match_info.get("guild_id")
-        if not guild_id:
-            return web.json_response({"error": "Guild ID is required"}, status=400)
-            
+        """Sunucu bilgilerini verir"""
+        user = get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
         guild = self.bot.get_guild(int(guild_id))
+        
         if not guild:
             return web.json_response({"error": "Guild not found"}, status=404)
-            
-        # Sunucu hakkında detaylı bilgileri topla
-        channels = [{"id": c.id, "name": c.name, "type": str(c.type)} for c in guild.channels]
-        roles = [{"id": r.id, "name": r.name, "color": r.color.value} for r in guild.roles]
         
-        guild_info = {
+        # Kullanıcının bu sunucuda admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Sunucu bilgilerini döndür
+        return web.json_response({
             "id": guild.id,
             "name": guild.name,
             "icon_url": str(guild.icon.url) if guild.icon else None,
-            "owner": {"id": guild.owner.id, "name": guild.owner.name},
-            "created_at": guild.created_at.isoformat(),
             "member_count": guild.member_count,
-            "channels": channels,
-            "roles": roles
-        }
+            "channels": [{"id": c.id, "name": c.name, "type": str(c.type)} for c in guild.channels],
+            "roles": [{"id": r.id, "name": r.name, "color": r.color.value} for r in guild.roles]
+        })
+    
+    async def update_guild_settings(self, request):
+        """Sunucu ayarlarını günceller"""
+        user = get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
         
-        return web.json_response(guild_info)
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının bu sunucuda admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Ayarları güncelle
+        try:
+            data = await request.json()
+            print(f"Guild settings update: {data}")
+            
+            # TODO: Veritabanına ayarları kaydet
+            
+            return web.json_response({"success": True})
+        except json.JSONDecodeError:
+            return web.json_response({"error": "Invalid JSON"}, status=400)
+        except Exception as e:
+            logging.error(f"Error updating guild settings: {e}")
+            return web.json_response({"error": str(e)}, status=500)
 
 async def setup_api_routes(app, dashboard):
     """Setup API routes for the dashboard."""

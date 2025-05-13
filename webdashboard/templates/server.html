@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}{{ guild.name }} - LunarisBot{% endblock %}
+
+{% block content %}
+<div class="server-header">
+    <div class="d-flex align-items-center">
+        {% if guild.icon_url %}
+        <img src="{{ guild.icon_url }}" class="server-page-icon" alt="{{ guild.name }}">
+        {% else %}
+        <div class="default-icon large">{{ guild.name[0] }}</div>
+        {% endif %}
+        <div class="ms-3">
+            <h1>{{ guild.name }}</h1>
+            <p>{{ guild.member_count }} üye</p>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-general-tab" data-bs-toggle="tab" data-bs-target="#nav-general">Genel</button>
+        <button class="nav-link" id="nav-invite-tab" data-bs-toggle="tab" data-bs-target="#nav-invite">Davet Sistemi</button>
+        <button class="nav-link" id="nav-moderation-tab" data-bs-toggle="tab" data-bs-target="#nav-moderation">Moderasyon</button>
+        <button class="nav-link" id="nav-giveaway-tab" data-bs-toggle="tab" data-bs-target="#nav-giveaway">Çekilişler</button>
+        <button class="nav-link" id="nav-automod-tab" data-bs-toggle="tab" data-bs-target="#nav-automod">AutoMod</button>
+        <button class="nav-link" id="nav-logs-tab" data-bs-toggle="tab" data-bs-target="#nav-logs">Loglar</button>
+    </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+    <!-- Genel Ayarlar -->
+    <div class="tab-pane fade show active" id="nav-general">
+        <div class="settings-panel">
+            <h3>Genel Ayarlar</h3>
+            <form id="general-settings-form">
+                <div class="mb-3">
+                    <label for="prefix" class="form-label">Komut Öneki</label>
+                    <input type="text" class="form-control" id="prefix" value="!" maxlength="5">
+                    <div class="form-text">Bot komutları için kullanılacak önek.</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="log-channel" class="form-label">Log Kanalı</label>
+                    <select class="form-select" id="log-channel">
+                        <option value="">Seçiniz</option>
+                        {% for channel in guild.channels %}
+                            {% if channel.type == 'text' %}
+                            <option value="{{ channel.id }}">{{ channel.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <div class="form-text">Bot işlemlerinin kayıtları bu kanala gönderilecektir.</div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Davet Sistemi -->
+    <div class="tab-pane fade" id="nav-invite">
+        <div class="settings-panel">
+            <h3>Davet Takip Sistemi</h3>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Davet İstatistikleri</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-around text-center">
+                        <div>
+                            <h3 id="total-invites">0</h3>
+                            <p>Toplam Davetler</p>
+                        </div>
+                        <div>
+                            <h3 id="active-inviters">0</h3>
+                            <p>Aktif Davetçiler</p>
+                        </div>
+                        <div>
+                            <h3 id="tracked-users">0</h3>
+                            <p>Takip Edilen Kullanıcılar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <form id="invite-settings-form">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="invite-system-toggle" checked>
+                    <label class="form-check-label" for="invite-system-toggle">Davet Takip Sistemi</label>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="welcome-channel" class="form-label">Karşılama Kanalı</label>
+                    <select class="form-select" id="welcome-channel">
+                        <option value="">Seçiniz</option>
+                        {% for channel in guild.channels %}
+                            {% if channel.type == 'text' %}
+                            <option value="{{ channel.id }}">{{ channel.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="invite-log-channel" class="form-label">Davet Log Kanalı</label>
+                    <select class="form-select" id="invite-log-channel">
+                        <option value="">Seçiniz</option>
+                        {% for channel in guild.channels %}
+                            {% if channel.type == 'text' %}
+                            <option value="{{ channel.id }}">{{ channel.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="welcome-message" class="form-label">Karşılama Mesajı</label>
+                    <textarea class="form-control" id="welcome-message" rows="3">{user.mention}, aramıza hoş geldin! {inviter.mention} tarafından davet edildin.</textarea>
+                    <div class="form-text">
+                        Kullanılabilir değişkenler: {user.mention}, {user.name}, {inviter.mention}, {inviter.name}, {guild.name}, {invite_count}
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+            
+            <div class="mt-4">
+                <h4>En İyi Davetçiler</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="invite-leaderboard">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kullanıcı</th>
+                                <th>Toplam</th>
+                                <th>Bonus</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" class="text-center">Yükleniyor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Diğer sekmelerin içeriği benzer şekilde detaylı olarak tanımlansın -->
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url('static', filename='js/server.js') }}"></script>
+{% endblock %}

@@ -4,6 +4,7 @@ import platform
 import psutil
 import datetime
 from config.config import IZIN_VERILEN_ROLLER
+from utils.permissions import has_mod_role, has_admin
 
 def has_required_role():
     async def predicate(ctx):
@@ -16,7 +17,7 @@ class BotInfo(commands.Cog):
         self.start_time = datetime.datetime.utcnow()
 
     @commands.command(name="botinfo")
-    @has_required_role()
+    @has_mod_role()
     async def botinfo(self, ctx):
         # Bot uptime hesaplama
         uptime = datetime.datetime.utcnow() - self.start_time

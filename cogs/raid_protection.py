@@ -6,6 +6,7 @@ from collections import deque
 import json
 import os
 import random
+from utils.permissions import has_mod_role, has_admin
 
 class RaidProtection(commands.Cog):
     def __init__(self, bot):
@@ -238,7 +239,7 @@ class RaidProtection(commands.Cog):
             pass
     
     @commands.group(name="raid", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def raid_commands(self, ctx):
         """Raid koruma komutları"""
         embed = discord.Embed(
@@ -261,7 +262,7 @@ class RaidProtection(commands.Cog):
         await ctx.send(embed=embed)
     
     @raid_commands.command(name="status")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def raid_status(self, ctx):
         """Raid koruması durum bilgisi"""
         embed = discord.Embed(
@@ -304,7 +305,7 @@ class RaidProtection(commands.Cog):
         await ctx.send(embed=embed)
     
     @raid_commands.command(name="toggle")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def raid_toggle(self, ctx):
         """Raid korumasını açıp kapatma"""
         self.config["enabled"] = not self.config["enabled"]
@@ -315,7 +316,7 @@ class RaidProtection(commands.Cog):
         await ctx.send(f"Raid koruma {status}")
     
     @raid_commands.command(name="settings")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def raid_settings(self, ctx):
         """Raid koruma ayarlarını göster"""
         embed = discord.Embed(
@@ -402,7 +403,7 @@ class RaidProtection(commands.Cog):
         await ctx.send(embed=embed)
 
     @raid_commands.command(name="set")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def raid_set(self, ctx, setting: str = None, *, value = None):
         """Raid koruma ayarlarını değiştir"""
         if setting is None or value is None:

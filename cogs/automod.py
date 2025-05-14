@@ -6,6 +6,7 @@ import os
 import asyncio
 from datetime import datetime, timedelta
 from config.config import BAN_LOG_KANAL_ID, WARN_LOG_KANAL_ID, TIMEOUT_LOG_KANAL_ID, YASAKLI
+from utils.permissions import has_mod_role, has_admin
 
 class AutoMod(commands.Cog):
     def __init__(self, bot):
@@ -495,7 +496,7 @@ class AutoMod(commands.Cog):
             return
     
     @commands.group(name="automod", aliases=["otomatikmod"], invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def automod(self, ctx):
         """Otomatik moderasyon ayarları"""
         embed = discord.Embed(
@@ -518,7 +519,7 @@ class AutoMod(commands.Cog):
         await ctx.send(embed=embed)
     
     @automod.command(name="toggle")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def automod_toggle(self, ctx):
         """Otomatik moderasyonu açar/kapatır"""
         self.config["enabled"] = not self.config["enabled"]
@@ -528,7 +529,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"Otomatik moderasyon: {status}")
     
     @automod.group(name="blacklist", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def automod_blacklist(self, ctx):
         """Yasaklı kelime listesini gösterir"""
         words = self.config["blacklisted_words"]
@@ -584,7 +585,7 @@ class AutoMod(commands.Cog):
                     break
     
     @automod_blacklist.command(name="add")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def blacklist_add(self, ctx, *, word):
         """Yasaklı kelime ekler"""
         if word.lower() not in map(str.lower, self.config["blacklisted_words"]):
@@ -595,7 +596,7 @@ class AutoMod(commands.Cog):
             await ctx.send("❌ Bu kelime zaten yasaklı listede.")
     
     @automod_blacklist.command(name="remove")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def blacklist_remove(self, ctx, *, word):
         """Yasaklı kelime kaldırır"""
         word_lower = word.lower()
@@ -609,7 +610,7 @@ class AutoMod(commands.Cog):
         await ctx.send("❌ Bu kelime yasaklı listede bulunamadı.")
     
     @automod.command(name="setlog")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def set_log_channel(self, ctx, channel: discord.TextChannel):
         """Log kanalını ayarlar"""
         self.config["log_channel"] = channel.id
@@ -617,7 +618,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ Log kanalı {channel.mention} olarak ayarlandı.")
     
     @automod.command(name="setresettime")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def set_reset_time(self, ctx, days: int):
         """İhlal sıfırlama süresini gün cinsinden ayarlar"""
         if days < 1:
@@ -628,7 +629,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ İhlaller artık {days} gün sonra sıfırlanacak.")
     
     @automod.command(name="settings")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def show_settings(self, ctx):
         """Tüm ayarları gösterir"""
         embed = discord.Embed(
@@ -676,7 +677,7 @@ class AutoMod(commands.Cog):
         await ctx.send(embed=embed)
     
     @automod.group(name="exempt", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def automod_exempt(self, ctx):
         """Muafiyet ayarlarını gösterir"""
         embed = discord.Embed(
@@ -725,13 +726,13 @@ class AutoMod(commands.Cog):
         await ctx.send(embed=embed)
     
     @automod_exempt.group(name="role", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_role(self, ctx):
         """Muaf rol komutlarını gösterir"""
         await ctx.send("❌ Lütfen bir alt komut belirtin: `add` veya `remove`")
     
     @exempt_role.command(name="add")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_role_add(self, ctx, role: discord.Role):
         """Muaf rol ekler"""
         if role.id in self.config["exempted_roles"]:
@@ -742,7 +743,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ {role.mention} artık otomatik moderasyondan muaf.")
     
     @exempt_role.command(name="remove")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_role_remove(self, ctx, role: discord.Role):
         """Muaf rolü kaldırır"""
         if role.id not in self.config["exempted_roles"]:
@@ -753,13 +754,13 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ {role.mention} artık otomatik moderasyona tabi.")
     
     @automod_exempt.group(name="channel", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_channel(self, ctx):
         """Muaf kanal komutlarını gösterir"""
         await ctx.send("❌ Lütfen bir alt komut belirtin: `add` veya `remove`")
     
     @exempt_channel.command(name="add")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_channel_add(self, ctx, channel: discord.TextChannel):
         """Muaf kanal ekler"""
         if channel.id in self.config["exempted_channels"]:
@@ -770,7 +771,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ {channel.mention} artık otomatik moderasyondan muaf.")
     
     @exempt_channel.command(name="remove")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def exempt_channel_remove(self, ctx, channel: discord.TextChannel):
         """Muaf kanalı kaldırır"""
         if channel.id not in self.config["exempted_channels"]:
@@ -781,7 +782,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ {channel.mention} artık otomatik moderasyona tabi.")
     
     @automod.command(name="ihlallar")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def view_violations(self, ctx, user: discord.Member):
         """Belirli bir kullanıcının ihlallerini gösterir"""
         user_id_str = str(user.id)
@@ -851,7 +852,7 @@ class AutoMod(commands.Cog):
         await ctx.send(embed=embed)
 
     @automod.command(name="ihlalsifirla")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def reset_violations(self, ctx, user: discord.Member = None):
         """Bir kullanıcının veya tüm kullanıcıların ihlallerini sıfırlar"""
         if user:
@@ -867,7 +868,7 @@ class AutoMod(commands.Cog):
             await ctx.send(f"✅ Tüm kullanıcıların ({count} kullanıcı) ihlalleri sıfırlandı.")
 
     @automod.group(name="regex", invoke_without_command=True)
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def automod_regex(self, ctx):
         """Regex kalıp listesini gösterir"""
         if not self.regex_patterns:
@@ -932,7 +933,7 @@ class AutoMod(commands.Cog):
                     break
 
     @automod_regex.command(name="add")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def regex_add(self, ctx, name: str, *, pattern: str):
         """Regex kalıbı ekler"""
         # Regex'i test et
@@ -954,7 +955,7 @@ class AutoMod(commands.Cog):
         await ctx.send(f"✅ `{name}` isimli regex kalıbı eklendi.")
 
     @automod_regex.command(name="remove")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def regex_remove(self, ctx, *, name: str):
         """Regex kalıbı kaldırır"""
         for i, pattern in enumerate(self.regex_patterns):
@@ -966,7 +967,7 @@ class AutoMod(commands.Cog):
         await ctx.send("❌ Bu isimde bir regex kalıbı bulunamadı.")
 
     @automod_regex.command(name="test")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def regex_test(self, ctx, *, text: str):
         """Metni regex kalıplarına karşı test eder"""
         matches = []

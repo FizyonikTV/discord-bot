@@ -8,7 +8,7 @@ class Tasks(commands.Cog):
         self.bot = bot
         self.morning_message.start()
         self.night_message.start()
-        self.channel_id = 1292912455390855233  # Mesajların gönderileceği kanal ID'si
+        self.channel_id = 1371057475058401380  # Mesajların gönderileceği kanal ID'si
 
     def cog_unload(self):
         self.morning_message.cancel()
@@ -21,7 +21,9 @@ class Tasks(commands.Cog):
         if channel:
             embed = discord.Embed(
                 title="🌅 Günaydın!",
-                description="Günaydın dostlarım <3 Mükemmel bir gün dilerim sizlere.",
+                description="Günaydın dostlarım <3 Mükemmel bir gün dilerim sizlere. \n\n"
+                            "Küfürsüz, düzgün ve özel bir gün geçirelim. \n\n"
+                            "Bugün de birlikte güzel anılar biriktirelim.",
                 color=0xffd700  # Altın sarısı
             )
             embed.set_footer(text="Lunaris Bot | Günlük Mesaj Sistemi")

@@ -21,6 +21,29 @@ document.addEventListener('DOMContentLoaded', function() {
     setupToastListeners();
 });
 
+// Genel hata yakalama
+window.addEventListener('error', function(event) {
+    reportError({
+        message: event.message,
+        location: event.filename + ':' + event.lineno,
+        stack: event.error ? event.error.stack : 'Stack trace not available'
+    });
+});
+
+// API istekleri için hata raporlama
+function reportError(error) {
+    fetch('/api/error-report', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(error)
+    }).catch(() => {
+        // Sessizce başarısız ol (zaten hata raporlayıcısında hata var)
+        console.error('Failed to report error:', error);
+    });
+}
+
 // Aktif sekmenin içeriğini yükle
 function loadActivePanelData() {
     const activeTab = document.querySelector('.nav-link.active');
@@ -44,9 +67,13 @@ function loadTabContent(tabId) {
             break;
         case '#v-pills-automod':
             loadAutomodSettings();
+            // Event listener'ları kur
+            document.getElementById('add-blacklisted-word').addEventListener('click', addBlacklistedWord);
+            document.getElementById('add-blacklisted-domain').addEventListener('click', addBlacklistedDomain);
             break;
         case '#v-pills-giveaway':
-            loadGiveawaySettings();
+            loadGiveaways();
+            setupGiveawayModal();
             break;
         case '#v-pills-logs':
             loadLogSettings();
@@ -136,6 +163,270 @@ function loadInviteSettings() {
             showApiError('#v-pills-invite', 'Davet verileri yüklenirken bir hata oluştu.');
             console.error('Error loading invite settings:', error);
         });
+}
+
+// AutoMod ayarlarını yükle
+function loadAutomodSettings() {
+    const guildId = getGuildId();
+    showTabLoading('#v-pills-automod');
+    
+    fetch(`/api/guild/${guildId}/automod/settings`)
+        .then(response => response.json())
+        .then(data => {
+            hideTabLoading('#v-pills-automod');
+            
+            if (data.error) {
+                showApiError('#v-pills-automod', data.error);
+                return;
+            }
+            
+            // Genel ayarlar
+            document.getElementById('automod-toggle').checked = data.enabled !== false;
+            
+            // Wordlist
+            updateBlacklistedWordsList(data.blacklisted_words || []);
+            updateBlacklistedDomainsList(data.blacklisted_domains || []);
+            
+            // Diğer ayarlar
+            if (data.max_mentions) {
+                document.getElementById('max-mentions').value = data.max_mentions;
+            }
+            
+            if (data.max_messages) {
+                document.getElementById('spam-message-count').value = data.max_messages;
+            }
+            
+            if (data.time_window) {
+                document.getElementById('spam-time-window').value = data.time_window;
+            }
+            
+            // Muaf roller ve kanallar listesi güncellenebilir
+        })
+        .catch(error => {
+            hideTabLoading('#v-pills-automod');
+            showApiError('#v-pills-automod', 'AutoMod ayarları yüklenirken bir hata oluştu.');
+            console.error('Error loading AutoMod settings:', error);
+        });
+}
+
+// Yasaklı kelime listesini güncelle
+function updateBlacklistedWordsList(words) {
+    const container = document.querySelector('.blacklisted-items-container.words-container');
+    
+    if (!words || words.length === 0) {
+        container.innerHTML = '<div class="text-center text-muted py-3">Yasaklı kelime bulunmuyor</div>';
+        return;
+    }
+    
+    container.innerHTML = '';
+    
+    words.forEach(word => {
+        const item = document.createElement('div');
+        item.className = 'blacklist-item d-flex justify-content-between align-items-center p-2 border-bottom';
+        
+        const wordSpan = document.createElement('span');
+        wordSpan.textContent = word;
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn btn-sm btn-outline-danger';
+        deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+        deleteBtn.onclick = function() {
+            removeBlacklistedWord(word);
+        };
+        
+        item.appendChild(wordSpan);
+        item.appendChild(deleteBtn);
+        container.appendChild(item);
+    });
+}
+
+// Yasaklı domain listesini güncelle
+function updateBlacklistedDomainsList(domains) {
+    const container = document.querySelector('.blacklisted-items-container.domains-container');
+    
+    if (!domains || domains.length === 0) {
+        container.innerHTML = '<div class="text-center text-muted py-3">Yasaklı domain bulunmuyor</div>';
+        return;
+    }
+    
+    container.innerHTML = '';
+    
+    domains.forEach(domain => {
+        const item = document.createElement('div');
+        item.className = 'blacklist-item d-flex justify-content-between align-items-center p-2 border-bottom';
+        
+        const domainSpan = document.createElement('span');
+        domainSpan.textContent = domain;
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn btn-sm btn-outline-danger';
+        deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+        deleteBtn.onclick = function() {
+            removeBlacklistedDomain(domain);
+        };
+        
+        item.appendChild(domainSpan);
+        item.appendChild(deleteBtn);
+        container.appendChild(item);
+    });
+}
+
+// Yasaklı kelime ekle
+function addBlacklistedWord() {
+    const input = document.getElementById('blacklisted-word');
+    const word = input.value.trim();
+    
+    if (!word) {
+        showToast('Lütfen bir kelime girin', 'warning');
+        return;
+    }
+    
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/automod/blacklist/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ word: word })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast(`"${word}" yasaklı kelimelere eklendi`, 'success');
+            input.value = '';
+            // Listeyi yeniden yükle
+            loadAutomodSettings();
+        } else {
+            showToast('Kelime eklenirken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// Yasaklı kelime kaldır
+function removeBlacklistedWord(word) {
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/automod/blacklist/remove`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ word: word })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast(`"${word}" yasaklı kelimelerden kaldırıldı`, 'success');
+            // Listeyi yeniden yükle
+            loadAutomodSettings();
+        } else {
+            showToast('Kelime kaldırılırken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// Yasaklı domain ekle
+function addBlacklistedDomain() {
+    const input = document.getElementById('blacklisted-domain');
+    const domain = input.value.trim();
+    
+    if (!domain) {
+        showToast('Lütfen bir domain girin', 'warning');
+        return;
+    }
+    
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/automod/domain/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ domain: domain })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast(`"${domain}" yasaklı domainlere eklendi`, 'success');
+            input.value = '';
+            // Listeyi yeniden yükle
+            loadAutomodSettings();
+        } else {
+            showToast('Domain eklenirken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// Yasaklı domain kaldır
+function removeBlacklistedDomain(domain) {
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/automod/domain/remove`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ domain: domain })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast(`"${domain}" yasaklı domainlerden kaldırıldı`, 'success');
+            // Listeyi yeniden yükle
+            loadAutomodSettings();
+        } else {
+            showToast('Domain kaldırılırken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// AutoMod ayarlarını kaydet
+function saveAutomodSettings(form) {
+    const guildId = getGuildId();
+    showLoading(form);
+    
+    const settings = {
+        enabled: document.getElementById('automod-toggle').checked,
+        max_mentions: parseInt(document.getElementById('max-mentions').value),
+        max_messages: parseInt(document.getElementById('spam-message-count').value),
+        time_window: parseInt(document.getElementById('spam-time-window').value)
+    };
+    
+    fetch(`/api/guild/${guildId}/automod/settings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settings)
+    })
+    .then(response => response.json())
+    .then(data => {
+        hideLoading(form);
+        
+        if (data.success) {
+            showToast('AutoMod ayarları başarıyla güncellendi!', 'success');
+        } else {
+            showToast('Ayarlar güncellenirken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        hideLoading(form);
+        showToast('Bir hata oluştu: ' + error, 'error');
+        console.error('Error saving AutoMod settings:', error);
+    });
 }
 
 // Oyun haberleri ayarlarını yükle
@@ -291,6 +582,345 @@ function saveGameNewsSettings(form) {
     });
 }
 
+// Çekiliş yönetimi için gerekli fonksiyonlar
+
+// Çekilişleri yükle
+function loadGiveaways() {
+    const guildId = getGuildId();
+    showTabLoading('#v-pills-giveaway');
+    
+    fetch(`/api/guild/${guildId}/giveaways`)
+        .then(response => response.json())
+        .then(data => {
+            hideTabLoading('#v-pills-giveaway');
+            
+            if (data.error) {
+                showApiError('#v-pills-giveaway', data.error);
+                return;
+            }
+            
+            // Aktif çekilişleri göster
+            updateActiveGiveaways(data.active || []);
+            
+            // Geçmiş çekilişleri göster
+            updatePastGiveaways(data.past || []);
+        })
+        .catch(error => {
+            hideTabLoading('#v-pills-giveaway');
+            showApiError('#v-pills-giveaway', 'Çekilişler yüklenirken bir hata oluştu.');
+            console.error('Error loading giveaways:', error);
+        });
+}
+
+// Aktif çekilişleri listele
+function updateActiveGiveaways(giveaways) {
+    const tableBody = document.querySelector('#active-giveaways-table tbody');
+    const noGiveawaysMsg = document.getElementById('no-active-giveaways');
+    
+    tableBody.innerHTML = '';
+    
+    if (!giveaways || giveaways.length === 0) {
+        noGiveawaysMsg.classList.remove('d-none');
+        return;
+    }
+    
+    noGiveawaysMsg.classList.add('d-none');
+    
+    giveaways.forEach(giveaway => {
+        const row = document.createElement('tr');
+        
+        // Ödül hücresi
+        const prizeCell = document.createElement('td');
+        prizeCell.textContent = giveaway.prize;
+        row.appendChild(prizeCell);
+        
+        // Kanal hücresi
+        const channelCell = document.createElement('td');
+        channelCell.textContent = `#${giveaway.channel_name}`;
+        row.appendChild(channelCell);
+        
+        // Bitiş tarihi hücresi
+        const endTimeCell = document.createElement('td');
+        const endTime = new Date(giveaway.end_time);
+        const timeRemaining = getTimeRemaining(endTime);
+        endTimeCell.innerHTML = `<span class="countdown" data-end="${giveaway.end_time}">${timeRemaining}</span>`;
+        row.appendChild(endTimeCell);
+        
+        // Katılımcılar hücresi
+        const entriesCell = document.createElement('td');
+        entriesCell.textContent = giveaway.entries;
+        row.appendChild(entriesCell);
+        
+        // Kazanan sayısı hücresi
+        const winnersCell = document.createElement('td');
+        winnersCell.textContent = giveaway.winner_count;
+        row.appendChild(winnersCell);
+        
+        // İşlemler hücresi
+        const actionsCell = document.createElement('td');
+        
+        // Düzenle butonu
+        const editBtn = document.createElement('button');
+        editBtn.className = 'btn btn-sm btn-outline-primary me-1';
+        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+        editBtn.onclick = function() {
+            editGiveaway(giveaway.id);
+        };
+        actionsCell.appendChild(editBtn);
+        
+        // Bitir butonu
+        const endBtn = document.createElement('button');
+        endBtn.className = 'btn btn-sm btn-outline-warning me-1';
+        endBtn.innerHTML = '<i class="fas fa-stop"></i>';
+        endBtn.onclick = function() {
+            endGiveaway(giveaway.id);
+        };
+        actionsCell.appendChild(endBtn);
+        
+        // Sil butonu
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn btn-sm btn-outline-danger';
+        deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+        deleteBtn.onclick = function() {
+            deleteGiveaway(giveaway.id);
+        };
+        actionsCell.appendChild(deleteBtn);
+        
+        row.appendChild(actionsCell);
+        
+        tableBody.appendChild(row);
+    });
+    
+    // Countdownları güncelle
+    startCountdownUpdates();
+}
+
+// Geçmiş çekilişleri listele
+function updatePastGiveaways(giveaways) {
+    const tableBody = document.querySelector('#past-giveaways-table tbody');
+    const noGiveawaysMsg = document.getElementById('no-past-giveaways');
+    
+    tableBody.innerHTML = '';
+    
+    if (!giveaways || giveaways.length === 0) {
+        noGiveawaysMsg.classList.remove('d-none');
+        return;
+    }
+    
+    noGiveawaysMsg.classList.add('d-none');
+    
+    giveaways.forEach(giveaway => {
+        const row = document.createElement('tr');
+        
+        // Ödül hücresi
+        const prizeCell = document.createElement('td');
+        prizeCell.textContent = giveaway.prize;
+        row.appendChild(prizeCell);
+        
+        // Kanal hücresi
+        const channelCell = document.createElement('td');
+        channelCell.textContent = `#${giveaway.channel_name}`;
+        row.appendChild(channelCell);
+        
+        // Bitiş tarihi hücresi
+        const endTimeCell = document.createElement('td');
+        const endDate = new Date(giveaway.end_time);
+        endTimeCell.textContent = endDate.toLocaleDateString() + ' ' + endDate.toLocaleTimeString();
+        row.appendChild(endTimeCell);
+        
+        // Katılımcılar hücresi
+        const entriesCell = document.createElement('td');
+        entriesCell.textContent = giveaway.entries;
+        row.appendChild(entriesCell);
+        
+        // Kazananlar hücresi
+        const winnersCell = document.createElement('td');
+        if (giveaway.winners && giveaway.winners.length > 0) {
+            winnersCell.textContent = giveaway.winners.join(', ');
+        } else {
+            winnersCell.innerHTML = '<em>Kazanan yok</em>';
+        }
+        row.appendChild(winnersCell);
+        
+        tableBody.appendChild(row);
+    });
+}
+
+// Kalan süreyi hesapla
+function getTimeRemaining(endTime) {
+    const total = Date.parse(endTime) - Date.parse(new Date());
+    
+    if (total <= 0) {
+        return 'Bitti';
+    }
+    
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    
+    if (days > 0) {
+        return `${days} gün ${hours} saat`;
+    }
+    
+    return `${hours} saat ${minutes} dakika`;
+}
+
+// Geri sayımları güncelle
+function startCountdownUpdates() {
+    // Her dakika güncelleme yap
+    setInterval(() => {
+        const countdowns = document.querySelectorAll('.countdown');
+        countdowns.forEach(el => {
+            const endTime = el.dataset.end;
+            el.textContent = getTimeRemaining(endTime);
+        });
+    }, 60000); // 1 dakika
+}
+
+// Çekiliş modalını ayarla
+function setupGiveawayModal() {
+    document.getElementById('create-giveaway-btn').addEventListener('click', function() {
+        const modal = new bootstrap.Modal(document.getElementById('create-giveaway-modal'));
+        modal.show();
+    });
+    
+    document.getElementById('giveaway-required-role-toggle').addEventListener('change', function() {
+        document.getElementById('required-role-container').style.display = this.checked ? 'block' : 'none';
+    });
+    
+    document.getElementById('start-giveaway-btn').addEventListener('click', function() {
+        createGiveaway();
+    });
+}
+
+// Yeni çekiliş oluştur
+function createGiveaway() {
+    const form = document.getElementById('giveaway-form');
+    
+    // Form doğrulama
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    
+    const prize = document.getElementById('giveaway-prize').value;
+    const channelId = document.getElementById('giveaway-channel').value;
+    const winnerCount = document.getElementById('giveaway-winners').value;
+    const duration = document.getElementById('giveaway-duration').value;
+    const description = document.getElementById('giveaway-description').value;
+    
+    let requiredRoleId = null;
+    if (document.getElementById('giveaway-required-role-toggle').checked) {
+        requiredRoleId = document.getElementById('giveaway-required-role').value;
+    }
+    
+    const guildId = getGuildId();
+    const saveBtn = document.getElementById('start-giveaway-btn');
+    
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Oluşturuluyor...';
+    
+    fetch(`/api/guild/${guildId}/giveaways/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            prize: prize,
+            channel_id: channelId,
+            winner_count: parseInt(winnerCount),
+            duration_hours: parseInt(duration),
+            description: description,
+            required_role_id: requiredRoleId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<i class="fas fa-play"></i> Çekilişi Başlat';
+        
+        if (data.success) {
+            showToast('Çekiliş başarıyla oluşturuldu!', 'success');
+            bootstrap.Modal.getInstance(document.getElementById('create-giveaway-modal')).hide();
+            
+            // Form alanlarını temizle
+            document.getElementById('giveaway-prize').value = '';
+            document.getElementById('giveaway-description').value = '';
+            document.getElementById('giveaway-winners').value = '1';
+            document.getElementById('giveaway-duration').value = '24';
+            document.getElementById('giveaway-required-role-toggle').checked = false;
+            document.getElementById('required-role-container').style.display = 'none';
+            
+            // Çekiliş listesini yenile
+            loadGiveaways();
+        } else {
+            showToast('Çekiliş oluşturulurken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = '<i class="fas fa-play"></i> Çekilişi Başlat';
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// Çekiliş düzenle
+function editGiveaway(giveawayId) {
+    // İlgili implementasyon eklenebilir
+    showToast('Çekiliş düzenleme özelliği yakında eklenecek', 'info');
+}
+
+// Çekilişi erken bitir
+function endGiveaway(giveawayId) {
+    if (!confirm('Çekilişi şimdi bitirmek istediğinize emin misiniz?')) {
+        return;
+    }
+    
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/giveaways/${giveawayId}/end`, {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Çekiliş başarıyla sonlandırıldı!', 'success');
+            loadGiveaways();
+        } else {
+            showToast('Çekiliş sonlandırılırken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
+// Çekiliş sil
+function deleteGiveaway(giveawayId) {
+    if (!confirm('Çekilişi silmek istediğinize emin misiniz? Bu işlem geri alınamaz!')) {
+        return;
+    }
+    
+    const guildId = getGuildId();
+    
+    fetch(`/api/guild/${guildId}/giveaways/${giveawayId}/delete`, {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showToast('Çekiliş başarıyla silindi!', 'success');
+            loadGiveaways();
+        } else {
+            showToast('Çekiliş silinirken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        showToast('Bir hata oluştu: ' + error, 'error');
+    });
+}
+
 // Diğer içerik yükleme fonksiyonları benzer şekilde oluşturulabilir
 
 // İstatistikleri güncelle
@@ -400,6 +1030,15 @@ function setupFormListeners() {
         gameNewsForm.addEventListener('submit', function(e) {
             e.preventDefault();
             saveGameNewsSettings(this);
+        });
+    }
+    
+    // AutoMod ayarları formu
+    const automodForm = document.getElementById('automod-settings-form');
+    if (automodForm) {
+        automodForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveAutomodSettings(this);
         });
     }
     
@@ -867,7 +1506,8 @@ function setupToastListeners() {
     });
 }
 
-// Toast mesajı göster
+// main.js dosyasındaki showToast fonksiyonu ile çakışmayı önleyin
+// Bu satırın üstündeki tüm kodları koruyun
 function showToast(message, type = 'info') {
     // Toast container oluştur (yoksa)
     let toastContainer = document.querySelector('.toast-container');
@@ -907,7 +1547,7 @@ function showToast(message, type = 'info') {
                 <i class="${toastIcon} me-2"></i>
                 <strong class="me-auto">LunarisBot</strong>
                 <small>Şimdi</small>
-                <button type="button" class="btn-close toast-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white toast-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
                 ${message}
@@ -920,14 +1560,15 @@ function showToast(message, type = 'info') {
     
     // Belirli bir süre sonra otomatik kapat
     setTimeout(() => {
-        const toast = document.getElementById(id);
-        if (toast) {
-            toast.classList.remove('show');
+        const toastElement = document.getElementById(id);
+        if (toastElement) {
+            // Toast'ı kaldır
+            toastElement.classList.remove('show');
             setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.parentNode.removeChild(toast);
+                if (toastElement.parentNode) {
+                    toastElement.parentNode.removeChild(toastElement);
                 }
-            }, 500);
+            }, 300);
         }
     }, 5000);
 }

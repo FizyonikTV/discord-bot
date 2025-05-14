@@ -11,17 +11,16 @@
         "TIMEOUTLAR": [],
         "BANLAR": []
     },
-    "614559782355075083": {
-        "UYARILAR": [],
-        "TIMEOUTLAR": [
+    "698096103815512105": {
+        "UYARILAR": [
             {
-                "sebep": "60 saniye, Sebep: Deneme",
+                "sebep": "deneme",
                 "moderator": "eonjinwoo",
                 "moderator_id": 992110844886396978,
-                "tarih": "13.05.2025 04:30",
-                "süre": "60 saniye"
+                "tarih": "13.05.2025 22:56"
             }
         ],
+        "TIMEOUTLAR": [],
         "BANLAR": []
     }
 }

@@ -8334,3 +8334,601 @@ ValueError: invalid literal for int() with base 10: 'a489b7ef27db279cfa475677114
 2025-05-13 21:12:33,157 - INFO - ::1 [13/May/2025:21:12:33 +0300] "GET /api/guild/1253037947247267930/invites HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
 2025-05-13 21:12:40,517 - INFO - ::1 [13/May/2025:21:12:40 +0300] "GET /api/guild/1253037947247267930/game-news/settings HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
 2025-05-13 21:12:56,235 - INFO - ::1 [13/May/2025:21:12:56 +0300] "GET /api/guild/1253037947247267930/notes/540962213108908032 HTTP/1.1" 404 175 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:13,490 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 415, in block 'content'
+    {% if not role.is_default() %}
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'is_default'
+2025-05-13 21:28:13,504 - INFO - ::1 [13/May/2025:21:28:13 +0300] "GET /server/1253037947247267930 HTTP/1.1" 500 337 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:18,785 - INFO - ::1 [13/May/2025:21:28:18 +0300] "GET / HTTP/1.1" 200 9495 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:18,795 - INFO - ::1 [13/May/2025:21:28:18 +0300] "GET /static/css/style.css HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:18,795 - INFO - ::1 [13/May/2025:21:28:18 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:18,809 - INFO - ::1 [13/May/2025:21:28:18 +0300] "GET /static/img/grid-pattern.svg HTTP/1.1" 404 173 "http://localhost:8080/static/css/style.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:20,243 - INFO - ::1 [13/May/2025:21:28:20 +0300] "GET /dashboard HTTP/1.1" 200 4340 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:20,252 - INFO - ::1 [13/May/2025:21:28:20 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:28:21,213 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 415, in block 'content'
+    {% if not role.is_default() %}
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'is_default'
+2025-05-13 21:28:21,214 - INFO - ::1 [13/May/2025:21:28:21 +0300] "GET /server/1253037947247267930 HTTP/1.1" 500 337 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:15,518 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 415, in block 'content'
+    {% if not role.is_default() %}
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'is_default'
+2025-05-13 21:35:15,520 - INFO - ::1 [13/May/2025:21:35:15 +0300] "GET /server/1253037947247267930 HTTP/1.1" 500 337 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:16,513 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\server.html", line 415, in block 'content'
+    {% if not role.is_default() %}
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'is_default'
+2025-05-13 21:35:16,514 - INFO - ::1 [13/May/2025:21:35:16 +0300] "GET /server/1253037947247267930 HTTP/1.1" 500 337 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:17,991 - INFO - ::1 [13/May/2025:21:35:17 +0300] "GET / HTTP/1.1" 200 9495 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:17,998 - INFO - ::1 [13/May/2025:21:35:17 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:17,999 - INFO - ::1 [13/May/2025:21:35:17 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:18,002 - INFO - ::1 [13/May/2025:21:35:18 +0300] "GET /static/img/grid-pattern.svg HTTP/1.1" 404 173 "http://localhost:8080/static/css/style.css" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:18,885 - INFO - ::1 [13/May/2025:21:35:18 +0300] "GET / HTTP/1.1" 200 9495 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:18,891 - INFO - ::1 [13/May/2025:21:35:18 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:19,456 - INFO - ::1 [13/May/2025:21:35:19 +0300] "GET / HTTP/1.1" 200 9495 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:19,462 - INFO - ::1 [13/May/2025:21:35:19 +0300] "GET /a489b7ef27db279cfa475677114bb894 HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:20,420 - INFO - ::1 [13/May/2025:21:35:20 +0300] "GET /logout HTTP/1.1" 302 259 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:20,423 - INFO - ::1 [13/May/2025:21:35:20 +0300] "GET / HTTP/1.1" 200 8714 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:21,850 - INFO - ::1 [13/May/2025:21:35:21 +0300] "GET / HTTP/1.1" 200 8714 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:33,335 - INFO - ::1 [13/May/2025:21:35:33 +0300] "GET / HTTP/1.1" 200 8714 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:34,242 - INFO - ::1 [13/May/2025:21:35:34 +0300] "GET /login HTTP/1.1" 302 338 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:38,594 - INFO - ::1 [13/May/2025:21:35:37 +0300] "GET /callback?code=xd1l1nv5TJdd6yNvjAah8d2nuy3C0B HTTP/1.1" 302 541 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:35:38,600 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 36, in block 'content'
+    <h2 class="stat-number" id="user-count">{{ bot_stats.user_count }}</h2>
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bot_stats' is undefined
+2025-05-13 21:35:38,602 - INFO - ::1 [13/May/2025:21:35:38 +0300] "GET /dashboard HTTP/1.1" 500 337 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:50:04,291 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 36, in block 'content'
+    <h2 class="stat-number" id="user-count">{{ bot_stats.user_count }}</h2>
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bot_stats' is undefined
+2025-05-13 21:50:04,292 - INFO - ::1 [13/May/2025:21:50:04 +0300] "GET /dashboard HTTP/1.1" 500 337 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:50:04,746 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 36, in block 'content'
+    <h2 class="stat-number" id="user-count">{{ bot_stats.user_count }}</h2>
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bot_stats' is undefined
+2025-05-13 21:50:04,747 - INFO - ::1 [13/May/2025:21:50:04 +0300] "GET /dashboard HTTP/1.1" 500 337 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:50:05,634 - ERROR - Error handling request from ::1
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_protocol.py", line 510, in _handle_request
+    resp = await request_handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp\web_app.py", line 569, in _handle
+    return await handler(request)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 244, in wrapped
+    response = render_template(
+        template_name, request, context, app_key=app_key, encoding=encoding
+    )
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 176, in render_template
+    response.text = render_string(template_name, request, context, app_key=app_key)
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\aiohttp_jinja2\__init__.py", line 139, in render_string
+    return template.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\base.html", line 62, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\templates\dashboard.html", line 36, in block 'content'
+    <h2 class="stat-number" id="user-count">{{ bot_stats.user_count }}</h2>
+    
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'bot_stats' is undefined
+2025-05-13 21:50:05,635 - INFO - ::1 [13/May/2025:21:50:05 +0300] "GET /dashboard HTTP/1.1" 500 337 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 21:59:18,189 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 21:59:18,190 - INFO - logging in using static token
+2025-05-13 21:59:18,932 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 21:59:18,941 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 21:59:18,943 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 21:59:18,945 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 21:59:18,945 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 21:59:18,948 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 21:59:18,948 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 21:59:18,949 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 21:59:18,950 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 21:59:19,966 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 21:59:19,968 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 21:59:19,995 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 21:59:19,997 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 21:59:19,997 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 21:59:20,000 - ERROR - Could not import dashboard configuration from config.py
+2025-05-13 21:59:20,523 - INFO - Shard ID None has connected to Gateway (Session ID: 8c713f83a2bb2c666c6d076ff5d97ea9).
+2025-05-13 21:59:22,563 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 22:01:49,685 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 22:01:49,685 - INFO - logging in using static token
+2025-05-13 22:01:50,677 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 22:01:50,687 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 22:01:50,689 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 22:01:50,691 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 22:01:50,692 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 22:01:50,694 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 22:01:50,695 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 22:01:50,695 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 22:01:50,696 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 22:01:51,712 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 22:01:51,713 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 22:01:51,742 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 22:01:51,743 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 22:01:51,743 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 22:01:51,746 - ERROR - Could not import dashboard configuration from config.py
+2025-05-13 22:01:52,480 - INFO - Shard ID None has connected to Gateway (Session ID: 057b2b3c1050d2c8bffa447b1c47688e).
+2025-05-13 22:01:54,517 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 22:02:13,667 - ERROR - Ignoring exception in command temizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 926, in prepare
+    raise CheckFailure(f'The check functions for command {self.qualified_name} failed.')
+discord.ext.commands.errors.CheckFailure: The check functions for command temizle failed.
+2025-05-13 22:14:18,586 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 22:14:18,586 - INFO - logging in using static token
+2025-05-13 22:14:19,290 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 22:14:19,297 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 22:14:19,301 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 22:14:19,303 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 22:14:19,304 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 22:14:19,306 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 22:14:19,306 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 22:14:19,307 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 22:14:19,308 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 22:14:20,317 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 22:14:20,319 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 22:14:20,349 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 22:14:20,350 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 22:14:20,351 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 22:14:21,105 - INFO - Shard ID None has connected to Gateway (Session ID: 91726bf5ebf3b635fb0d44ecc846a095).
+2025-05-13 22:14:23,291 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 22:14:26,937 - INFO - 127.0.0.1 [13/May/2025:22:14:26 +0300] "GET / HTTP/1.1" 200 4211 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:26,952 - INFO - 127.0.0.1 [13/May/2025:22:14:26 +0300] "GET /static/js/main.js HTTP/1.1" 200 245 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:26,952 - INFO - 127.0.0.1 [13/May/2025:22:14:26 +0300] "GET /static/css/styles.css HTTP/1.1" 200 237 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:27,638 - INFO - 127.0.0.1 [13/May/2025:22:14:27 +0300] "GET /favicon.ico HTTP/1.1" 404 175 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:32,275 - INFO - 127.0.0.1 [13/May/2025:22:14:32 +0300] "GET / HTTP/1.1" 200 4211 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:32,283 - INFO - 127.0.0.1 [13/May/2025:22:14:32 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:40,899 - INFO - 127.0.0.1 [13/May/2025:22:14:40 +0300] "GET /dashboard HTTP/1.1" 302 185 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:40,901 - INFO - 127.0.0.1 [13/May/2025:22:14:40 +0300] "GET /login HTTP/1.1" 302 334 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:44,841 - INFO - 127.0.0.1 [13/May/2025:22:14:43 +0300] "GET /callback?code=fvGdlVLe1gzfC9qOAMf7NLp6MNyFJw HTTP/1.1" 302 1811 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:44,846 - INFO - 127.0.0.1 [13/May/2025:22:14:44 +0300] "GET /dashboard HTTP/1.1" 200 7494 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:44,862 - INFO - 127.0.0.1 [13/May/2025:22:14:44 +0300] "GET /static/css/styles.css HTTP/1.1" 304 179 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:14:44,862 - INFO - 127.0.0.1 [13/May/2025:22:14:44 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:15:02,786 - INFO - 127.0.0.1 [13/May/2025:22:15:02 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 142783 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:15:02,795 - INFO - 127.0.0.1 [13/May/2025:22:15:02 +0300] "GET /static/css/styles.css HTTP/1.1" 304 179 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:15:02,797 - INFO - 127.0.0.1 [13/May/2025:22:15:02 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/server/1253037947247267930" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 22:16:49,076 - ERROR - Ignoring exception in command uyar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\cogs\moderation.py", line 91, in warn
+    await self.add_mod_note(member.id, "UYARILAR", reason, ctx.author)
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\cogs\moderation.py", line 45, in add_mod_note
+    "tarih": datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
+             ^^^^^^^^^^^^^^^^^
+AttributeError: type object 'datetime.datetime' has no attribute 'datetime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: type object 'datetime.datetime' has no attribute 'datetime'
+2025-05-13 22:17:23,266 - ERROR - Ignoring exception in command zaman
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1335, in _actual_conversion
+    return converter(argument)
+ValueError: invalid literal for int() with base 10: '60s'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 715, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1444, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\converter.py", line 1344, in _actual_conversion
+    raise BadArgument(f'Converting to "{name}" failed for parameter "{param.name}".') from exc
+discord.ext.commands.errors.BadArgument: Converting to "int" failed for parameter "duration".
+2025-05-13 22:30:18,099 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 22:30:18,100 - INFO - logging in using static token
+2025-05-13 22:30:18,962 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 22:30:18,970 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 22:30:18,974 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 22:30:18,976 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 22:30:18,977 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 22:30:18,978 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 22:30:18,979 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 22:30:18,979 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 22:30:18,982 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 22:30:18,987 - ERROR - \u274c Failed to load cog notes.py: Extension 'cogs.notes' raised an error: TypeError: object NoneType can't be used in 'await' expression
+2025-05-13 22:30:18,989 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 22:30:19,018 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 22:30:19,019 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 22:30:19,020 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 22:30:19,762 - INFO - Shard ID None has connected to Gateway (Session ID: 75b2f2f22f0170552dd6f4deeddeb10d).
+2025-05-13 22:30:21,788 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 22:34:40,496 - ERROR - Ignoring exception in command temizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\cogs\utilities.py", line 442, in temizle
+    await info_message.delete()
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\message.py", line 1304, in delete
+    await self._state.http.delete_message(self.channel.id, self.id)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\http.py", line 758, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10008): Unknown Message
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: NotFound: 404 Not Found (error code: 10008): Unknown Message
+2025-05-13 22:34:43,437 - ERROR - Ignoring exception in command temizle
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 937, in prepare
+    self._prepare_cooldowns(ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 920, in _prepare_cooldowns
+    raise CommandOnCooldown(bucket, retry_after, self._buckets.type)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+discord.ext.commands.errors.CommandOnCooldown: You are on cooldown. Try again in 1.07s
+2025-05-13 22:35:34,438 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "zamankaldir" is not found
+2025-05-13 22:35:47,375 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "zamankaldýr" is not found
+2025-05-13 22:39:07,109 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "notlar" is not found
+2025-05-13 22:39:12,735 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "notlar" is not found
+2025-05-13 22:50:02,146 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 22:50:02,146 - INFO - logging in using static token
+2025-05-13 22:50:03,166 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 22:50:03,173 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 22:50:03,177 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 22:50:03,179 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 22:50:03,180 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 22:50:03,182 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 22:50:03,182 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 22:50:03,183 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 22:50:03,198 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 22:50:03,201 - ERROR - \u274c Failed to load cog notes.py: Extension 'cogs.notes' raised an error: TypeError: object NoneType can't be used in 'await' expression
+2025-05-13 22:50:03,203 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 22:50:03,233 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 22:50:03,234 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 22:50:03,235 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 22:50:04,258 - INFO - Shard ID None has connected to Gateway (Session ID: a0bce5409917a82cda85997106a07df7).
+2025-05-13 22:50:06,295 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 22:50:10,707 - ERROR - Ignoring exception in command notlar
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: user_id is a required argument that is missing.
+2025-05-13 22:56:16,409 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "notsil" is not found
+2025-05-13 22:56:20,722 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "notsil" is not found
+2025-05-13 23:05:37,183 - WARNING - Cannot decrypt cookie value, create a new fresh session
+2025-05-13 23:05:37,184 - INFO - 127.0.0.1 [13/May/2025:23:05:37 +0300] "GET /server/1253037947247267930 HTTP/1.1" 302 185 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:05:37,186 - INFO - 127.0.0.1 [13/May/2025:23:05:37 +0300] "GET /login HTTP/1.1" 302 334 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:05:41,757 - WARNING - Cannot decrypt cookie value, create a new fresh session
+2025-05-13 23:05:41,758 - INFO - 127.0.0.1 [13/May/2025:23:05:40 +0300] "GET /callback?code=BO3M8A76qAypFd3yGSe3urMIPRSBMs HTTP/1.1" 302 1811 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:05:41,766 - INFO - 127.0.0.1 [13/May/2025:23:05:41 +0300] "GET /dashboard HTTP/1.1" 200 7494 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:05:41,782 - INFO - 127.0.0.1 [13/May/2025:23:05:41 +0300] "GET /static/css/styles.css HTTP/1.1" 304 179 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:05:41,782 - INFO - 127.0.0.1 [13/May/2025:23:05:41 +0300] "GET /static/js/main.js HTTP/1.1" 304 180 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:06:14,279 - INFO - 127.0.0.1 [13/May/2025:23:06:14 +0300] "GET /server/1253037947247267930 HTTP/1.1" 200 142783 "http://localhost:8080/dashboard" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+2025-05-13 23:23:44,670 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 23:23:44,670 - INFO - logging in using static token
+2025-05-13 23:23:45,557 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 23:23:45,560 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 23:23:45,567 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 23:23:45,571 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 23:23:45,573 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 23:23:45,574 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 23:23:45,576 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 23:23:45,584 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 23:23:45,584 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 23:23:45,590 - ERROR - \u274c Failed to load cog moderation.py: Extension 'cogs.moderation' raised an error: CommandRegistrationError: The command notlar is already an existing command or alias.
+2025-05-13 23:23:45,594 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 23:23:45,628 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 23:23:45,629 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 23:23:45,629 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 23:23:46,439 - INFO - Shard ID None has connected to Gateway (Session ID: c3bd033fff40403bd694364f0f2a6116).
+2025-05-13 23:23:48,470 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 23:24:42,104 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "uyar" is not found
+2025-05-13 23:24:44,166 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "uyar" is not found
+2025-05-13 23:24:56,503 - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "uyarý" is not found
+2025-05-13 23:30:06,346 - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-05-13 23:30:06,346 - INFO - logging in using static token
+2025-05-13 23:30:07,178 - INFO - \u2705 Loaded cog: notes.py
+2025-05-13 23:30:07,180 - INFO - \u2705 Loaded cog: automod.py
+2025-05-13 23:30:07,188 - INFO - \u2705 Loaded cog: botinfo.py
+2025-05-13 23:30:07,192 - INFO - \u2705 Loaded cog: game_news.py
+2025-05-13 23:30:07,194 - INFO - \u2705 Loaded cog: giveaway.py
+2025-05-13 23:30:07,195 - INFO - \u2705 Loaded cog: information.py
+2025-05-13 23:30:07,196 - INFO - \u2705 Loaded cog: invite_tracker.py
+2025-05-13 23:30:07,204 - INFO - \u2705 Loaded cog: leveling.py
+2025-05-13 23:30:07,205 - INFO - \u2705 Loaded cog: logging.py
+2025-05-13 23:30:07,216 - INFO - \u2705 Loaded cog: moderation.py
+2025-05-13 23:30:07,217 - INFO - \u2705 Loaded cog: raid_protection.py
+2025-05-13 23:30:07,252 - INFO - \u2705 Loaded cog: tasks.py
+2025-05-13 23:30:07,254 - INFO - \u2705 Loaded cog: utilities.py
+2025-05-13 23:30:07,254 - INFO - \u2705 Loaded cog: welcome.py
+2025-05-13 23:30:07,991 - INFO - Shard ID None has connected to Gateway (Session ID: d9b2dc7c7aafb9112133d905159d7c49).
+2025-05-13 23:30:10,031 - INFO - \u2705 Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-13 23:31:19,124 - ERROR - Ignoring exception in command notsil
+Traceback (most recent call last):
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fizyo\OneDrive\Masaüstü\discord-bot\.venv\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: note_type is a required argument that is missing.

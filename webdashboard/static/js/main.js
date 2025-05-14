@@ -1,11 +1,16 @@
 /* filepath: c:\Users\fizyo\OneDrive\Masaüstü\discord-bot\webdashboard\static\js\main.js */
 document.addEventListener('DOMContentLoaded', function() {
-    // Tooltips
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    if (tooltipTriggerList.length > 0) {
-        tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
-    }
+    // Dropdown ve popovers gibi Bootstrap bileşenlerini etkinleştir
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
     
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
     // Sayfa yükleme animasyonu
     document.body.classList.add('loaded');
     
@@ -118,12 +123,10 @@ function getGuildId() {
     return null;
 }
 
-// Bildirim gösterme fonksiyonu
+// Toast bildirimi gösterme fonksiyonu
 function showToast(message, type = 'info') {
-    // Toast zaten eklenmiş mi kontrol et
+    // Toast container oluştur (yoksa)
     let toastContainer = document.querySelector('.toast-container');
-    
-    // Yoksa oluştur
     if (!toastContainer) {
         toastContainer = document.createElement('div');
         toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
@@ -133,19 +136,34 @@ function showToast(message, type = 'info') {
     // Toast ID'si
     const id = 'toast-' + Date.now();
     
-    // Toast sınıfı
-    let toastClass = 'bg-info text-white';
-    if (type === 'success') toastClass = 'bg-success text-white';
-    if (type === 'error') toastClass = 'bg-danger text-white';
-    if (type === 'warning') toastClass = 'bg-warning text-dark';
+    // Toast türüne göre sınıf ve ikon belirle
+    let toastClass, toastIcon;
+    switch(type) {
+        case 'success':
+            toastClass = 'bg-success text-white';
+            toastIcon = 'fas fa-check-circle';
+            break;
+        case 'error':
+            toastClass = 'bg-danger text-white';
+            toastIcon = 'fas fa-exclamation-circle';
+            break;
+        case 'warning':
+            toastClass = 'bg-warning';
+            toastIcon = 'fas fa-exclamation-triangle';
+            break;
+        default:
+            toastClass = 'bg-info text-white';
+            toastIcon = 'fas fa-info-circle';
+    }
     
     // Toast HTML
     const toastHtml = `
-        <div id="${id}" class="toast ${toastClass}" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
+        <div id="${id}" class="toast ${toastClass} border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header ${toastClass} border-0">
+                <i class="${toastIcon} me-2"></i>
                 <strong class="me-auto">LunarisBot</strong>
                 <small>Şimdi</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white toast-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
                 ${message}
@@ -156,15 +174,23 @@ function showToast(message, type = 'info') {
     // Toast'ı ekle
     toastContainer.insertAdjacentHTML('beforeend', toastHtml);
     
-    // Toast'ı göster
-    const toastElement = document.getElementById(id);
-    const toast = new bootstrap.Toast(toastElement, { delay: 5000 });
-    toast.show();
-    
-    // Belirli bir süre sonra sil
+    // Belirli bir süre sonra otomatik kapat
     setTimeout(() => {
-        if (toastElement && toastElement.parentNode) {
-            toastElement.parentNode.removeChild(toastElement);
+        const toastElement = document.getElementById(id);
+        if (toastElement) {
+            // Toast'ı kaldır
+            toastElement.classList.remove('show');
+            setTimeout(() => {
+                if (toastElement.parentNode) {
+                    toastElement.parentNode.removeChild(toastElement);
+                }
+            }, 300);
         }
-    }, 5500);
+    }, 5000);
 }
+
+// Generic error handler
+window.addEventListener('error', function(event) {
+    console.error('Sayfa hatası:', event.message);
+    showToast('Bir hata oluştu: ' + event.message, 'error');
+});

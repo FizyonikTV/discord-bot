@@ -51,6 +51,9 @@ async def send_log(bot, channel_id, embed):
             print(f"❌ Log kanalına mesaj gönderme yetkisi yok: {channel_id}")
         except Exception as e:
             print(f"❌ Log gönderilirken hata oluştu: {e}")
+            print(f"Kanal ID: {channel_id}, Hata: {str(e)}")
+    else:
+        print(f"❌ Log kanalı bulunamadı: {channel_id}")
     return False
 
 async def log_handler(bot, log_type, **kwargs):

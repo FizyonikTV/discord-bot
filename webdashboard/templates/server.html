@@ -278,6 +278,161 @@
                 </div>
             </div>
             
+            <!-- Çekilişler -->
+            <div class="tab-pane fade" id="v-pills-giveaway" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-gift"></i> Çekiliş Yönetimi</h3>
+                        <p>Çekiliş oluşturun ve yönetin</p>
+                    </div>
+                    
+                    <!-- Aktif çekilişler -->
+                    <div class="settings-card mb-4">
+                        <div class="settings-card-header d-flex justify-content-between align-items-center">
+                            <h5>Aktif Çekilişler</h5>
+                            <button type="button" class="btn btn-sm btn-primary" id="create-giveaway-btn">
+                                <i class="fas fa-plus"></i> Yeni Çekiliş
+                            </button>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="active-giveaways-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ödül</th>
+                                            <th>Kanal</th>
+                                            <th>Bitiş</th>
+                                            <th>Katılımcılar</th>
+                                            <th>Kazanan Sayısı</th>
+                                            <th>İşlemler</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="6" class="text-center py-4">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Yükleniyor...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="no-active-giveaways" class="text-center py-3 d-none">
+                                <p class="text-muted">Aktif çekiliş bulunmuyor</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Geçmiş çekilişler -->
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <h5>Geçmiş Çekilişler</h5>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="past-giveaways-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ödül</th>
+                                            <th>Kanal</th>
+                                            <th>Bitiş Tarihi</th>
+                                            <th>Katılımcılar</th>
+                                            <th>Kazananlar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="text-center py-4">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Yükleniyor...</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="no-past-giveaways" class="text-center py-3 d-none">
+                                <p class="text-muted">Geçmiş çekiliş bulunmuyor</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Yeni çekiliş modalı -->
+                    <div class="modal fade" id="create-giveaway-modal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Yeni Çekiliş Oluştur</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="giveaway-form">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="giveaway-prize" class="form-label">Ödül</label>
+                                                <input type="text" class="form-control" id="giveaway-prize" placeholder="Çekiliş ödülünü girin" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="giveaway-channel" class="form-label">Kanal</label>
+                                                <select class="form-select" id="giveaway-channel" required>
+                                                    <option value="" selected disabled>Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="giveaway-winners" class="form-label">Kazanan Sayısı</label>
+                                                <input type="number" class="form-control" id="giveaway-winners" min="1" max="20" value="1" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="giveaway-duration" class="form-label">Süre (saat)</label>
+                                                <input type="number" class="form-control" id="giveaway-duration" min="1" max="720" value="24" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="giveaway-description" class="form-label">Açıklama (opsiyonel)</label>
+                                            <textarea class="form-control" id="giveaway-description" rows="3" placeholder="Ek bilgiler, kurallar vb."></textarea>
+                                        </div>
+                                        
+                                        <div class="form-check form-switch mb-3">
+                                            <input class="form-check-input" type="checkbox" id="giveaway-required-role-toggle">
+                                            <label class="form-check-label" for="giveaway-required-role-toggle">Katılım için rol gereksinimini etkinleştir</label>
+                                        </div>
+                                        
+                                        <div class="mb-3" id="required-role-container" style="display: none;">
+                                            <label for="giveaway-required-role" class="form-label">Gerekli Rol</label>
+                                            <select class="form-select" id="giveaway-required-role">
+                                                <option value="" selected disabled>Seçiniz</option>
+                                                {% for role in guild.roles %}
+                                                    {% if not role.is_default() %}
+                                                    <option value="{{ role.id }}">{{ role.name }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <div class="form-text">Bu role sahip olmayan kullanıcılar çekilişe katılamaz.</div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                                    <button type="button" class="btn btn-primary" id="start-giveaway-btn">
+                                        <i class="fas fa-play"></i> Çekilişi Başlat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Oyun Haberleri -->
             <div class="tab-pane fade" id="v-pills-game-news" role="tabpanel">
                 <div class="settings-panel">
@@ -603,6 +758,56 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- AutoMod sekmesini genişlet - mevcut içeriğe ekle -->
+                    <form id="automod-settings-form">
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h5>Genel Ayarlar</h5>
+                            </div>
+                            <div class="settings-card-body">
+                                <!-- Sistem açık/kapalı -->
+                                <div class="form-switch form-switch-lg mb-4">
+                                    <input class="form-check-input" type="checkbox" id="automod-toggle" checked>
+                                    <label class="form-check-label" for="automod-toggle">AutoMod Sistemi</label>
+                                    <div class="form-text">Otomatik moderasyon sistemini etkinleştir veya devre dışı bırak.</div>
+                                </div>
+
+                                <!-- Spam ayarları -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="max-mentions" class="form-label">Maksimum Etiket Sayısı</label>
+                                            <input type="number" class="form-control" id="max-mentions" min="1" max="20" value="5">
+                                            <div class="form-text">Bir mesajda izin verilen maksimum kullanıcı etiketi sayısı.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Spam Algılama</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="spam-message-count" min="3" max="15" value="5">
+                                                <span class="input-group-text">mesaj /</span>
+                                                <input type="number" class="form-control" id="spam-time-window" min="1" max="30" value="5">
+                                                <span class="input-group-text">saniye</span>
+                                            </div>
+                                            <div class="form-text">Belirtilen süre içinde bu sayıdan fazla mesaj spam olarak algılanır.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
             

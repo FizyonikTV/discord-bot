@@ -7,6 +7,7 @@ from datetime import datetime
 import typing
 from collections import defaultdict
 import io
+from utils.permissions import has_admin, has_mod_role
 
 class InviteTracker(commands.Cog):
     def __init__(self, bot):
@@ -418,7 +419,7 @@ class InviteTracker(commands.Cog):
         await ctx.send(embed=embed)
         
     @davet_cmd.command(name="bonus")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def davet_bonus(self, ctx, member: discord.Member, amount: int = None):
         """Bir kullanıcıya bonus davet ver veya mevcut bonusu görüntüle"""
         user_id = str(member.id)
@@ -442,7 +443,7 @@ class InviteTracker(commands.Cog):
         await ctx.send(f"✅ {member.mention} kullanıcısının bonus davet sayısı **{amount}** olarak ayarlandı.")
         
     @davet_cmd.command(name="sıfırla", aliases=["reset"])
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def davet_sifirla(self, ctx, member: typing.Optional[discord.Member] = None):
         """Bir kullanıcının veya sunucunun tüm davet istatistiklerini sıfırla"""
         guild_id = str(ctx.guild.id)
@@ -477,7 +478,7 @@ class InviteTracker(commands.Cog):
                 await ctx.send("❌ Zaman aşımı, işlem iptal edildi.")
                 
     @davet_cmd.command(name="ayarlar", aliases=["config"])
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def davet_ayarlar(self, ctx, setting: str = None, *, value = None):
         """Davet takip ayarlarını görüntüle veya değiştir"""
         if setting is None:

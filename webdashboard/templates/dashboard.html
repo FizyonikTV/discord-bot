@@ -3,48 +3,109 @@
 {% block title %}Dashboard - LunarisBot{% endblock %}
 
 {% block content %}
-<div class="dashboard-header">
-    <h1>Dashboard</h1>
-    <p>Sunucularınızı yönetin ve LunarisBot ayarlarını yapılandırın.</p>
-</div>
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h1>Dashboard</h1>
+        <p>Sunucularınızı yönetin ve LunarisBot ayarlarını yapılandırın.</p>
+    </div>
 
-<div class="server-list">
-    <h2>Sunucularınız</h2>
-    
-    {% if guilds|length > 0 %}
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for guild in guilds %}
-        <div class="col">
-            <div class="card server-card h-100">
-                {% if guild.icon_url %}
-                <img src="{{ guild.icon_url }}" class="card-img-top server-icon" alt="{{ guild.name }}">
-                {% else %}
-                <div class="default-icon">{{ guild.name[0] }}</div>
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ guild.name }}</h5>
-                    <p class="card-text">{{ guild.member_count }} üye</p>
+    <!-- İstatistik kartları -->
+    <section class="mt-4">
+        <h3 class="mb-4">Bot İstatistikleri</h3>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card bg-primary text-white h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5>Sunucular</h5>
+                                <h2 class="stat-number" id="guild-count">{{ bot.guilds|length }}</h2>
+                            </div>
+                            <i class="fas fa-server fa-3x"></i>
+                        </div>
+                        <p class="mt-auto mb-0">Toplam sunucu sayısı</p>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    {% if guild.bot_in_guild %}
-                    <a href="/server/{{ guild.id }}" class="btn btn-primary">
-                        <i class="fas fa-cog"></i> Yönet
-                    </a>
-                    {% else %}
-                    <a href="https://discord.com/api/oauth2/authorize?client_id={{ bot.id }}&permissions=8&scope=bot&guild_id={{ guild.id }}" 
-                       class="btn btn-success" target="_blank">
-                        <i class="fas fa-plus"></i> Ekle
-                    </a>
-                    {% endif %}
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5>Kullanıcılar</h5>
+                                <h2 class="stat-number" id="user-count">{{ bot_stats.user_count }}</h2>
+                            </div>
+                            <i class="fas fa-users fa-3x"></i>
+                        </div>
+                        <p class="mt-auto mb-0">Toplam kullanıcı sayısı</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card bg-info text-white h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5>Komutlar</h5>
+                                <h2 class="stat-number" id="command-count">{{ bot_stats.command_count }}</h2>
+                            </div>
+                            <i class="fas fa-terminal fa-3x"></i>
+                        </div>
+                        <p class="mt-auto mb-0">Toplam komut kullanımı</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card bg-warning text-white h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5>Çalışma Süresi</h5>
+                                <h2 class="stat-number" id="uptime">{{ bot_stats.uptime }}</h2>
+                            </div>
+                            <i class="fas fa-clock fa-3x"></i>
+                        </div>
+                        <p class="mt-auto mb-0">Bot çalışma süresi</p>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class="alert alert-info">
-        <p>Herhangi bir sunucuya erişiminiz yok veya henüz hiçbir sunucuda yönetici değilsiniz.</p>
-    </div>
-    {% endif %}
+    </section>
+
+    <!-- Sunucular Listesi -->
+    <section class="mt-5">
+        <h3 class="mb-4">Sunucularınız</h3>
+        
+        <div class="row">
+            {% if guilds %}
+                {% for guild in guilds %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card server-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                {% if guild.icon %}
+                                <img src="https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png" class="server-icon me-3" alt="{{ guild.name }}">
+                                {% else %}
+                                <div class="server-icon-placeholder me-3">{{ guild.name|first }}</div>
+                                {% endif %}
+                                <h5 class="card-title mb-0">{{ guild.name }}</h5>
+                            </div>
+                            <a href="/server/{{ guild.id }}" class="btn btn-primary mt-auto">Yönet</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <p class="mb-0">Henüz yönetebileceğiniz bir sunucu bulunmuyor. Botun ekli olduğu ve sizin de yönetici olduğunuz sunucular burada görünecektir.</p>
+                </div>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=1357403500761452675&permissions=8&scope=bot" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-plus-circle me-2"></i>Botumu Sunucuna Ekle
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
 </div>
 {% endblock %}

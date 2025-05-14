@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 import random
 from typing import Optional, Dict, Set, List
 import os
+from utils.permissions import has_mod_role, has_admin
 
 # Türkiye zaman dilimi sabiti
 TR_TIMEZONE = timezone(timedelta(hours=3))
@@ -241,7 +242,7 @@ class Giveaway(commands.Cog):
         return "Henüz katılımcı yok"
 
     @commands.command(name="çekiliş", aliases=["giveaway", "çekilişbaşlat"])
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def create_giveaway(self, ctx, time: str, winners: int, required_role: Optional[discord.Role] = None, *, prize: str):
         """Yeni bir çekiliş başlat"""
         seconds = self.parse_time(time)
@@ -441,7 +442,7 @@ class Giveaway(commands.Cog):
         return valid_participants
 
     @commands.command(name="çekilişbitir", aliases=["endgiveaway"])
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def end_giveaway_command(self, ctx, message_id: int):
         """Bir çekilişi erken bitir"""
         message_id_str = str(message_id)
@@ -452,7 +453,7 @@ class Giveaway(commands.Cog):
         await ctx.send("✅ Çekiliş erken bitirildi!")
 
     @commands.command(name="yenidençek", aliases=["reroll"])
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def reroll(self, ctx, message_id: int):
         """Bir çekilişte yeni kazanan seç"""
         message_id_str = str(message_id)
@@ -528,7 +529,7 @@ class Giveaway(commands.Cog):
             await ctx.send("❌ Bir hata oluştu!")
 
     @commands.command(name="çekilişler", aliases=["giveaways", "aktivecekilis"])
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def list_giveaways(self, ctx):
         """Aktif çekilişleri listele"""
         if not self.active_giveaways:
@@ -565,7 +566,7 @@ class Giveaway(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(name="çekilişbilgi", aliases=["giveawayinfo"])
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def giveaway_info(self, ctx, message_id: int):
         """Bir çekiliş hakkında detaylı bilgi ver"""
         message_id_str = str(message_id)

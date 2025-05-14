@@ -1,154 +1,52 @@
 {% extends "base.html" %}
 
-{% block title %}LunarisBot - Discord Yönetim Botu{% endblock %}
+{% block title %}LunarisBot - Discord Bot{% endblock %}
 
 {% block content %}
-<div class="hero">
-    <div class="row align-items-center">
-        <div class="col-lg-6">
-            <h1 class="display-4 fw-bold text-gradient">LunarisBot ile Sunucunuzu Güçlendirin</h1>
-            <p class="lead my-4">
-                Gelişmiş moderasyon, davet takibi, çekilişler ve daha fazlası ile 
-                Discord sunucunuzu en iyi şekilde yönetin.
-            </p>
-            <div class="mt-5">
-                {% if not user %}
-                <a href="/login" class="btn btn-primary btn-lg px-4 me-md-2">
-                    <i class="fab fa-discord me-2"></i> Discord ile Giriş Yap
-                </a>
-                <a href="#features" class="btn btn-outline-secondary btn-lg px-4">
-                    <i class="fas fa-info-circle me-2"></i> Özellikler
-                </a>
-                {% else %}
-                <a href="/dashboard" class="btn btn-primary btn-lg px-4 me-md-2">
-                    <i class="fas fa-tachometer-alt me-2"></i> Dashboard'a Git
-                </a>
-                {% endif %}
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4">LunarisBot</h1>
+        <p class="lead">Discord sunucunuz için güçlü bir moderasyon ve eğlence botu</p>
+        
+        {% if user %}
+        <a href="/dashboard" class="btn btn-primary btn-lg">Dashboard'a Git</a>
+        {% else %}
+        <a href="/login" class="btn btn-primary btn-lg">
+            <i class="fab fa-discord me-2"></i>Discord ile Giriş Yap
+        </a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Gelişmiş Moderasyon</h3>
+                <p>Otomatik spam algılama, küfür filtresi, uyarı sistemi ve daha fazlası</p>
             </div>
         </div>
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="hero-image-container">
-                <img src="https://i.ibb.co/6RQcJQVX/Lunaris-Banner-Ekstra-Orijinal.webp" alt="LunarisBot" class="img-fluid rounded-3 shadow-lg">
-                <div class="floating-card card1">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Güvenli</span>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-gamepad"></i>
                 </div>
-                <div class="floating-card card2">
-                    <i class="fas fa-rocket"></i>
-                    <span>Hızlı</span>
+                <h3>Eğlence & Oyunlar</h3>
+                <p>Yazı-tura, şans çarkı, kelime oyunları ve eğlenceli komutlar</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-card">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="floating-card card3">
-                    <i class="fas fa-tools"></i>
-                    <span>Özelleştirilebilir</span>
-                </div>
+                <h3>İstatistikler & Seviye</h3>
+                <p>Kullanıcı aktivite takibi, seviye sistemi ve özelleştirilebilir ödüller</p>
             </div>
         </div>
     </div>
 </div>
-
-<section id="features" class="features py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 section-title">Özellikler</h2>
-        <div class="row g-4">
-            <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                    <div class="card-body">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3>Gelişmiş Moderasyon</h3>
-                        <p>Otomatik moderasyon, yasaklı kelime kontrolü, spam koruması ve kullanıcı notları ile sunucunuzu güvenli tutun.</p>
-                        <a href="#" class="feature-link">Daha fazla bilgi <i class="fas fa-arrow-right ms-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                    <div class="card-body">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <h3>Davet Takibi</h3>
-                        <p>Kimin kimi davet ettiğini izleyin ve davet sıralaması ile ödül sistemi oluşturun.</p>
-                        <a href="#" class="feature-link">Daha fazla bilgi <i class="fas fa-arrow-right ms-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card feature-card h-100">
-                    <div class="card-body">
-                        <div class="feature-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <h3>Çekilişler</h3>
-                        <p>Katılımcıları izleyen ve kazananları otomatik seçen gelişmiş çekiliş sistemi.</p>
-                        <a href="#" class="feature-link">Daha fazla bilgi <i class="fas fa-arrow-right ms-1"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="how-it-works bg-light py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 section-title">Nasıl Çalışır?</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-badge">1</div>
-                        <div class="timeline-content">
-                            <h4>Discord'a Botu Ekleyin</h4>
-                            <p>Tek tıklamayla LunarisBot'u Discord sunucunuza ekleyin</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-badge">2</div>
-                        <div class="timeline-content">
-                            <h4>Ayarlamalar Yapın</h4>
-                            <p>Dashboard üzerinden veya komutlarla sunucunuza özgü ayarlamaları yapın</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-badge">3</div>
-                        <div class="timeline-content">
-                            <h4>Hazır!</h4>
-                            <p>Artık LunarisBot sunucunuzu korumaya ve yönetmeye hazır</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="stats py-5">
-    <div class="container text-center">
-        <h2 class="mb-5 section-title">İstatistikler</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-server"></i></div>
-                    <div class="stat-number">{{ bot.guilds|length }}</div>
-                    <div class="stat-label">Sunucu</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-number">{{ bot_stats.user_count }}</div>
-                    <div class="stat-label">Kullanıcı</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="stat-item">
-                    <div class="stat-icon"><i class="fas fa-terminal"></i></div>
-                    <div class="stat-number">{{ bot_stats.command_count }}</div>
-                    <div class="stat-label">Komut Kullanımı</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 {% endblock %}

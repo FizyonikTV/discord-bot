@@ -88,46 +88,65 @@ class GameNews(commands.Cog):
     async def get_session(self):
         """HTTP isteği için oturum alır"""
         if self.session is None or self.session.closed:
-            self.session = aiohttp.ClientSession()
+            timeout = aiohttp.ClientTimeout(total=30)  # 30 saniye timeout
+            self.session = aiohttp.ClientSession(timeout=timeout)
         return self.session
+
+    async def fetch_with_retry(self, url, max_retries=3, delay=5):
+        """Belirtilen URL'den veri çeker, başarısız olursa yeniden dener"""
+        session = await self.get_session()
+        for attempt in range(max_retries):
+            try:
+                async with session.get(url) as response:
+                    if response.status == 200:
+                        return await response.json()
+                    else:
+                        logging.warning(f"API yanıt kodu: {response.status}, {url}")
+            except Exception as e:
+                logging.warning(f"Bağlantı denemesi {attempt+1}/{max_retries} başarısız: {e}")
+                if attempt < max_retries - 1:
+                    await asyncio.sleep(delay)  # Bir süre bekle ve tekrar dene
+        
+        # Tüm denemeler başarısız oldu
+        logging.error(f"URL'ye erişilemedi (maksimum yeniden deneme sayısı aşıldı): {url}")
+        return None
         
     async def fetch_epic_free_games(self):
         """Epic Games'teki ücretsiz oyunları alır"""
         try:
-            session = await self.get_session()
             url = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions"
-            async with session.get(url) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    
-                    games = []
-                    if 'data' in data and 'Catalog' in data['data'] and 'searchStore' in data['data']['Catalog']:
-                        elements = data['data']['Catalog']['searchStore']['elements']
-                        
-                        for game in elements:
-                            # Ücretsiz oyunları filtrele
-                            if game.get('promotions') and game['promotions'].get('promotionalOffers'):
-                                promotional_offers = game['promotions']['promotionalOffers']
-                                if promotional_offers and len(promotional_offers) > 0:
-                                    offer = promotional_offers[0]
-                                    if 'promotionalOffers' in offer and len(offer['promotionalOffers']) > 0:
-                                        price_info = offer['promotionalOffers'][0]
-                                        if price_info.get('discountSetting', {}).get('discountPercentage') == 0:
-                                            # Bu bir ücretsiz oyun
-                                            game_info = {
-                                                "title": game['title'],
-                                                "description": game.get('description', 'Açıklama yok'),
-                                                "image": game.get('keyImages', [{}])[0].get('url', '') if game.get('keyImages') else '',
-                                                "url": f"https://www.epicgames.com/store/product/{game.get('urlSlug', game['title'])}",
-                                                "start_date": price_info.get('startDate', ''),
-                                                "end_date": price_info.get('endDate', ''),
-                                                "original_price": game.get('price', {}).get('totalPrice', {}).get('fmtPrice', {}).get('originalPrice', 'Bilinmiyor'),
-                                                "id": game.get('id', '')
-                                            }
-                                            games.append(game_info)
-                    
-                    return games
-            return []
+            data = await self.fetch_with_retry(url)
+            
+            if not data:
+                return []
+                
+            games = []
+            if 'data' in data and 'Catalog' in data['data'] and 'searchStore' in data['data']['Catalog']:
+                elements = data['data']['Catalog']['searchStore']['elements']
+                
+                for game in elements:
+                    # Ücretsiz oyunları filtrele
+                    if game.get('promotions') and game['promotions'].get('promotionalOffers'):
+                        promotional_offers = game['promotions']['promotionalOffers']
+                        if promotional_offers and len(promotional_offers) > 0:
+                            offer = promotional_offers[0]
+                            if 'promotionalOffers' in offer and len(offer['promotionalOffers']) > 0:
+                                price_info = offer['promotionalOffers'][0]
+                                if price_info.get('discountSetting', {}).get('discountPercentage') == 0:
+                                    # Bu bir ücretsiz oyun
+                                    game_info = {
+                                        "title": game['title'],
+                                        "description": game.get('description', 'Açıklama yok'),
+                                        "image": game.get('keyImages', [{}])[0].get('url', '') if game.get('keyImages') else '',
+                                        "url": f"https://www.epicgames.com/store/product/{game.get('urlSlug', game['title'])}",
+                                        "start_date": price_info.get('startDate', ''),
+                                        "end_date": price_info.get('endDate', ''),
+                                        "original_price": game.get('price', {}).get('totalPrice', {}).get('fmtPrice', {}).get('originalPrice', 'Bilinmiyor'),
+                                        "id": game.get('id', '')
+                                    }
+                                    games.append(game_info)
+                
+                return games
         except Exception as e:
             logging.error(f"Epic Games ücretsiz oyunları alırken hata: {e}")
             return []
@@ -135,36 +154,33 @@ class GameNews(commands.Cog):
     async def fetch_steam_deals(self):
         """Steam'deki büyük indirimleri alır"""
         try:
-            session = await self.get_session()
-            # IsThereAnyDeal API veya CheapShark API kullanılabilir
             url = f"https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15&pageSize=10&sortBy=discount"
+            data = await self.fetch_with_retry(url)
             
-            async with session.get(url) as response:
-                if response.status == 200:
-                    data = await response.json()
+            if not data:
+                return []
+                
+            # Threshold'dan büyük indirimleri filtrele
+            min_discount = self.config.get('min_discount_percent', 75)
+            deals = []
+            
+            for deal in data:
+                discount = float(deal.get('savings', '0'))
+                if discount >= min_discount:
+                    deal_info = {
+                        "title": deal.get('title', 'İsimsiz Oyun'),
+                        "discount_percent": int(discount),
+                        "sale_price": deal.get('salePrice', 'Bilinmiyor'),
+                        "normal_price": deal.get('normalPrice', 'Bilinmiyor'),
+                        "steam_rating": deal.get('steamRatingText', 'Değerlendirme yok'),
+                        "steam_rating_count": deal.get('steamRatingCount', '0'),
+                        "image": f"https://cdn.cloudflare.steamstatic.com/steam/apps/{deal.get('steamAppID', '')}/header.jpg",
+                        "url": f"https://store.steampowered.com/app/{deal.get('steamAppID', '')}",
+                        "deal_id": deal.get('dealID', '')
+                    }
+                    deals.append(deal_info)
                     
-                    # Threshold'dan büyük indirimleri filtrele
-                    min_discount = self.config.get('min_discount_percent', 75)
-                    deals = []
-                    
-                    for deal in data:
-                        discount = float(deal.get('savings', '0'))
-                        if discount >= min_discount:
-                            deal_info = {
-                                "title": deal.get('title', 'İsimsiz Oyun'),
-                                "discount_percent": int(discount),
-                                "sale_price": deal.get('salePrice', 'Bilinmiyor'),
-                                "normal_price": deal.get('normalPrice', 'Bilinmiyor'),
-                                "steam_rating": deal.get('steamRatingText', 'Değerlendirme yok'),
-                                "steam_rating_count": deal.get('steamRatingCount', '0'),
-                                "image": f"https://cdn.cloudflare.steamstatic.com/steam/apps/{deal.get('steamAppID', '')}/header.jpg",
-                                "url": f"https://store.steampowered.com/app/{deal.get('steamAppID', '')}",
-                                "deal_id": deal.get('dealID', '')
-                            }
-                            deals.append(deal_info)
-                            
-                    return deals
-            return []
+            return deals
         except Exception as e:
             logging.error(f"Steam indirimlerini alırken hata: {e}")
             return []

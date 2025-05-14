@@ -7,13 +7,15 @@ from datetime import datetime, timezone
 from config.config import get_token, INTENTS, IZIN_VERILEN_ROLLER
 from utils.helpers import command_check, COMMAND_CHANNELS
 from webdashboard import Dashboard
+from dotenv import load_dotenv
+from utils.logger import get_bot_logger, get_cmd_logger, log_command, log_error
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    filename="bot.log",
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+# Çevre değişkenlerini yükle
+load_dotenv()
+
+# Loggerları al
+bot_logger = get_bot_logger()
+cmd_logger = get_cmd_logger()
 
 class LunarisBot(commands.Bot):
     def __init__(self):
@@ -23,59 +25,102 @@ class LunarisBot(commands.Bot):
             case_insensitive=True
         )
         self.start_time = datetime.now(timezone.utc)
+        bot_logger.info("Bot başlatılıyor...")
 
     async def add_cog(self, cog):
         """Add checks to all commands in a cog."""
         for cmd in cog.get_commands():
             cmd.add_check(command_check())
         await super().add_cog(cog)
+        
+    @commands.Cog.listener()
+    async def on_command(self, ctx):
+        """Log commands when they are triggered."""
+        log_command(ctx)
+        
+    @commands.Cog.listener()
+    async def on_command_completion(self, ctx):
+        """Log successful commands."""
+        log_command(ctx, success=True)
+    
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        """Log command errors."""
+        log_command(ctx, success=False)
+        log_error(error, ctx)
 
     async def setup_hook(self):
-        """Initial setup and loading cogs."""
-        # Önce hangi cog'lar var görelim
+        # Hata yakalama sistemini ilk yükle
+        try:
+            await self.load_extension("utils.error_handler")
+            bot_logger.info("[OK] Error handler yüklendi")
+            print("[OK] Error handler yüklendi")
+        except Exception as e:
+            bot_logger.error(f"[NO] Error handler yüklenemedi: {e}")
+            print(f"[NO] Error handler yüklenemedi: {e}")
+        
+        # Diğer cog'ları yükle
         cogs_to_load = [f for f in os.listdir('./cogs') if f.endswith('.py') and not f.startswith('__')]
         
         # Sorunlu cog'ları atla
         skip_cogs = ['image_mod.py']
         cogs_to_load = [cog for cog in cogs_to_load if cog not in skip_cogs]
         
-        print(f"Yüklenecek {len(cogs_to_load)} cog bulundu: {cogs_to_load}")
+        # Öncelikli cog'ları belirle - Notes önce yüklensin
+        priority_cogs = ['notes.py']
+        other_cogs = [cog for cog in cogs_to_load if cog not in priority_cogs]
+        ordered_cogs = priority_cogs + other_cogs
         
-        for filename in cogs_to_load:
+        bot_logger.info(f"Yüklenecek {len(ordered_cogs)} cog bulundu")
+        print(f"Yüklenecek {len(ordered_cogs)} cog bulundu")
+        
+        for filename in ordered_cogs:
             try:
                 print(f"Yüklemeye çalışılıyor: {filename}...")
                 await self.load_extension(f'cogs.{filename[:-3]}')
-                logging.info(f'✅ Loaded cog: {filename}')
-                print(f'✅ Loaded cog: {filename}')
+                bot_logger.info(f'[OK] Loaded cog: {filename}')
+                print(f'[OK] Loaded cog: {filename}')
             except Exception as e:
-                logging.error(f'❌ Failed to load cog {filename}: {e}')
-                print(f'❌ Failed to load cog {filename}: {e}')
-                # Hata ayrıntılarını göster
+                bot_logger.error(f'[NO] Failed to load cog {filename}: {e}')
+                print(f'[NO] Failed to load cog {filename}: {e}')
                 import traceback
+                log_error(f"Cog yükleme hatası {filename}: {e}")
                 traceback.print_exc()
         
         # Dashboard başlatma
         try:
-            # Config'den client ID ve secret değerlerini alın
-            from config.config import DASHBOARD_CLIENT_ID, DASHBOARD_CLIENT_SECRET
+            print("Dashboard başlatılıyor...")
             
-            if not DASHBOARD_CLIENT_ID or not DASHBOARD_CLIENT_SECRET or DASHBOARD_CLIENT_ID == "YOUR_CLIENT_ID_HERE":
-                logging.warning("Discord OAuth2 credentials not configured correctly. Dashboard will not be started.")
-                print("⚠️ Dashboard not started: OAuth2 credentials missing. Update config.py with your credentials.")
-                return
-                
-            self.dashboard = Dashboard(self, DASHBOARD_CLIENT_ID, DASHBOARD_CLIENT_SECRET)
+            # .env dosyasından yapılandırma al
+            dashboard_config = {
+                "client_id": os.environ.get("DISCORD_CLIENT_ID"),
+                "client_secret": os.environ.get("DISCORD_CLIENT_SECRET"), 
+                "redirect_uri": os.environ.get("DISCORD_REDIRECT_URI"),
+                "base_url": os.environ.get("DASHBOARD_BASE_URL"),
+                "port": int(os.environ.get("DASHBOARD_PORT", 8080))
+            }
+            
+            # Dashboard'u başlat
+            self.dashboard = Dashboard(
+                bot=self,
+                client_id=dashboard_config["client_id"],
+                client_secret=dashboard_config["client_secret"],
+                base_url=dashboard_config["base_url"],
+                port=dashboard_config["port"],
+                redirect_uri=dashboard_config["redirect_uri"]
+            )
+            
+            # Dashboard başlatma fonksiyonunu çağır
             await self.dashboard.start()
-        except ImportError:
-            logging.error("Could not import dashboard configuration from config.py")
-            print("❌ Dashboard not started: Missing configuration in config.py")
+            print("[OK] Dashboard başarıyla başlatıldı!")
         except Exception as e:
-            logging.error(f"Failed to start dashboard: {e}")
-            print(f"❌ Failed to start dashboard: {e}")
+            import traceback
+            print(f"[NO] Dashboard başlatılamadı: {e}")
+            traceback.print_exc()
 
     async def on_ready(self):
         """Triggered when the bot is ready."""
-        logging.info(f"✅ Bot is ready as {self.user}")
+        bot_logger.info(f"[OK] Bot is ready as {self.user}")
         await self.change_presence(
             activity=discord.Activity(
                 type=discord.ActivityType.streaming,
@@ -83,7 +128,7 @@ class LunarisBot(commands.Bot):
                 url="https://www.twitch.tv/eonjinwoo"
             )
         )
-        print(f'✅ Bot {self.user} olarak giriş yaptı!')
+        print(f'[OK] Bot {self.user} olarak giriş yaptı!')
 
 async def main():
     """Main entry point for the bot."""

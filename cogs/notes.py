@@ -1,378 +1,320 @@
 import discord
 from discord.ext import commands
-import datetime
 import json
-import asyncio
-from config.config import *
+import os
+from datetime import datetime
+from config.config import IZIN_VERILEN_ROLLER
+from utils.json_handler import JsonHandler
+from utils.permissions import has_mod_role, has_admin
 
 class Notes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.moderation = None
-        self.custom_notes = {}
-        # Not yenileme görevini başlat
-        self.bot.loop.create_task(self.auto_refresh_task())
+        self.notes_path = "data/notes.json"
+        self.notes = {}
+        self.load_notes()
+        print(f"[NOTES] Notes cog yüklendi.")
 
-    async def auto_refresh_task(self):
-        """Her 5 saniyede bir notları otomatik yenile"""
-        await self.bot.wait_until_ready()
-        while not self.bot.is_closed():
-            # Notları yenileme işlemini kaldırıyoruz
-            # Bunun yerine sadece AutoMod yoksa ve dosya değiştiyse yenileyelim
-            if not self.moderation:
-                try:
-                    # Son yenileme tarihini kontrol et
-                    if not hasattr(self, 'last_file_check'):
-                        self.last_file_check = 0
-                    
-                    # Dosyanın son değiştirilme zamanını kontrol et
-                    import os
-                    if os.path.exists("data/notes.json"):
-                        current_mtime = os.path.getmtime("data/notes.json")
-                        
-                        # Eğer dosya değiştiyse ve bu bizim yaptığımız bir değişiklik değilse
-                        if current_mtime > self.last_file_check and not hasattr(self, 'is_saving'):
-                            self.last_file_check = current_mtime
-                            await self.refresh_notes()
-                except Exception as e:
-                    print(f"Notes oto-yenileme hatası: {e}")
-            
-            # 5 saniye bekle
-            await asyncio.sleep(5)
-
-    async def cog_load(self):
-        """Moderation cog'una erişim sağla"""
+    def load_notes(self):
+        """Not dosyasını yükler"""
         try:
-            # Bir süre bekleyerek moderation cog'unun yüklenmesini garantile
-            await asyncio.sleep(1)
-            
-            # AutoMod sınıfını bulmaya çalış
-            self.moderation = self.bot.get_cog("AutoMod")
-            
-            # Eğer moderation varsa events metodu ekle
-            if self.moderation and hasattr(self.moderation, "save_notes"):
-                # Orijinal save_notes metodunu sakla
-                original_save = self.moderation.save_notes
-                
-                # Yeni metodu tanımla
-                def new_save_notes():
-                    # Son değişim zamanını güncelle
-                    self.is_saving = True
-                    result = original_save()
-                    self.last_file_check = os.path.getmtime("data/notes.json") if os.path.exists("data/notes.json") else 0
-                    self.is_saving = False
-                    return result
-                
-                # Metodu değiştir
-                self.moderation.save_notes = new_save_notes
-            
-            # AutoMod yoksa konsola bilgi yazdır
-            if not self.moderation:
-                print("❌ Notes cog: AutoMod bulunamadı, direkt dosyadan okuma yapılacak")
-                
-                # Notları doğrudan dosyadan yükle
-                try:
-                    with open("data/notes.json", "r", encoding="utf-8") as f:
-                        self.custom_notes = json.load(f)
-                    self.last_file_check = os.path.getmtime("data/notes.json")
-                except Exception as e:
-                    self.custom_notes = {}
-                    print(f"Notları yüklerken hata: {e}")
-            
+            # JSON Handler kullanarak güvenli yükleme
+            self.notes = JsonHandler.load_json(self.notes_path, default={})
+            print(f"[NOTES] {len(self.notes)} kullanıcı kaydı yüklendi.")
         except Exception as e:
-            print(f"Notes cog load hatası: {e}")
+            print(f"[HATA] Notlar yüklenirken hata oluştu: {e}")
+            self.notes = {}
+    
+    async def save_notes(self):
+        """Not dosyasını kaydeder"""
+        try:
+            # JSON Handler kullanarak güvenli kaydetme
+            success = JsonHandler.save_json(self.notes_path, self.notes)
+            if success:
+                print(f"[NOTES] Notes kaydedildi - {len(self.notes)} kullanıcı")
+            return success
+        except Exception as e:
+            print(f"[HATA] Notlar kaydedilirken hata oluştu: {e}")
+            return False
 
-    def cog_unload(self):
-        pass
+    async def add_note(self, user_id, note_type, reason, moderator, moderator_id, **kwargs):
+        """Kullanıcıya not ekler"""
+        user_id_str = str(user_id)
+        
+        # Notes doğru yapıda değilse oluştur
+        if user_id_str not in self.notes:
+            self.notes[user_id_str] = {"UYARILAR": [], "TIMEOUTLAR": [], "BANLAR": []}
+        
+        if note_type not in self.notes[user_id_str]:
+            self.notes[user_id_str][note_type] = []
 
+        # Not ekle
+        note_data = {
+            "sebep": reason,
+            "moderator": moderator,
+            "moderator_id": moderator_id,
+            "tarih": datetime.now().strftime("%d.%m.%Y %H:%M")
+        }
+        
+        # Ek bilgileri ekle (timeout süresi gibi)
+        for key, value in kwargs.items():
+            note_data[key] = value
+        
+        # TIMEOUTLAR için süre bilgisini ekle
+        if note_type == "TIMEOUTLAR" and "duration" in kwargs:
+            note_data["süre"] = kwargs["duration"]
+        
+        # Not ekle ve kaydet
+        self.notes[user_id_str][note_type].append(note_data)
+        success = await self.save_notes()
+        
+        if not success:
+            print(f"[HATA] Not {user_id} için kaydedilemedi! (Tip: {note_type})")
+        else:
+            print(f"[NOTES] Not eklendi: {user_id} - {note_type}")
+        
+        return success
+    
     async def refresh_notes(self):
-        """Notes verilerini dosyadan tekrar yükler"""
-        try:
-            with open("data/notes.json", "r", encoding="utf-8") as f:
-                self.custom_notes = json.load(f)
-                print("📝 Notes verileri yenilendi!")
-            return True
-        except Exception as e:
-            print(f"❌ Notes yenileme hatası: {e}")
-            return False
+        """Notes dosyasını yeniden yükler"""
+        self.load_notes()
+        return True
 
-    async def refresh_from_file(self):
-        """JSON dosyasından tüm notları yeniden yükle"""
-        try:
-            with open("data/notes.json", "r", encoding="utf-8") as f:
-                notes_data = json.load(f)
-                
-            # Verileri güncelle
-            if self.moderation:
-                self.moderation.notes = notes_data
-            else:
-                self.custom_notes = notes_data
-                
-            print("Notes cog: Notlar dosyadan yeniden yüklendi")
-            return True
-        except Exception as e:
-            print(f"Notes yenileme hatası: {e}")
-            return False
+    @commands.group(name="not", invoke_without_command=True)
+    @has_mod_role()
+    async def notes_cmd(self, ctx):
+        """Not komutları"""
+        await ctx.send("📝 Lütfen bir alt komut belirtin: `ekle`, `listele`, `sil`, `temizle`")
 
-    async def add_note(self, user_id: int, note_type: str, reason: str, moderator: str, moderator_id: int):
-        """Not ekler ve diğer cog'a haber verir"""
-        user_id_str = str(user_id)
+    @notes_cmd.command(name="ekle")
+    @has_mod_role()
+    async def add_note_cmd(self, ctx, user: discord.Member, note_type: str, *, reason: str):
+        """Kullanıcıya not ekler"""
+        note_type = note_type.upper()
+        valid_types = ["UYARILAR", "TIMEOUTLAR", "BANLAR"]
         
-        # Eğer AutoMod yüklüyse, ona yönlendir
-        if self.moderation:
-            # AutoMod'un kendi not ekleme fonksiyonunu çağır
-            if note_type == "UYARILAR":
-                await self.moderation.add_warning(user_id, reason, moderator, moderator_id)
-            elif note_type == "TIMEOUTLAR":
-                await self.moderation.add_timeout_note(user_id, reason, moderator, moderator_id)
-            elif note_type == "BANLAR":
-                await self.moderation.add_ban_note(user_id, reason, moderator, moderator_id)
-        else:
-            # Kendi notlarımıza ekle
-            if user_id_str not in self.custom_notes:
-                self.custom_notes[user_id_str] = {
-                    "UYARILAR": [],
-                    "TIMEOUTLAR": [],
-                    "BANLAR": []
-                }
-            
-            # Notun içeriğini hazırla
-            note_data = {
-                "sebep": reason,
-                "moderator": moderator,
-                "moderator_id": moderator_id,
-                "tarih": datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
-            }
-            
-            self.custom_notes[user_id_str][note_type].append(note_data)
-            
-            # JSON dosyasına kaydet
-            try:
-                # Kayıt işlemi yapıldığını belirt (bayrak)
-                self.is_saving = True
-                with open("data/notes.json", "w", encoding="utf-8") as f:
-                    json.dump(self.custom_notes, f, ensure_ascii=False, indent=4)
-                self.last_file_check = os.path.getmtime("data/notes.json")
-            finally:
-                # Bayrağı kaldır
-                self.is_saving = False
-
-    @commands.command(name="notlar", aliases=["geçmiş", "gecmis", "logs"])
-    @commands.has_permissions(kick_members=True)
-    async def view_notes(self, ctx, user_id: int):
-        """Kullanıcının tüm moderasyon geçmişini gösterir"""
-        if not self.moderation and not self.custom_notes:
-            return await ctx.send("❌ Moderasyon sistemi yüklenemedi!")
-
-        user_id_str = str(user_id)
+        if note_type not in valid_types:
+            return await ctx.send(f"❌ Geçersiz not tipi. Kullanılabilir tipler: {', '.join(valid_types)}")
         
-        # Her zaman önce dosyadan en güncel verileri yükleyelim
-        await self.refresh_from_file()
-        
-        # Güncel verileri al
-        notes = self.moderation.notes.get(user_id_str) if self.moderation else self.custom_notes.get(user_id_str)
-        
-        if not notes:
-            return await ctx.send("❌ Bu kullanıcı için kayıt bulunmuyor!")
-        
-        try:
-            user = await self.bot.fetch_user(user_id)
-            embed = discord.Embed(
-                title=f"📋 {user.name} Kullanıcısının Moderasyon Geçmişi",
-                color=discord.Color.blue(),
-                timestamp=datetime.datetime.now()
-            )
-            embed.set_thumbnail(url=user.display_avatar.url)
-        except:
-            embed = discord.Embed(
-                title=f"📋 ID: {user_id} Kullanıcısının Moderasyon Geçmişi",
-                color=discord.Color.blue(),
-                timestamp=datetime.datetime.now()
-            )
-
-        # Uyarıları listele
-        if "UYARILAR" in notes and notes["UYARILAR"]:
-            uyari_text = ""
-            for idx, note in enumerate(notes["UYARILAR"], 1):
-                moderator_name = note.get('moderator', 'Bilinmiyor')
-                if moderator_name == "AutoMod":
-                    moderator_name = "🤖 AutoMod"
-                    
-                uyari_text += f"**#{idx}** | {note.get('tarih', 'Tarih yok')}\n"
-                uyari_text += f"➜ Sebep: {note.get('sebep', 'Sebep belirtilmedi')}\n"
-                uyari_text += f"➜ Moderatör: {moderator_name}\n\n"
-            
-            embed.add_field(
-                name=f"⚠️ Uyarılar [{len(notes['UYARILAR'])}]",
-                value=uyari_text or "Bulunmuyor",
-                inline=False
-            )
-
-        # Timeoutları listele
-        if "TIMEOUTLAR" in notes and notes["TIMEOUTLAR"]:
-            timeout_text = ""
-            for idx, note in enumerate(notes["TIMEOUTLAR"], 1):
-                moderator_name = note.get('moderator', 'Bilinmiyor')
-                if moderator_name == "AutoMod":
-                    moderator_name = "🤖 AutoMod"
-                    
-                timeout_text += f"**#{idx}** | {note.get('tarih', 'Tarih yok')}\n"
-                timeout_text += f"➜ Sebep: {note.get('sebep', 'Sebep belirtilmedi')}\n"
-                timeout_text += f"➜ Süre: {note.get('süre', 'Belirtilmedi')}\n"
-                timeout_text += f"➜ Moderatör: {moderator_name}\n\n"
-            
-            embed.add_field(
-                name=f"⏳ Timeout Geçmişi [{len(notes['TIMEOUTLAR'])}]",
-                value=timeout_text or "Bulunmuyor",
-                inline=False
-            )
-
-        # Banları listele
-        if "BANLAR" in notes and notes["BANLAR"]:
-            ban_text = ""
-            for idx, note in enumerate(notes["BANLAR"], 1):
-                moderator_name = note.get('moderator', 'Bilinmiyor')
-                if moderator_name == "AutoMod":
-                    moderator_name = "🤖 AutoMod"
-                    
-                ban_text += f"**#{idx}** | {note.get('tarih', 'Tarih yok')}\n"
-                ban_text += f"➜ Sebep: {note.get('sebep', 'Sebep belirtilmedi')}\n"
-                ban_text += f"➜ Moderatör: {moderator_name}\n\n"
-            
-            embed.add_field(
-                name=f"🔨 Ban Geçmişi [{len(notes['BANLAR'])}]",
-                value=ban_text or "Bulunmuyor",
-                inline=False
-            )
-
-        total_actions = (
-            len(notes.get("UYARILAR", [])) +
-            len(notes.get("TIMEOUTLAR", [])) +
-            len(notes.get("BANLAR", []))
+        success = await self.add_note(
+            user_id=user.id,
+            note_type=note_type,
+            reason=reason,
+            moderator=str(ctx.author),
+            moderator_id=ctx.author.id
         )
         
-        embed.description = f"**Toplam İşlem Sayısı:** {total_actions}"
-        embed.set_footer(text=f"ID: {user_id} | Sorgulayan: {ctx.author}")
-        await ctx.send(embed=embed)
-
-    @commands.command(name="notsil")
-    @commands.has_permissions(administrator=True)
-    async def delete_note(self, ctx, user_id: int, type: str, index: int):
-        """Belirtilen moderasyon kaydını siler"""
-        if not self.moderation and not self.custom_notes:
-            return await ctx.send("❌ Moderasyon sistemi yüklenemedi!")
-
-        type = type.upper()
-        if type == "UYARI":
-            type = "UYARILAR"
-        elif type == "TIMEOUT":
-            type = "TIMEOUTLAR"
-        elif type == "BAN":
-            type = "BANLAR"
+        if success:
+            await ctx.send(f"✅ `{user}` kullanıcısına **{note_type}** tipinde not eklendi.")
         else:
-            return await ctx.send("❌ Geçersiz tür! Kullanım: `!notsil <user_id> <uyari/timeout/ban> <sıra_no>`")
+            await ctx.send("❌ Not eklenirken bir hata oluştu.")
 
-        user_id_str = str(user_id)
-
-        try:
-            # İlk olarak notes.json dosyasını güncelle (dosya güncel verileri yansıtacak)
-            try:
-                with open("data/notes.json", "r", encoding="utf-8") as f:
-                    all_notes = json.load(f)
-            except Exception as e:
-                print(f"Notes dosyası okuma hatası: {e}")
-                all_notes = {}
-
-            # Dosyadaki notu sil
-            if user_id_str in all_notes and type in all_notes[user_id_str] and len(all_notes[user_id_str][type]) >= index:
-                # Silme işlemlerini gerçekleştir
-                deleted_note = all_notes[user_id_str][type].pop(index - 1)
-                
-                # Kullanıcının tüm kayıtları boşsa, kullanıcıyı tamamen kaldır
-                if not all_notes[user_id_str][type] and not all_notes[user_id_str]["UYARILAR"] and not all_notes[user_id_str]["TIMEOUTLAR"] and not all_notes[user_id_str]["BANLAR"]:
-                    del all_notes[user_id_str]
-                    
-                # Dosyaya geri yaz
-                try:
-                    # Kayıt işlemi yapıldığını belirt
-                    self.is_saving = True
-                    with open("data/notes.json", "w", encoding="utf-8") as f:
-                        json.dump(all_notes, f, ensure_ascii=False, indent=4)
-                    self.last_file_check = os.path.getmtime("data/notes.json")
-                    
-                    # Veriyi güncelle
-                    if self.moderation:
-                        self.moderation.notes = all_notes
-                    else:
-                        self.custom_notes = all_notes
-                finally:
-                    # Bayrağı kaldır
-                    self.is_saving = False
-                
-                # Başarı mesajı
-                embed = discord.Embed(
-                    title="🗑️ Moderasyon Kaydı Silindi",
-                    description=(
-                        f"**Kullanıcı ID:** {user_id}\n"
-                        f"**Tür:** {type}\n"
-                        f"**Sıra:** #{index}\n"
-                        f"**Sebep:** {deleted_note['sebep']}\n"
-                        f"**Moderatör:** {deleted_note['moderator']}\n"
-                        f"**Tarih:** {deleted_note['tarih']}"
-                    ),
-                    color=discord.Color.red()
-                )
-                await ctx.send(embed=embed)
-            else:
-                return await ctx.send("❌ Belirtilen kayıt bulunamadı!")
-
-        except Exception as e:
-            await ctx.send(f"❌ Bir hata oluştu: {e}")
-
-    @commands.command(name="nottemizle")
-    @commands.has_permissions(administrator=True)
-    async def clear_notes(self, ctx, user_id: int):
-        """Kullanıcının tüm moderasyon geçmişini temizler"""
-        if not self.moderation and not self.custom_notes:
-            return await ctx.send("❌ Moderasyon sistemi yüklenemedi!")
-
-        if str(user_id) not in (self.moderation.notes if self.moderation else self.custom_notes):
-            return await ctx.send("❌ Bu kullanıcı için kayıt bulunmuyor!")
-
-        try:
-            user = await self.bot.fetch_user(user_id)
-            user_name = user.name
-        except:
-            user_name = str(user_id)
-
-        if self.moderation:
-            del self.moderation.notes[str(user_id)]
-            self.moderation.save_notes()
-        else:
-            del self.custom_notes[str(user_id)]
-            try:
-                # Kayıt işlemi yapıldığını belirt
-                self.is_saving = True
-                with open("data/notes.json", "w", encoding="utf-8") as f:
-                    json.dump(self.custom_notes, f, ensure_ascii=False, indent=4)
-                self.last_file_check = os.path.getmtime("data/notes.json")
-            finally:
-                # Bayrağı kaldır
-                self.is_saving = False
-
+    @notes_cmd.command(name="listele", aliases=["liste", "list"])
+    @has_mod_role()
+    async def list_notes(self, ctx, user: discord.Member, note_type: str = None):
+        """Kullanıcının notlarını listeler"""
+        # Notes yükle - güncel olmalarını sağla
+        self.load_notes()
+        
+        user_id_str = str(user.id)
+        
+        if user_id_str not in self.notes or not self.notes[user_id_str]:
+            return await ctx.send(f"❌ `{user}` kullanıcısı için kayıtlı not bulunmuyor.")
+        
+        note_types = ["UYARILAR", "TIMEOUTLAR", "BANLAR"]
+        if note_type:
+            note_type = note_type.upper()
+            if note_type not in note_types:
+                return await ctx.send(f"❌ Geçersiz not tipi. Kullanılabilir tipler: {', '.join(note_types)}")
+            note_types = [note_type]
+        
         embed = discord.Embed(
-            title="🧹 Moderasyon Geçmişi Temizlendi",
-            description=f"**{user_name}** kullanıcısının tüm moderasyon kayıtları silindi.",
-            color=discord.Color.orange()
+            title=f"📝 {user} Kullanıcısının Notları",
+            color=discord.Color.blue(),
+            timestamp=datetime.now()
         )
+        embed.set_thumbnail(url=user.display_avatar.url)
+        
+        for note_type in note_types:
+            if note_type in self.notes[user_id_str] and self.notes[user_id_str][note_type]:
+                notes = self.notes[user_id_str][note_type]
+                notes_txt = ""
+                
+                for i, note in enumerate(notes, start=1):
+                    notes_txt += f"**{i}.** {note.get('tarih', 'Tarih yok')} - {note.get('sebep', 'Sebep yok')}\n"
+                    notes_txt += f"└ Moderatör: {note.get('moderator', 'Bilinmiyor')}\n"
+                    
+                    if "süre" in note and note_type == "TIMEOUTLAR":
+                        notes_txt += f"└ Süre: {note['süre']}\n"
+                    
+                    notes_txt += "\n"
+                
+                if notes_txt:
+                    embed.add_field(name=f"{note_type} ({len(notes)})", value=notes_txt, inline=False)
+            
         await ctx.send(embed=embed)
 
-    @commands.Cog.listener()
-    async def on_command_completion(self, ctx):
-        """Komut tamamlandığında notları yenile"""
-        # Sadece moderasyon komutlarından sonra yenile
-        if ctx.command.name in ["uyar", "warn", "timeout", "mute", "sustur", "ban", "kick", "notsil"]:
-            await self.refresh_from_file()
+    @notes_cmd.command(name="sil", aliases=["delete", "remove"])
+    @has_mod_role()
+    async def delete_note(self, ctx, user: discord.Member, note_type: str, note_index: int):
+        """Belirtilen notu siler"""
+        # Notes yükle - güncel olmalarını sağla
+        self.load_notes()
+        
+        user_id_str = str(user.id)
+        note_type = note_type.upper()
+        
+        if user_id_str not in self.notes:
+            return await ctx.send(f"❌ `{user}` kullanıcısı için kayıtlı not bulunmuyor.")
+        
+        if note_type not in self.notes[user_id_str]:
+            return await ctx.send(f"❌ `{user}` kullanıcısı için `{note_type}` tipinde not bulunmuyor.")
+        
+        notes = self.notes[user_id_str][note_type]
+        
+        if not (1 <= note_index <= len(notes)):
+            return await ctx.send(f"❌ Geçersiz not indeksi. 1-{len(notes)} arasında bir değer girin.")
+        
+        # Notu sil (1-tabanlı indeks olduğu için -1 yapıyoruz)
+        removed_note = notes.pop(note_index - 1)
+        await self.save_notes()
+        
+        # Silinen not hakkında bilgi ver
+        embed = discord.Embed(
+            title="🗑️ Not Silindi",
+            description=f"`{user}` kullanıcısının `{note_type}` kategorisindeki **{note_index}.** notu silindi.",
+            color=discord.Color.red(),
+            timestamp=datetime.now()
+        )
+        
+        embed.add_field(
+            name="Silinen Not Bilgileri",
+            value=(
+                f"**Sebep:** {removed_note.get('sebep', 'Belirtilmemiş')}\n"
+                f"**Eklenme Tarihi:** {removed_note.get('tarih', 'Belirtilmemiş')}\n"
+                f"**Ekleyen:** {removed_note.get('moderator', 'Belirtilmemiş')}"
+            ),
+            inline=False
+        )
+        
+        embed.set_thumbnail(url=user.display_avatar.url)
+        
+        await ctx.send(embed=embed)
+    
+    @notes_cmd.command(name="temizle", aliases=["clear"])
+    @has_admin()
+    async def clear_notes(self, ctx, user: discord.Member, note_type: str = None):
+        """Kullanıcının belirtilen tip notlarını veya tüm notlarını temizler"""
+        # Notes yükle - güncel olmalarını sağla
+        self.load_notes()
+        
+        user_id_str = str(user.id)
+        
+        if user_id_str not in self.notes or not self.notes[user_id_str]:
+            return await ctx.send(f"❌ `{user}` kullanıcısı için kayıtlı not bulunmuyor.")
+        
+        if note_type:
+            # Belirli bir not türünü temizle
+            note_type = note_type.upper()
+            valid_types = ["UYARILAR", "TIMEOUTLAR", "BANLAR"]
+            
+            if note_type not in valid_types:
+                return await ctx.send(f"❌ Geçersiz not tipi. Kullanılabilir tipler: {', '.join(valid_types)}")
+            
+            if note_type not in self.notes[user_id_str] or not self.notes[user_id_str][note_type]:
+                return await ctx.send(f"❌ `{user}` kullanıcısı için `{note_type}` tipinde not bulunmuyor.")
+            
+            # Not sayısını al ve notları temizle
+            note_count = len(self.notes[user_id_str][note_type])
+            self.notes[user_id_str][note_type] = []
+            await self.save_notes()
+            
+            await ctx.send(f"✅ `{user}` kullanıcısının **{note_count}** adet `{note_type}` notu temizlendi.")
+        else:
+            # Tüm notları temizle
+            self.notes.pop(user_id_str, None)
+            await self.save_notes()
+            
+            await ctx.send(f"✅ `{user}` kullanıcısının tüm notları temizlendi.")
+
+    # Dışa açık komutlar (not alt komutları dışında)
+    @commands.command(name="notlar", aliases=["notes", "geçmiş", "gecmis"])
+    @has_mod_role()
+    async def view_notes(self, ctx, user: discord.Member):
+        """Kullanıcının moderasyon geçmişini gösterir"""
+        await self.list_notes(ctx, user)
+    
+    @commands.command(name="notsil", aliases=["delnote"])
+    @has_mod_role()
+    async def remove_note(self, ctx, user: discord.Member, note_type: str, note_index: int):
+        """Kullanıcının belirtilen notunu siler"""
+        await self.delete_note(ctx, user, note_type, note_index)
+    
+    @commands.command(name="nottemizle", aliases=["clearnotes"])
+    @has_admin()
+    async def clear_user_notes(self, ctx, user: discord.Member, note_type: str = None):
+        """Kullanıcının tüm notlarını veya belirli kategori notlarını temizler"""
+        await self.clear_notes(ctx, user, note_type)
+
+    # ID tabanlı not komutları - string veya ID ile
+    @commands.command(name="nid")
+    @has_mod_role()
+    async def notes_by_id(self, ctx, user_id):
+        """ID ile kullanıcının moderasyon geçmişini gösterir"""
+        try:
+            # String ID'yi int'e çevir
+            user_id = str(user_id).strip("<@!>")
+            user = None
+
+            try:
+                # Kullanıcıyı bul
+                user = await self.bot.fetch_user(int(user_id))
+            except:
+                # Kullanıcı bulunamazsa bile devam et
+                pass
+
+            # Notes yükle
+            self.load_notes()
+            
+            # Not var mı kontrol et
+            if user_id not in self.notes or not self.notes[user_id]:
+                return await ctx.send(f"❌ ID: `{user_id}` için kayıtlı not bulunmuyor.")
+            
+            # Embed oluştur
+            embed = discord.Embed(
+                title=f"📝 Kullanıcı Notları",
+                description=f"ID: {user_id}" + (f" ({user})" if user else ""),
+                color=discord.Color.blue(),
+                timestamp=datetime.now()
+            )
+            
+            if user:
+                embed.set_thumbnail(url=user.display_avatar.url)
+            
+            # Tüm not tiplerini kontrol et
+            for note_type in ["UYARILAR", "TIMEOUTLAR", "BANLAR"]:
+                if note_type in self.notes[user_id] and self.notes[user_id][note_type]:
+                    notes = self.notes[user_id][note_type]
+                    notes_txt = ""
+                    
+                    for i, note in enumerate(notes, start=1):
+                        notes_txt += f"**{i}.** {note.get('tarih', 'Tarih yok')} - {note.get('sebep', 'Sebep yok')}\n"
+                        notes_txt += f"└ Moderatör: {note.get('moderator', 'Bilinmiyor')}\n"
+                        
+                        if "süre" in note and note_type == "TIMEOUTLAR":
+                            notes_txt += f"└ Süre: {note['süre']}\n"
+                        
+                        notes_txt += "\n"
+                    
+                    if notes_txt:
+                        embed.add_field(name=f"{note_type} ({len(notes)})", value=notes_txt, inline=False)
+            
+            await ctx.send(embed=embed)
+                
+        except Exception as e:
+            await ctx.send(f"❌ Hata: {e}")
+            import traceback
+            traceback.print_exc()
 
 async def setup(bot):
     await bot.add_cog(Notes(bot))

@@ -3,9 +3,147 @@ from aiohttp_session import get_session
 import discord
 from aiohttp import web
 import json
-from webdashboard.auth import get_user_from_token
 import logging
 import traceback
+
+logger = logging.getLogger('dashboard')
+
+class API:
+    def __init__(self, bot):
+        self.bot = bot
+    
+    # Yardımcı fonksiyonlar
+    def get_user_from_token(self, request):
+        """Get user data from session token"""
+        if not hasattr(request, 'session'):
+            return None
+        
+        user = request.session.get('user')
+        if not user:
+            return None
+        
+        return user
+    
+    # API endpoint handlers
+    async def get_guilds(self, request):
+        """Get all guilds the bot is in"""
+        user = self.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthorized"}, status=401)
+        
+        guilds = [
+            {
+                "id": str(guild.id),
+                "name": guild.name,
+                "icon": str(guild.icon.url) if guild.icon else None,
+                "member_count": guild.member_count
+            }
+            for guild in self.bot.guilds
+        ]
+        
+        return web.json_response(guilds)
+    
+    async def get_guild(self, request):
+        """Get a specific guild's info"""
+        user = self.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthorized"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının yetkisini kontrol et
+        user_guilds = user['guilds']
+        user_perm = False
+        
+        for g in user_guilds:
+            if g['id'] == guild_id:
+                if (int(g['permissions']) & 0x8) == 0x8:  # 0x8 = Administrator
+                    user_perm = True
+                    break
+        
+        if not user_perm:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Sunucu bilgilerini döndür
+        return web.json_response({
+            "id": str(guild.id),
+            "name": guild.name,
+            "icon": str(guild.icon.url) if guild.icon else None,
+            "member_count": guild.member_count,
+            "owner_id": str(guild.owner_id) if guild.owner_id else None,
+            "channels": [
+                {
+                    "id": str(c.id),
+                    "name": c.name,
+                    "type": str(c.type)
+                }
+                for c in guild.channels if hasattr(c, 'name')
+            ],
+            "roles": [
+                {
+                    "id": str(r.id),
+                    "name": r.name,
+                    "color": r.color.value,
+                    "position": r.position,
+                    "mentionable": r.mentionable
+                }
+                for r in guild.roles
+            ]
+        })
+    
+    async def get_settings(self, request):
+        """Get guild settings"""
+        user = self.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthorized"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        
+        # Örnek veri - gerçekte veritabanından alınacak
+        settings = {
+            "prefix": "!",
+            "welcome_channel": None,
+            "log_channel": None,
+            "autorole": None
+        }
+        
+        return web.json_response(settings)
+    
+    async def update_settings(self, request):
+        """Update guild settings"""
+        user = self.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthorized"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        
+        try:
+            data = await request.json()
+            
+            # Ayarları güncelle (örnek)
+            # Gerçekte veritabanına kaydedilecek
+            return web.json_response({"success": True})
+            
+        except json.JSONDecodeError:
+            return web.json_response({"error": "Invalid JSON"}, status=400)
+    
+    async def report_error(self, request):
+        """Log frontend errors"""
+        try:
+            data = await request.json()
+            error_message = data.get('message', 'No message provided')
+            error_location = data.get('location', 'Unknown')
+            
+            logging.error(f"Frontend Error: {error_message}")
+            logging.error(f"Location: {error_location}")
+            
+            return web.json_response({"success": True})
+        except Exception as e:
+            return web.json_response({"error": str(e)}, status=500)
 
 class BotAPI:
     def __init__(self, bot):
@@ -30,7 +168,7 @@ class BotAPI:
     
     async def get_guilds(self, request):
         """Kullanıcının erişimi olan sunucuları listele"""
-        user = get_user_from_token(request)
+        user = self.bot.get_user_from_token(request)
         if not user:
             return web.json_response({"error": "Unauthenticated"}, status=401)
         
@@ -51,7 +189,7 @@ class BotAPI:
     
     async def get_guild_info(self, request):
         """Sunucu bilgilerini verir"""
-        user = get_user_from_token(request)
+        user = self.bot.get_user_from_token(request)
         if not user:
             return web.json_response({"error": "Unauthenticated"}, status=401)
         
@@ -78,7 +216,7 @@ class BotAPI:
     
     async def update_guild_settings(self, request):
         """Sunucu ayarlarını günceller"""
-        user = get_user_from_token(request)
+        user = self.bot.get_user_from_token(request)
         if not user:
             return web.json_response({"error": "Unauthenticated"}, status=401)
         
@@ -105,6 +243,177 @@ class BotAPI:
             return web.json_response({"error": "Invalid JSON"}, status=400)
         except Exception as e:
             logging.error(f"Error updating guild settings: {e}")
+            return web.json_response({"error": str(e)}, status=500)
+
+    async def get_game_news_settings(self, request):
+        """Oyun haberleri ayarlarını getirir"""
+        user = self.bot.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının bu sunucuda admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Oyun haberleri ayarlarını veritabanından al
+        # Burada gerçek implementasyonu ekleyebilirsiniz
+        settings = {
+            "enabled": True,
+            "news_channel_id": None,
+            "ping_role_id": None,
+            "check_interval_minutes": 60,
+            "min_discount_percent": 75,
+            "news_sources": {
+                "epic_games": True,
+                "steam_deals": True
+            },
+            "last_news": {
+                "epic_free": [],
+                "steam_deals": []
+            }
+        }
+        
+        return web.json_response(settings)
+
+    async def update_game_news_settings(self, request):
+        """Oyun haberleri ayarlarını günceller"""
+        user = self.bot.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının bu sunucuda admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Ayarları güncelle
+        try:
+            data = await request.json()
+            # Burada gerçek veritabanı güncellemesi yapılmalı
+            
+            return web.json_response({"success": True})
+        except json.JSONDecodeError:
+            return web.json_response({"error": "Invalid JSON"}, status=400)
+            
+    async def test_game_news_webhook(self, request):
+        """Oyun haberleri webhook'unu test eder"""
+        user = self.bot.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının bu sunucuda admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        # Test webhook'u gönder
+        # Burada gerçek implementasyonu ekleyebilirsiniz
+        
+        return web.json_response({"success": True})
+
+    async def get_user_notes(self, request):
+        """Kullanıcı moderasyon notlarını getirir"""
+        user = self.bot.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        user_id = request.match_info['user_id']
+        
+        try:
+            # Discord API'den kullanıcı bilgilerini al
+            discord_user = await self.bot.fetch_user(int(user_id))
+            
+            # Kullanıcı notları
+            # Gerçek implementasyonda bu veriler notes.json'dan veya veritabanından gelecek
+            example_notes = {
+                "UYARILAR": [
+                    {"tarih": "10.05.2023 14:30", "sebep": "Uygunsuz davranış", "moderator": "Admin123"},
+                    {"tarih": "15.05.2023 18:45", "sebep": "Spam", "moderator": "AutoMod"}
+                ],
+                "TIMEOUTLAR": [
+                    {"tarih": "20.05.2023 10:15", "sebep": "Tartışma çıkarma", "süre": "1 saat", "moderator": "Admin456"}
+                ],
+                "BANLAR": []
+            }
+            
+            return web.json_response({
+                "user": {
+                    "username": discord_user.name,
+                    "id": user_id,
+                    "avatar_url": str(discord_user.avatar.url) if discord_user.avatar else str(discord_user.default_avatar.url)
+                },
+                "notes": example_notes
+            })
+        except Exception as e:
+            return web.json_response({"error": f"Kullanıcı bilgileri alınamadı: {str(e)}"}, status=404)
+
+    async def delete_note(self, request):
+        """Moderasyon notunu siler"""
+        user = self.bot.get_user_from_token(request)
+        if not user:
+            return web.json_response({"error": "Unauthenticated"}, status=401)
+        
+        guild_id = request.match_info['guild_id']
+        guild = self.bot.get_guild(int(guild_id))
+        
+        if not guild:
+            return web.json_response({"error": "Guild not found"}, status=404)
+        
+        # Kullanıcının admin yetkisi var mı kontrol et
+        member = guild.get_member(int(user['user_id']))
+        if not member or not member.guild_permissions.administrator:
+            return web.json_response({"error": "Unauthorized"}, status=403)
+        
+        try:
+            data = await request.json()
+            user_id = data.get('user_id')
+            note_type = data.get('note_type')
+            note_id = int(data.get('note_id', 0))
+            
+            # Burada gerçek silme işlemi yapılacak
+            # Örnek: self.bot.get_cog('Notes').remove_note(user_id, note_type, note_id)
+            
+            return web.json_response({"success": True})
+        except Exception as e:
+            return web.json_response({"error": f"Not silinemedi: {str(e)}"}, status=500)
+
+    async def report_error(self, request):
+        """Hata bildirimini kaydeder"""
+        try:
+            data = await request.json()
+            error_message = data.get('message', 'No message provided')
+            error_location = data.get('location', 'Unknown')
+            error_stack = data.get('stack', 'No stack trace')
+            
+            # Log the error
+            print(f"Frontend Error: {error_message}")
+            print(f"Location: {error_location}")
+            print(f"Stack: {error_stack}")
+            
+            # TODO: Hataları db'ye kaydet veya discord webhook'a gönder
+            
+            return web.json_response({"success": True})
+        except Exception as e:
             return web.json_response({"error": str(e)}, status=500)
 
 async def setup_api_routes(app, dashboard):

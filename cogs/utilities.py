@@ -6,6 +6,7 @@ import asyncio
 import time
 from utils.helpers import izin_kontrol, command_check  # Ensure command_check is imported
 from config.config import TIMEOUT_LOG_KANAL_ID, BAN_LOG_KANAL_ID, WARN_LOG_KANAL_ID
+from utils.permissions import has_mod_role, has_admin
 
 def create_home_embed():
     """Ana yardım embed'ini oluşturur"""
@@ -419,7 +420,7 @@ class Utilities(commands.Cog):
 
     @commands.command(name="temizle", aliases=["clear", "sil"])
     @commands.cooldown(1, 5, BucketType.user)
-    @commands.has_permissions(manage_messages=True)
+    @has_mod_role()
     async def temizle(self, ctx, miktar: int):
         """Belirtilen sayıda mesajı siler"""
         if miktar <= 0:

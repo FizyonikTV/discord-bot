@@ -7,6 +7,7 @@ from discord.ext.commands import cooldown, BucketType
 from utils.helpers import izin_kontrol, create_embed, send_log
 from config.config import *  # Import constants
 from config.config import LEVEL_ROLES
+from utils.permissions import has_mod_role, has_admin
 
 class Leveling(commands.Cog):
     def __init__(self, bot):
@@ -198,7 +199,7 @@ class Leveling(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(name="xpekle")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def add_xp(self, ctx, member: discord.Member, xp: int):
         """Kullanıcıya XP ekler."""
         guild_id = str(ctx.guild.id)
@@ -236,7 +237,7 @@ class Leveling(commands.Cog):
         self.save_levels()
 
     @commands.command(name="xpsıfırla")
-    @commands.has_permissions(administrator=True)
+    @has_admin()
     async def reset_xp(self, ctx, member: discord.Member):
         """Kullanıcının XP'sini sıfırlar."""
         guild_id = str(ctx.guild.id)

@@ -96,5 +96,29 @@
         "participants": [
             992110844886396978
         ]
+    },
+    "1371933011154833501": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1371933011154833501,
+        "prize": "deneme",
+        "winners": 1,
+        "end_time": 1747164779.171778,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978
+        ]
+    },
+    "1372154288800796734": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1372154288800796734,
+        "prize": "deneme",
+        "winners": 1,
+        "end_time": 1747221075.455126,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978
+        ]
     }
 }

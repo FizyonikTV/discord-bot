@@ -1,0 +1,36 @@
+2025-05-15 08:03:35,043 - bot - INFO - Bot baþlatýlýyor...
+2025-05-15 08:03:35,973 - bot - INFO - [OK] Error handler yüklendi
+2025-05-15 08:03:35,973 - bot - INFO - Yüklenecek 14 cog bulundu
+2025-05-15 08:03:35,976 - bot - INFO - [OK] Loaded cog: notes.py
+2025-05-15 08:03:35,978 - bot - INFO - [OK] Loaded cog: automod.py
+2025-05-15 08:03:36,006 - bot - INFO - [OK] Loaded cog: botinfo.py
+2025-05-15 08:03:36,012 - bot - INFO - [OK] Loaded cog: game_news.py
+2025-05-15 08:03:36,014 - bot - INFO - [OK] Loaded cog: giveaway.py
+2025-05-15 08:03:36,015 - bot - INFO - [OK] Loaded cog: information.py
+2025-05-15 08:03:36,017 - bot - INFO - [OK] Loaded cog: invite_tracker.py
+2025-05-15 08:03:36,018 - bot - INFO - [OK] Loaded cog: leveling.py
+2025-05-15 08:03:36,019 - bot - INFO - [OK] Loaded cog: logging.py
+2025-05-15 08:03:36,021 - bot - INFO - [OK] Loaded cog: moderation.py
+2025-05-15 08:03:36,022 - bot - INFO - [OK] Loaded cog: raid_protection.py
+2025-05-15 08:03:36,999 - bot - INFO - [OK] Loaded cog: tasks.py
+2025-05-15 08:03:37,001 - bot - INFO - [OK] Loaded cog: utilities.py
+2025-05-15 08:03:37,001 - bot - INFO - [OK] Loaded cog: welcome.py
+2025-05-15 08:03:39,805 - bot - INFO - [OK] Bot is ready as » Lunaris | Moderasyon Botu#6389
+2025-05-15 08:22:42,710 - bot - INFO - Bot baþlatýlýyor...
+2025-05-15 08:22:43,626 - bot - INFO - [OK] Error handler yüklendi
+2025-05-15 08:22:43,626 - bot - INFO - Yüklenecek 14 cog bulundu
+2025-05-15 08:22:43,639 - bot - INFO - [OK] Loaded cog: notes.py
+2025-05-15 08:22:43,642 - bot - INFO - [OK] Loaded cog: automod.py
+2025-05-15 08:22:43,651 - bot - INFO - [OK] Loaded cog: botinfo.py
+2025-05-15 08:22:43,653 - bot - INFO - [OK] Loaded cog: game_news.py
+2025-05-15 08:22:43,661 - bot - INFO - [OK] Loaded cog: giveaway.py
+2025-05-15 08:22:43,662 - bot - INFO - [OK] Loaded cog: information.py
+2025-05-15 08:22:43,664 - bot - INFO - [OK] Loaded cog: invite_tracker.py
+2025-05-15 08:22:43,669 - bot - INFO - [OK] Loaded cog: leveling.py
+2025-05-15 08:22:43,670 - bot - INFO - [OK] Loaded cog: logging.py
+2025-05-15 08:22:43,679 - bot - INFO - [OK] Loaded cog: moderation.py
+2025-05-15 08:22:43,680 - bot - INFO - [OK] Loaded cog: raid_protection.py
+2025-05-15 08:22:43,709 - bot - INFO - [OK] Loaded cog: tasks.py
+2025-05-15 08:22:43,711 - bot - INFO - [OK] Loaded cog: utilities.py
+2025-05-15 08:22:43,711 - bot - INFO - [OK] Loaded cog: welcome.py
+2025-05-15 08:22:46,561 - bot - INFO - [OK] Bot is ready as » Lunaris | Moderasyon Botu#6389

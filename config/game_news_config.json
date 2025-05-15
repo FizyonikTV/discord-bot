@@ -1,6 +1,6 @@
 {
     "enabled": true,
-    "webhook_url": "https://discord.com/api/webhooks/1371662532283990036/09E0vfcfCcmBYimDvPxIxdagbF8djL603j0JUvSAjNfGYV5Vy3OS6gxuysZ60Sulw1b0",
+    "webhook_url": "",
     "check_interval_minutes": 15,
     "news_sources": {
         "epic_games": true,

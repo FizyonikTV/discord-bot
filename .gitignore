@@ -6,3 +6,6 @@ secret*
 sifrelenmistoken.ini
 secret_key.env
 game_news_config.json
+logs/bot_2025-05-15.log
+logs/bot_2025-05-15.log
+*.log

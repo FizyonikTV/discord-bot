@@ -26,10 +26,10 @@
     "614559782355075083": {
         "UYARILAR": [
             {
-                "sebep": "leo",
+                "sebep": "Sebep belirtilmedi",
                 "moderator": "eonjinwoo",
                 "moderator_id": "992110844886396978",
-                "tarih": "15.05.2025 08:23"
+                "tarih": "15.05.2025 09:34"
             }
         ],
         "TIMEOUTLAR": [
@@ -37,8 +37,16 @@
                 "sebep": "deneme",
                 "moderator": "eonjinwoo",
                 "moderator_id": "992110844886396978",
-                "tarih": "15.05.2025 08:23",
+                "tarih": "15.05.2025 09:35",
                 "süre": "60 saniye"
+            }
+        ],
+        "BANLAR": [
+            {
+                "sebep": "Sebep belirtilmedi",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "15.05.2025 09:35"
             }
         ]
     }

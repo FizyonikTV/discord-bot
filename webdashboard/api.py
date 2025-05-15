@@ -5,7 +5,10 @@ from aiohttp import web
 import json
 import logging
 import traceback
+from utils.shared_models import SharedDataManager
+from .auth import require_login
 
+routes = web.RouteTableDef()
 logger = logging.getLogger('dashboard')
 
 class API:
@@ -616,3 +619,101 @@ async def handle_delete_case(request, dashboard):
     except Exception as e:
         logging.error(f"Error deleting case: {e}")
         return web.json_response({'success': False, 'error': str(e)}, status=500)
+
+    
+# Moderasyon notlarını getir
+def require_login(f):
+    async def wrapped(request, *args, **kwargs):
+        session = await get_session(request)
+        if not session or 'user' not in session:
+            return web.json_response({"error": "Unauthorized"}, status=401)
+        request['user'] = session['user']
+        return await f(request, *args, **kwargs)
+    return wrapped
+
+async def validate_guild_access(request, guild_id):
+    """Check if user has administrator access to guild"""
+    user = request['user']
+    guild = request.app['bot'].get_guild(int(guild_id))
+    
+    if not guild:
+        return False
+        
+    # Check user permissions in guild
+    member = guild.get_member(int(user['id']))
+    if not member or not member.guild_permissions.administrator:
+        return False
+        
+    return True
+
+@routes.get('/api/guild/{guild_id}/notes/{user_id}')
+@require_login
+async def get_user_notes(request):
+    """Kullanıcı moderasyon notlarını getir"""
+    user = request['user']
+    guild_id = request.match_info['guild_id']
+    user_id = request.match_info['user_id']
+    
+    # Guild erişim kontrolü
+    if not await validate_guild_access(request, guild_id):
+        return web.json_response({'error': 'Bu sunucuya erişim izniniz yok'})
+    
+    # Bot'tan shared_data al
+    shared_data = request.app['bot'].shared_data
+    
+    # Notları yükle
+    all_notes = shared_data.load_notes(guild_id)
+    
+    # Kullanıcı notları
+    user_notes = all_notes.get(str(user_id), {})
+    
+    # Discord'dan kullanıcı bilgilerini al
+    try:
+        discord_user = await request.app['bot'].fetch_user(int(user_id))
+        user_info = {
+            'id': str(discord_user.id),
+            'username': str(discord_user),
+            'avatar_url': str(discord_user.display_avatar.url)
+        }
+    except:
+        user_info = {
+            'id': user_id,
+            'username': 'Bilinmeyen Kullanıcı',
+            'avatar_url': ''
+        }
+        
+    return web.json_response({
+        'user': user_info,
+        'notes': user_notes
+    })
+
+# Not silme API
+@routes.post('/api/guild/{guild_id}/notes/delete')
+@require_login
+async def delete_user_note(request):
+    """Moderasyon notu sil"""
+    user = request['user']
+    guild_id = request.match_info['guild_id']
+    
+    # Guild erişim kontrolü
+    if not await validate_guild_access(request, guild_id):
+        return web.json_response({'error': 'Bu sunucuya erişim izniniz yok'})
+    
+    # JSON verisini al
+    try:
+        data = await request.json()
+        user_id = data['user_id']
+        note_type = data['note_type']
+        note_id = data['note_id']
+    except Exception as e:
+        return web.json_response({'error': f'Geçersiz istek verisi: {str(e)}'})
+    
+    # Bot'tan shared_data al
+    shared_data = request.app['bot'].shared_data
+    
+    # Notu sil
+    success = shared_data.remove_note(guild_id, user_id, note_type, note_id)
+    
+    return web.json_response({
+        'success': success
+    })

@@ -9,6 +9,7 @@ from utils.helpers import command_check, COMMAND_CHANNELS
 from webdashboard import Dashboard
 from dotenv import load_dotenv
 from utils.logger import get_bot_logger, get_cmd_logger, log_command, log_error
+from utils.shared_models import SharedDataManager
 
 # Çevre değişkenlerini yükle
 load_dotenv()
@@ -26,6 +27,7 @@ class LunarisBot(commands.Bot):
         )
         self.start_time = datetime.now(timezone.utc)
         bot_logger.info("Bot başlatılıyor...")
+        self.shared_data = SharedDataManager(self)  # Ortak veri modelini ekle
 
     async def add_cog(self, cog):
         """Add checks to all commands in a cog."""
@@ -100,14 +102,15 @@ class LunarisBot(commands.Bot):
                 "port": int(os.environ.get("DASHBOARD_PORT", 8080))
             }
             
-            # Dashboard'u başlat
+            # Dashboard'u başlat - Shared data ekle 
             self.dashboard = Dashboard(
                 bot=self,
                 client_id=dashboard_config["client_id"],
                 client_secret=dashboard_config["client_secret"],
                 base_url=dashboard_config["base_url"],
                 port=dashboard_config["port"],
-                redirect_uri=dashboard_config["redirect_uri"]
+                redirect_uri=dashboard_config["redirect_uri"],
+                shared_data=self.shared_data  # Ortak veri modelini dashboard'a geçir
             )
             
             # Dashboard başlatma fonksiyonunu çağır

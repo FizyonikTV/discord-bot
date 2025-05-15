@@ -1,0 +1,38 @@
+{
+    "614559782355075083": {
+        "UYARILAR": [
+            {
+                "id": "1",
+                "reason": "deneme",
+                "moderator_id": "992110844886396978",
+                "moderator_name": "eonjinwoo",
+                "timestamp": "2025-05-15T08:05:39.221906"
+            },
+            {
+                "id": "2",
+                "reason": "deneme",
+                "moderator_id": "992110844886396978",
+                "moderator_name": "eonjinwoo",
+                "timestamp": "2025-05-15T08:06:41.320107"
+            }
+        ],
+        "TIMEOUTLAR": [
+            {
+                "id": "1",
+                "reason": "deneme",
+                "moderator_id": "992110844886396978",
+                "moderator_name": "eonjinwoo",
+                "timestamp": "2025-05-15T08:05:53.232170"
+            }
+        ],
+        "BANLAR": [
+            {
+                "id": "1",
+                "reason": "deneme",
+                "moderator_id": "992110844886396978",
+                "moderator_name": "eonjinwoo",
+                "timestamp": "2025-05-15T08:06:13.828369"
+            }
+        ]
+    }
+}

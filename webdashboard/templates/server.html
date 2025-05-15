@@ -278,6 +278,72 @@
                 </div>
             </div>
             
+            <!-- Moderasyon Ayarları -->
+            <div class="tab-pane fade" id="v-pills-moderation" role="tabpanel">
+                <div class="settings-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-gavel"></i> Moderasyon Ayarları</h3>
+                        <p>Moderasyon sistemi ve otomatik ceza ayarları</p>
+                    </div>
+                    
+                    <form id="moderation-settings-form">
+                        <div class="settings-card">
+                            <div class="settings-card-header">
+                                <h5>Log Kanalları</h5>
+                            </div>
+                            <div class="settings-card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="warn-log-channel" class="form-label">Uyarı Log Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="warn-log-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Uyarı işlemlerinin kayıtları bu kanala gönderilecektir.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="ban-log-channel" class="form-label">Ban Log Kanalı</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                                <select class="form-select" id="ban-log-channel">
+                                                    <option value="">Seçiniz</option>
+                                                    {% for channel in guild.channels %}
+                                                        {% if channel.type == 'text' %}
+                                                        <option value="{{ channel.id }}">{{ channel.name }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="form-text">Ban işlemlerinin kayıtları bu kanala gönderilecektir.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="action-buttons mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Değişiklikleri Kaydet
+                            </button>
+                            <button type="reset" class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
             <!-- Çekilişler -->
             <div class="tab-pane fade" id="v-pills-giveaway" role="tabpanel">
                 <div class="settings-panel">

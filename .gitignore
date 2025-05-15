@@ -1,2 +1,8 @@
-şifrelenmistoken.ini
+# .gitignore dosyasına ekleyin
+.env
+*.ini
+*_config.json
+secret*
+sifrelenmistoken.ini
 secret_key.env
+game_news_config.json

@@ -11,36 +11,32 @@ from config.config import (
     IZIN_VERILEN_ROLLER
 )
 from utils.permissions import has_mod_role, has_admin
+from utils.shared_models import SharedDataManager
 
 class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.shared_data = SharedDataManager(bot)
         print(f"[MOD] Moderation cog yüklendi.")
     
     async def add_mod_note(self, user_id, note_type, reason, moderator, duration=None):
-        """Kullanıcıya moderasyon notu ekler - Notes cog üzerinden"""
-        notes_cog = self.bot.get_cog("Notes")
-        if notes_cog:
-            try:
-                kwargs = {}
-                if duration and note_type == "TIMEOUTLAR":
-                    kwargs["duration"] = duration
-                    
-                success = await notes_cog.add_note(
-                    user_id=user_id,
-                    note_type=note_type,
-                    reason=reason,
-                    moderator=str(moderator),
-                    moderator_id=moderator.id,
-                    **kwargs
-                )
-                return success
-            except Exception as e:
-                print(f"[HATA] Not eklenirken hata: {e}")
-                return False
-        else:
-            print(f"[HATA] Notes cog bulunamadı!")
-            return False
+        """Moderasyon notu ekler ve dashboard ile paylaşır"""
+        try:
+            # Tek sunucu için çalışacak şekilde düzenlendi (çoklu sunucu desteği eklenebilir)
+            self.shared_data.add_note(
+                guild_id=self.bot.guilds[0].id if self.bot.guilds else 0,  # İlk sunucuyu kullan
+                user_id=user_id,
+                note_type=note_type,
+                reason=reason,
+                moderator_id=moderator.id,
+                moderator_name=str(moderator),
+                duration=duration  # Timeout süresi
+            )
+            print(f"[MOD] Not eklendi: {user_id}, {note_type}, {reason}")
+        except Exception as e:
+            print(f"[HATA] Not eklenirken hata oluştu: {e}")
+            import traceback
+            traceback.print_exc()
 
     def create_embed(self, title, description, color, user=None):
         """Standart embed oluşturma yardımcısı"""
@@ -85,7 +81,7 @@ class Moderation(commands.Cog):
             )
             embed.set_thumbnail(url=member.display_avatar.url)
             
-            # Not ekle
+            # Not ekle - bu artık ortak veri modelini kullanacak
             await self.add_mod_note(
                 user_id=member.id,
                 note_type="UYARILAR",
@@ -111,8 +107,8 @@ class Moderation(commands.Cog):
                 print(f"DM gönderilirken hata: {e}")
                 await ctx.send(f"⚠️ {member.mention} kullanıcısına DM gönderilemedi.")
             
-            # Komut kanalına mesajı gönder
-            await ctx.send(embed=embed)
+            # Komut kanalına mesaj gönder (detaylı embed yerine basit onay mesajı)
+            await ctx.send(f"✅ {member.mention} kullanıcısı başarıyla uyarıldı.")
             
         except Exception as e:
             await ctx.send(f"❌ Bir hata oluştu: {e}")
@@ -263,10 +259,10 @@ class Moderation(commands.Cog):
             # Yasaklı rolü ver
             await member.add_roles(yasakli_rol, reason=f"{ctx.author}: {reason}")
             
-            # Not ekle
+            # Not ekle - "BANLAR" olarak düzgün tipte not ekleyin
             await self.add_mod_note(
                 user_id=member.id,
-                note_type="BANLAR",
+                note_type="BANLAR",  # "BANLAR" olarak düzeltin
                 reason=reason,
                 moderator=ctx.author
             )
@@ -376,9 +372,6 @@ class Moderation(commands.Cog):
             await ctx.send(f"❌ Bir hata oluştu: {e}")
             import traceback
             traceback.print_exc()
-
-    # Not komutlarını buradan kaldır - çünkü notes.py'de zaten var!
-    # Artık burada notlar, notsil, nottemizle gibi komutlar bulunmuyor
 
 async def setup(bot):
     await bot.add_cog(Moderation(bot))

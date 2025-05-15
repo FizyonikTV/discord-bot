@@ -240,8 +240,10 @@ class Notes(commands.Cog):
     # Dışa açık komutlar (not alt komutları dışında)
     @commands.command(name="notlar", aliases=["notes", "geçmiş", "gecmis"])
     @has_mod_role()
-    async def view_notes(self, ctx, user: discord.Member):
+    async def view_notes(self, ctx, user: discord.Member = None):
         """Kullanıcının moderasyon geçmişini gösterir"""
+        if not user:
+            return await ctx.send("❌ Lütfen bir kullanıcı belirtin! Örnek: `!notlar @kullanıcı`")
         await self.list_notes(ctx, user)
     
     @commands.command(name="notsil", aliases=["delnote"])

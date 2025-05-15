@@ -26,34 +26,19 @@
     "614559782355075083": {
         "UYARILAR": [
             {
-                "sebep": "deneme",
+                "sebep": "leo",
                 "moderator": "eonjinwoo",
-                "moderator_id": 992110844886396978,
-                "tarih": "14.05.2025 13:02"
-            },
-            {
-                "sebep": "deneme",
-                "moderator": "eonjinwoo",
-                "moderator_id": 992110844886396978,
-                "tarih": "14.05.2025 13:06"
+                "moderator_id": "992110844886396978",
+                "tarih": "15.05.2025 08:23"
             }
         ],
         "TIMEOUTLAR": [
             {
                 "sebep": "deneme",
                 "moderator": "eonjinwoo",
-                "moderator_id": 992110844886396978,
-                "tarih": "14.05.2025 13:07",
-                "duration": "60 saniye",
+                "moderator_id": "992110844886396978",
+                "tarih": "15.05.2025 08:23",
                 "süre": "60 saniye"
-            }
-        ],
-        "BANLAR": [
-            {
-                "sebep": "Sebep belirtilmedi",
-                "moderator": "eonjinwoo",
-                "moderator_id": 992110844886396978,
-                "tarih": "14.05.2025 13:07"
             }
         ]
     }

@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toast mesajı gösterimi için eventListener
     setupToastListeners();
+
+    // Periyodik olarak açık olan moderasyon kayıtlarını yenile
+    startPeriodicNotesRefresh();
 });
 
 // Genel hata yakalama
@@ -162,6 +165,37 @@ function loadInviteSettings() {
             hideTabLoading('#v-pills-invite');
             showApiError('#v-pills-invite', 'Davet verileri yüklenirken bir hata oluştu.');
             console.error('Error loading invite settings:', error);
+        });
+}
+
+// Moderasyon ayarlarını yükle
+function loadModerationSettings() {
+    const guildId = getGuildId();
+    showTabLoading('#v-pills-moderation');
+    
+    fetch(`/api/guild/${guildId}/moderation/settings`)
+        .then(response => response.json())
+        .then(data => {
+            hideTabLoading('#v-pills-moderation');
+            
+            if (data.error) {
+                showApiError('#v-pills-moderation', data.error);
+                return;
+            }
+            
+            // Form alanlarını doldur
+            if (data.warn_log_channel) {
+                document.getElementById('warn-log-channel').value = data.warn_log_channel;
+            }
+            
+            if (data.ban_log_channel) {
+                document.getElementById('ban-log-channel').value = data.ban_log_channel;
+            }
+        })
+        .catch(error => {
+            hideTabLoading('#v-pills-moderation');
+            showApiError('#v-pills-moderation', 'Moderasyon ayarları yüklenirken bir hata oluştu.');
+            console.error('Error loading moderation settings:', error);
         });
 }
 
@@ -426,6 +460,40 @@ function saveAutomodSettings(form) {
         hideLoading(form);
         showToast('Bir hata oluştu: ' + error, 'error');
         console.error('Error saving AutoMod settings:', error);
+    });
+}
+
+// Moderasyon ayarlarını kaydet
+function saveModerationSettings(form) {
+    const guildId = getGuildId();
+    showLoading(form);
+    
+    const settings = {
+        warn_log_channel: document.getElementById('warn-log-channel').value,
+        ban_log_channel: document.getElementById('ban-log-channel').value
+    };
+    
+    fetch(`/api/guild/${guildId}/moderation/settings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settings)
+    })
+    .then(response => response.json())
+    .then(data => {
+        hideLoading(form);
+        
+        if (data.success) {
+            showToast('Moderasyon ayarları başarıyla güncellendi!', 'success');
+        } else {
+            showToast('Ayarlar güncellenirken bir hata oluştu: ' + data.error, 'error');
+        }
+    })
+    .catch(error => {
+        hideLoading(form);
+        showToast('Bir hata oluştu: ' + error, 'error');
+        console.error('Error saving moderation settings:', error);
     });
 }
 
@@ -1042,6 +1110,15 @@ function setupFormListeners() {
         });
     }
     
+    // Moderasyon ayarları formu
+    const moderationForm = document.getElementById('moderation-settings-form');
+    if (moderationForm) {
+        moderationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveModerationSettings(this);
+        });
+    }
+    
     // Diğer formlar için benzer listener'lar eklenebilir
 }
 
@@ -1282,7 +1359,7 @@ function setupNotesListeners() {
     });
 }
 
-// Kullanıcı notlarını yükle
+// Kullanıcı notlarını yükle ve tüm sekme içeriğini yenile
 function loadUserNotes(userId) {
     const guildId = getGuildId();
     showLoading(document.querySelector('.notes-result-container'));
@@ -1307,14 +1384,30 @@ function loadUserNotes(userId) {
             
             // Notları tablolara ekle
             updateNotesTable('warnings', data.notes.UYARILAR || []);
-            updateNotesTable('timeouts', data.notes.TIMEOUTLAR || []);
-            updateNotesTable('bans', data.notes.BANLAR || []);
+            updateNotesTable('bans', data.notes.YASAKLAMALAR || []);
+            updateNotesTable('timeouts', data.notes.SUSTURMALAR || []);
+            updateNotesTable('kicks', data.notes.ATMALAR || []);
+            updateNotesTable('custom', data.notes.ÖZEL || []);
         })
         .catch(error => {
             hideLoading(document.querySelector('.notes-result-container'));
-            showToast('Kayıtlar yüklenirken bir hata oluştu', 'error');
-            console.error('Error loading user notes:', error);
+            showToast('Notlar yüklenirken bir hata oluştu: ' + error, 'error');
+            console.error('Error loading notes:', error);
         });
+}
+
+// Periyodik olarak açık olan moderasyon kayıtlarını yenile
+function startPeriodicNotesRefresh() {
+    // Her 30 saniyede bir mevcut görüntülenen notları yenile
+    setInterval(() => {
+        const notesData = document.querySelector('.notes-data');
+        if (notesData && notesData.style.display !== 'none') {
+            const userId = document.getElementById('notes-user-id').textContent.replace('ID: ', '');
+            if (userId) {
+                loadUserNotes(userId);
+            }
+        }
+    }, 30000); // 30 saniye
 }
 
 // Not tablosunu güncelle
@@ -1369,7 +1462,7 @@ function updateNotesTable(type, notes) {
         deleteBtn.className = 'btn btn-sm btn-outline-danger delete-note-btn';
         deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
         deleteBtn.dataset.userId = document.getElementById('notes-user-id').textContent.split(':')[1].trim();
-        deleteBtn.dataset.noteType = type === 'warnings' ? 'UYARILAR' : (type === 'timeouts' ? 'TIMEOUTLAR' : 'BANLAR');
+        deleteBtn.dataset.noteType = type === 'warnings' ? 'UYARILAR' : (type === 'timeouts' ? 'TIMEOUTLAR' : (type === 'bans' ? 'BANLAR' : (type === 'kicks' ? 'ATMALAR' : 'ÖZEL')));
         deleteBtn.dataset.noteId = index + 1;
         actionsCell.appendChild(deleteBtn);
         row.appendChild(actionsCell);

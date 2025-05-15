@@ -25,33 +25,18 @@ class GameNews(commands.Cog):
             
     def load_config(self):
         """Webhook yapılandırmasını yükler"""
-        default_config = {
-            "enabled": True,
-            "webhook_url": GAME_WEBHOOK_URL,  # WEBHOOK_URL yerine GAME_WEBHOOK_URL kullanılıyor
-            "check_interval_minutes": 60,
-            "news_sources": {
-                "epic_games": True,
-                "steam_deals": True
-            },
-            "min_discount_percent": 75,
-            "webhook_name": "Lunaris - Oyun Habercisi",
-            "webhook_avatar": "https://i.ibb.co/6RQcJQVX/Lunaris-Banner-Ekstra-Orijinal.webp",
-            "news_channel_id": 1353317993060237322,  # Kanal ID'si zaten ayarlanmış
-            "ping_role_id": 1353318526265331763  # Etiketlenecek rol ID'si eklendi
-        }
-        
         try:
-            if os.path.exists(self.config_path):
-                with open(self.config_path, 'r', encoding='utf-8') as f:
-                    self.config = json.load(f)
-            else:
-                self.config = default_config
-                os.makedirs(os.path.dirname(self.config_path), exist_ok=True)
-                with open(self.config_path, 'w', encoding='utf-8') as f:
-                    json.dump(default_config, f, indent=4, ensure_ascii=False)
+            with open(self.config_path, 'r', encoding='utf-8') as f:
+                self.config = json.load(f)
+            
+            # Webhook URL'sini .env'den al
+            if GAME_WEBHOOK_URL:
+                self.config['webhook_url'] = GAME_WEBHOOK_URL
+            
+            return True
         except Exception as e:
-            logging.error(f"Oyun haberleri yapılandırması yüklenirken hata: {e}")
-            self.config = default_config
+            print(f"Oyun haberleri yapılandırması yüklenirken hata: {e}")
+            return False
             
     def save_config(self):
         """Webhook yapılandırmasını kaydeder"""

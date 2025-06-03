@@ -7,7 +7,7 @@ import logging
 class ErrorHandler(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        print("[ERROR] Hata yakalama sistemi yüklendi.")
+        print("[⚠️] Hata yakalama sistemi yüklendi.")
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):

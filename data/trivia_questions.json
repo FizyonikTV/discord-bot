@@ -1,0 +1,26 @@
+{
+  "genel": [
+    {"question": "Türkiye'nin başkenti neresidir?", "answer": "ankara", "options": ["İstanbul", "Ankara", "İzmir", "Bursa"]},
+    {"question": "1 yılda kaç ay vardır?", "answer": "12", "options": ["10", "11", "12", "13"]},
+    {"question": "En büyük gezegen hangisidir?", "answer": "jüpiter", "options": ["Mars", "Venüs", "Jüpiter", "Satürn"]},
+    {"question": "Kaç mevsim vardır?", "answer": "4", "options": ["3", "4", "5", "6"]},
+    {"question": "Dünyanın en büyük okyanusu hangisidir?", "answer": "pasifik", "options": ["Atlantik", "Pasifik", "Hint", "Arktik"]},
+    {"question": "Atatürk'ün doğum yılı nedir?", "answer": "1881", "options": ["1880", "1881", "1882", "1883"]},
+    {"question": "Türkiye'nin en kalabalık şehri hangisidir?", "answer": "istanbul", "options": ["Ankara", "İstanbul", "İzmir", "Bursa"]},
+    {"question": "Güneş sistemindeki gezegen sayısı kaçtır?", "answer": "8", "options": ["7", "8", "9", "10"]}
+  ],
+  "tarih": [
+    {"question": "Osmanlı İmparatorluğu ne zaman kuruldu?", "answer": "1299", "options": ["1299", "1453", "1071", "1326"]},
+    {"question": "İstanbul'un fethi hangi yılda gerçekleşti?", "answer": "1453", "options": ["1453", "1299", "1071", "1922"]},
+    {"question": "Türkiye Cumhuriyeti ne zaman kuruldu?", "answer": "1923", "options": ["1920", "1921", "1922", "1923"]},
+    {"question": "Malazgirt Savaşı hangi yılda oldu?", "answer": "1071", "options": ["1071", "1453", "1299", "1922"]},
+    {"question": "I. Dünya Savaşı hangi yıllar arasında yaşandı?", "answer": "1914-1918", "options": ["1912-1916", "1914-1918", "1916-1920", "1918-1922"]}
+  ],
+  "spor": [
+    {"question": "Futbolda bir takımda kaç oyuncu vardır?", "answer": "11", "options": ["9", "10", "11", "12"]},
+    {"question": "Olimpiyatlar kaç yılda bir düzenlenir?", "answer": "4", "options": ["2", "3", "4", "5"]},
+    {"question": "Basketbolda basket kaç puan eder?", "answer": "2", "options": ["1", "2", "3", "4"]},
+    {"question": "Dünya Kupası kaç yılda bir düzenlenir?", "answer": "4", "options": ["2", "3", "4", "5"]},
+    {"question": "Tenis kortunda fileci ağın yüksekliği ne kadardır?", "answer": "91", "options": ["85", "91", "95", "100"]}
+  ]
+}

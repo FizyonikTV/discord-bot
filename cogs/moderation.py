@@ -32,9 +32,9 @@ class Moderation(commands.Cog):
                 moderator_name=str(moderator),
                 duration=duration  # Timeout süresi
             )
-            print(f"[MOD] Not eklendi: {user_id}, {note_type}, {reason}")
+            print(f"[🛡️] Not eklendi: {user_id}, {note_type}, {reason}")
         except Exception as e:
-            print(f"[HATA] Not eklenirken hata oluştu: {e}")
+            print(f"[❌] Not eklenirken hata oluştu: {e}")
             import traceback
             traceback.print_exc()
 

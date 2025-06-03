@@ -23,18 +23,18 @@ class NoteManager:
         self.note_manager = NoteManager()
 
     def _load(self):
-        """Load notes from file"""
+        """Notları dosyadan yükle"""
         try:
             if os.path.exists("data/notes.json"):
                 with open("data/notes.json", "r", encoding="utf-8") as f:
                     self.notes = json.load(f)
             self.initialized = True
         except Exception as e:
-            print(f"Error loading notes: {e}")
+            print(f"Notları yüklerken hata: {e}")
             self.notes = {}
     
     async def save(self):
-        """Save notes to file"""
+        """Notları dosyaya kaydet"""
         if not self.initialized:
             return
             
@@ -44,61 +44,61 @@ class NoteManager:
                 
             self._saving = True
             try:
-                # Ensure directory exists
+                # Dizinin mevcut olduğundan emin olun
                 os.makedirs("data", exist_ok=True)
                 
-                # Save to file
+                # Dosyaya kaydet
                 with open("data/notes.json", "w", encoding="utf-8") as f:
                     json.dump(self.notes, f, ensure_ascii=False, indent=4)
-                    
-                # Notify listeners
+
+                # Dinleyicileri bilgilendir
                 for listener in self._listeners:
                     try:
                         await listener(self.notes)
                     except Exception as e:
-                        print(f"Error notifying listener: {e}")
+                        print(f"Dinleyici bilgilendirilirken hata: {e}")
             finally:
                 self._saving = False
     
     def register_change_listener(self, callback):
-        """Register a callback for note changes"""
+        """Not değişiklikleri için bir geri çağırma kaydet"""
         if callback not in self._listeners:
             self._listeners.append(callback)
     
     def unregister_change_listener(self, callback):
-        """Unregister a callback for note changes"""
+        """Not değişiklikleri için bir geri çağırmayı kaydet"""
         if callback in self._listeners:
             self._listeners.remove(callback)
     
     def get_user_notes(self, user_id: str) -> Dict[str, List[Dict[str, Any]]]:
-        """Get all notes for a user"""
+        """Bir kullanıcı için tüm notları al"""
         return self.notes.get(str(user_id), {"UYARILAR": [], "TIMEOUTLAR": [], "BANLAR": []})
     
     async def add_note(self, user_id: int, note_type: str, reason: str, moderator: str, moderator_id: int):
-        """Add a note to a user"""
+        """Bir kullanıcıya not ekle"""
         user_id_str = str(user_id)
-        
-        # Initialize user entry if not exists
+
+        # Kullanıcı girişi yoksa başlat
         if user_id_str not in self.notes:
             self.notes[user_id_str] = {"UYARILAR": [], "TIMEOUTLAR": [], "BANLAR": []}
-        
-        # Create the note
+
+        # Notu oluştur
         note_data = {
             "sebep": reason,
             "moderator": moderator,
             "moderator_id": moderator_id,
             "tarih": datetime.now().strftime("%d.%m.%Y %H:%M")
         }
-        
-        # Add the note
+
+        # Notu ekle
         self.notes[user_id_str][note_type].append(note_data)
-        
-        # Save changes
+
+        # Değişiklikleri kaydet
         await self.save()
         return note_data
     
     async def delete_note(self, user_id: int, note_type: str, index: int) -> Optional[Dict[str, Any]]:
-        """Delete a note at specified index"""
+        """Belirtilen indeksteki notu sil"""
         user_id_str = str(user_id)
         
         if user_id_str not in self.notes:
@@ -109,30 +109,30 @@ class NoteManager:
             
         if index-1 < 0 or index-1 >= len(self.notes[user_id_str][note_type]):
             return None
-        
-        # Remove the note
+
+        # Notu kaldır
         deleted_note = self.notes[user_id_str][note_type].pop(index-1)
         
-        # Remove user if no notes left
+        # Hiçbir not kalmamışsa kullanıcıyı kaldır
         if (not self.notes[user_id_str]["UYARILAR"] and 
             not self.notes[user_id_str]["TIMEOUTLAR"] and 
             not self.notes[user_id_str]["BANLAR"]):
             del self.notes[user_id_str]
-        
-        # Save changes
+
+        # Değişiklikleri kaydet
         await self.save()
         return deleted_note
     
     async def clear_user_notes(self, user_id: int) -> bool:
-        """Clear all notes for a user"""
+        """Bir kullanıcı için tüm notları temizle"""
         user_id_str = str(user_id)
         
         if user_id_str not in self.notes:
             return False
-        
-        # Remove user
+
+        # Kullanıcıyı kaldır
         del self.notes[user_id_str]
-        
-        # Save changes
+
+        # Değişiklikleri kaydet
         await self.save()
         return True

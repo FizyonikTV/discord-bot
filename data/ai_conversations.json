@@ -1,0 +1,14 @@
+{
+    "992110844886396978_assistant": [
+        {
+            "timestamp": "2025-05-29T21:37:05.117159",
+            "user": "Selam",
+            "assistant": "❌ OpenAI hatası: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and..."
+        },
+        {
+            "timestamp": "2025-05-29T21:37:49.246089",
+            "user": "Ayaklarımızın numarası neye göre hesaplanıyor?",
+            "assistant": "❌ OpenAI hatası: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and..."
+        }
+    ]
+}

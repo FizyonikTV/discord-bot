@@ -19,6 +19,76 @@
             "end_date": "2025-05-15T15:00:00.000Z",
             "original_price": "$9.99",
             "id": "cff516f0708444ee8ee06a96e6986b34"
+        },
+        {
+            "title": "Happy Game",
+            "description": "Happy Game",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Day2wide1_2560x1440-172520950cf13ed61da47e4dfd394459",
+            "url": "https://www.epicgames.com/store/product/mystery-game-2-02",
+            "start_date": "2025-05-15T15:00:00.000Z",
+            "end_date": "2025-05-22T15:00:00.000Z",
+            "original_price": "0",
+            "id": "c0c9f6ca5ea14a608094219f96789ae0"
+        },
+        {
+            "title": "Dead Island 2",
+            "description": "Dead Island 2",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Day1wide_2560x1440-fdc688ce46680914ee3c4a7949ce8a67",
+            "url": "https://www.epicgames.com/store/product/mystery-game",
+            "start_date": "2025-05-15T15:00:00.000Z",
+            "end_date": "2025-05-22T15:00:00.000Z",
+            "original_price": "0",
+            "id": "bc07d445f178417da137028c19573b4e"
+        },
+        {
+            "title": "Sifu",
+            "description": "Sifu",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Day3wide_1920x1080-1df3ab45b895adfee06b011673df20aa",
+            "url": "https://www.epicgames.com/store/product/mystery-game-3-01",
+            "start_date": "2025-05-22T15:00:00.000Z",
+            "end_date": "2025-05-29T15:00:00.000Z",
+            "original_price": "0",
+            "id": "af3f55227dff45f2805901ae10c96ab3"
+        },
+        {
+            "title": "Gigapocalypse",
+            "description": "Gigapocalypse",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/day5wide_2560x1440-cfedc75b3acfde245f0178d3de44bb17",
+            "url": "https://www.epicgames.com/store/product/mystery-game-5-01",
+            "start_date": "2025-05-22T15:00:00.000Z",
+            "end_date": "2025-05-29T15:00:00.000Z",
+            "original_price": "0",
+            "id": "9799fecaebb9459989bc95af8844fba6"
+        },
+        {
+            "title": "Deliver At All Costs",
+            "description": "Deliver At All Costs is a thrilling action game where destruction, absurdity and intrigue collide! Join Winston Green, a down-on-his-luck courier with a fiery temper and a mysterious past — as he delivers highly unconventional cargo, leaving a trail of havoc and chaos behind him.",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Day4wide_2560x1440-6c3e68829f8277aca2b7399160bad072",
+            "url": "https://www.epicgames.com/store/product/mystery-game-4-01",
+            "start_date": "2025-05-22T15:00:00.000Z",
+            "end_date": "2025-05-29T15:00:00.000Z",
+            "original_price": "0",
+            "id": "94c637ba57d748d28235e8fafe3860c4"
+        },
+        {
+            "title": "Tiny Tina's Wonderlands",
+            "description": "Tiny Tina's Wonderlands",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Tinytinawide_2560x1440-ba126bdeac3faab0596b7c56e9c09990",
+            "url": "https://www.epicgames.com/store/product/mystery-game-2-01",
+            "start_date": "2025-05-29T15:00:00.000Z",
+            "end_date": "2025-06-05T15:00:00.000Z",
+            "original_price": "0",
+            "id": "ce28797ae01f4c8ebb3e8692a5aa1395"
+        },
+        {
+            "title": "Limbo",
+            "description": "Limbo is an award-winning indie adventure, critically acclaimed for its captivating puzzle design and immersive sound and visuals. Its dark, misty spaces and haunting narrative will stay with you forever.",
+            "image": "https://cdn1.epicgames.com/offer/d5241c76f178492ea1540fce45616757/Day7wide_2560x1440-6c93379907b03def09fcd60c6677a5d9",
+            "url": "https://www.epicgames.com/store/product/mystery-game-7-01",
+            "start_date": "2025-05-29T15:00:00.000Z",
+            "end_date": "2025-06-05T15:00:00.000Z",
+            "original_price": "0",
+            "id": "8ac7a28bdcdf4f4db7706419aa502c0e"
         }
     ],
     "steam_deals": [
@@ -32,6 +102,17 @@
             "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/18120/header.jpg",
             "url": "https://store.steampowered.com/app/18120",
             "deal_id": "zrK7O7Xn368%2B5zXU%2B32aPdn1GSvWxy9xIrgdfi4uxUg%3D"
+        },
+        {
+            "title": "The Blackwell Legacy",
+            "discount_percent": 70,
+            "sale_price": "1.49",
+            "normal_price": "4.99",
+            "steam_rating": "Very Positive",
+            "steam_rating_count": "1255",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/80330/header.jpg",
+            "url": "https://store.steampowered.com/app/80330",
+            "deal_id": "bPKcQZ4nfIIVyQsjslYeph2rS8uT1XK6KuwQv8e6QiA%3D"
         }
     ]
 }

@@ -1,16 +1,4 @@
 {
-    "1344008184565862402": {
-        "UYARILAR": [
-            {
-                "sebep": "Deneme",
-                "moderator": "eonjinwoo",
-                "moderator_id": 992110844886396978,
-                "tarih": "11.05.2025 16:01"
-            }
-        ],
-        "TIMEOUTLAR": [],
-        "BANLAR": []
-    },
     "698096103815512105": {
         "UYARILAR": [
             {
@@ -22,5 +10,115 @@
         ],
         "TIMEOUTLAR": [],
         "BANLAR": []
+    },
+    "706831199426969670": {
+        "UYARILAR": [
+            {
+                "sebep": "Sunucuda küfür kullanmak yasaktır.",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "15.05.2025 18:04"
+            }
+        ]
+    },
+    "658338750677516319": {
+        "TIMEOUTLAR": []
+    },
+    "857892904050622475": {
+        "BANLAR": [
+            {
+                "sebep": "Güzel vakitler geçirdik, iyiydik. Allah'a emanet ol, kal sağlıcakla.",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "31.05.2025 20:03"
+            }
+        ]
+    },
+    "601682044199763978": {
+        "UYARILAR": [
+            {
+                "sebep": "Diğer kullanıcılar üzerinde ırkçılık, nefret söylemi, zorbalık veya diğer taciz biçimleri yasaktır, saygılı olunuz.",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "01.06.2025 09:59"
+            }
+        ]
+    },
+    "310464028411691009": {
+        "UYARILAR": [
+            {
+                "sebep": "Kurallar esnek olsa dahi kişiye direkt olarak hakaret kabul edilemez. \"Emir veriyor yarrağıma bak.\" demek uygun değildir.",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "01.06.2025 12:17"
+            }
+        ]
+    },
+    "891591340511592489": {
+        "UYARILAR": [
+            {
+                "sebep": "Kurallar esnek olsa dahi kişiye direkt olarak hakaret kabul edilemez. \"Siktir git.\" demek uygun değildir.",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "01.06.2025 12:18"
+            }
+        ]
+    },
+    "540962213108908032": {
+        "UYARILAR": [
+            {
+                "sebep": "https://discord.com/channels/1253037947247267930/1372590125128614001/1378802574857343089",
+                "moderator": "eonjinwoo",
+                "moderator_id": "992110844886396978",
+                "tarih": "01.06.2025 21:31"
+            },
+            {
+                "sebep": "Kurallar esnek olsa dahi kişiye direkt olarak hakaret kabul edilemez. \"Sikerim seni\" demek uygun değildir.",
+                "moderator": "evak1n",
+                "moderator_id": "1344008184565862402",
+                "tarih": "02.06.2025 11:02"
+            }
+        ]
+    },
+    "825000845396803644": {
+        "UYARILAR": [
+            {
+                "sebep": "Kurallar esnek olsa dahi kişiye direkt olarak hakaret kabul edilemez. \"Yarrağım\" demek uygun değildir.",
+                "moderator": "evak1n",
+                "moderator_id": "1344008184565862402",
+                "tarih": "02.06.2025 16:53"
+            },
+            {
+                "sebep": "yetkiliye küfür",
+                "moderator": "inviziel_",
+                "moderator_id": "442435292272787466",
+                "tarih": "02.06.2025 16:53"
+            },
+            {
+                "sebep": "uyarıya küfür",
+                "moderator": "inviziel_",
+                "moderator_id": "442435292272787466",
+                "tarih": "02.06.2025 16:53"
+            }
+        ],
+        "TIMEOUTLAR": [
+            {
+                "sebep": "Sebep belirtilmedi",
+                "moderator": "inviziel_",
+                "moderator_id": "442435292272787466",
+                "tarih": "02.06.2025 16:55",
+                "süre": "3600 saniye"
+            }
+        ]
+    },
+    "1178064304210186260": {
+        "UYARILAR": [
+            {
+                "sebep": "Efe'nin isteği üzerine yetkiliye küfür.",
+                "moderator": "inviziel_",
+                "moderator_id": "442435292272787466",
+                "tarih": "02.06.2025 17:12"
+            }
+        ]
     }
 }

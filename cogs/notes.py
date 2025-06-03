@@ -13,16 +13,16 @@ class Notes(commands.Cog):
         self.notes_path = "data/notes.json"
         self.notes = {}
         self.load_notes()
-        print(f"[NOTES] Notes cog yüklendi.")
+        print(f"[📝] Notes cog yüklendi.")
 
     def load_notes(self):
         """Not dosyasını yükler"""
         try:
             # JSON Handler kullanarak güvenli yükleme
             self.notes = JsonHandler.load_json(self.notes_path, default={})
-            print(f"[NOTES] {len(self.notes)} kullanıcı kaydı yüklendi.")
+            print(f"[📝] {len(self.notes)} kullanıcı kaydı yüklendi.")
         except Exception as e:
-            print(f"[HATA] Notlar yüklenirken hata oluştu: {e}")
+            print(f"[❌] Notlar yüklenirken hata oluştu: {e}")
             self.notes = {}
     
     async def save_notes(self):
@@ -31,10 +31,10 @@ class Notes(commands.Cog):
             # JSON Handler kullanarak güvenli kaydetme
             success = JsonHandler.save_json(self.notes_path, self.notes)
             if success:
-                print(f"[NOTES] Notes kaydedildi - {len(self.notes)} kullanıcı")
+                print(f"[📝] Notlar kaydedildi - {len(self.notes)} kullanıcı")
             return success
         except Exception as e:
-            print(f"[HATA] Notlar kaydedilirken hata oluştu: {e}")
+            print(f"[❌] Notlar kaydedilirken hata oluştu: {e}")
             return False
 
     async def add_note(self, user_id, note_type, reason, moderator, moderator_id, **kwargs):
@@ -69,9 +69,9 @@ class Notes(commands.Cog):
         success = await self.save_notes()
         
         if not success:
-            print(f"[HATA] Not {user_id} için kaydedilemedi! (Tip: {note_type})")
+            print(f"[❌] Not {user_id} için kaydedilemedi! (Tip: {note_type})")
         else:
-            print(f"[NOTES] Not eklendi: {user_id} - {note_type}")
+            print(f"[📝] Not eklendi: {user_id} - {note_type}")
         
         return success
     

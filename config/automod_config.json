@@ -43,6 +43,24 @@
         "bastard",
         "twat"
     ],
+    "max_mentions": 5,
+    "exempted_roles": [
+        1267942292711276500,
+        1267942295093907456,
+        1267942293277642804
+    ],
+    "exempted_channels": [
+        1267941528362291500,
+        1267941417515487500,
+        1267941490240262100,
+        1267941604426256600,
+        1357376925718282500,
+        1267941417515487376,
+        1267941528362291364,
+        1357376925718282420,
+        1377724205835092108,
+        1267941604426256554
+    ],
     "blacklisted_domains": [
         "discord.gg/",
         "discordapp.com/invite/",
@@ -52,24 +70,8 @@
         "xnxx.com",
         "onlyfans.com"
     ],
-    "max_mentions": 5,
     "max_messages": 5,
     "time_window": 5,
-    "punishment": {
-        "warn_threshold": 3,
-        "mute_duration": 10,
-        "action": "mute"
-    },
-    "exempted_roles": [
-        1267942292711276645
-    ],
-    "exempted_channels": [
-        1267941528362291364,
-        1267941417515487376,
-        1267941490240262194,
-        1267941604426256554,
-        1357376925718282420
-    ],
-    "log_channel": 1371039806028648510,
-    "violation_reset_time": 7
+    "violation_reset_time": 7,
+    "log_channel": 1281700459991666748
 }

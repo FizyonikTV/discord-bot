@@ -132,5 +132,17 @@
         "participants": [
             992110844886396978
         ]
+    },
+    "1376971631636779068": {
+        "channel_id": 1357419585678086195,
+        "message_id": 1376971631636779068,
+        "prize": "Discord Nitro",
+        "winners": 1,
+        "end_time": 1748369619.634687,
+        "host_id": 992110844886396978,
+        "required_role": null,
+        "participants": [
+            992110844886396978
+        ]
     }
 }

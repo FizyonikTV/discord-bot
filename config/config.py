@@ -26,6 +26,11 @@ WELCOME_CHANNEL_ID = int(os.environ.get("WELCOME_CHANNEL_ID", "0"))
 GAME_WEBHOOK_URL = os.environ.get("GAME_WEBHOOK_URL", "")
 WEBHOOK_URL = os.environ.get("WEBHOOK_URL", "")
 
+# AI API Anahtarları
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+AI_ENABLED = os.environ.get("AI_ENABLED", "false").lower() == "true"
+
 # Komut kanalları
 COMMAND_CHANNELS = [
     1267944262067134464,  # BOT KOMUT

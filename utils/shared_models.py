@@ -43,5 +43,5 @@ class SharedDataManager:
         notes_data[user_id][note_type].append(new_note)
         JsonHandler.save_json(self.notes_file, notes_data)
         
-        print(f"[NOTES] '{user_id}' kullanıcısına '{note_type}' tipinde not eklendi: {reason}")
+        print(f"[📝] '{user_id}' kullanıcısına '{note_type}' tipinde not eklendi: {reason}")
         return new_note

@@ -1,13 +1,14 @@
-import discord
-from discord.ext import commands
+import io
 import json
 import math
 import time
-from discord.ext.commands import cooldown, BucketType
-from utils.helpers import izin_kontrol, create_embed, send_log
-from config.config import *  # Import constants
-from config.config import LEVEL_ROLES
-from utils.permissions import has_mod_role, has_admin
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import discord
+from discord.ext import commands
+from discord.ext.commands import BucketType, cooldown
+from discord.ext.commands import has_permissions
+from datetime import datetime
+from config.config import LEVEL_ROLES  # Seviye rollerini config dosyasından al
 
 class Leveling(commands.Cog):
     def __init__(self, bot):
@@ -42,12 +43,9 @@ class Leveling(commands.Cog):
         return math.floor((xp / 100) ** (1/1.5))
 
     async def update_level_roles(self, member: discord.Member, new_level: int, old_level: int = 0):
-        """Kullanıcının seviye rollerini günceller"""
+        sorted_levels = sorted(LEVEL_ROLES.items(), key=lambda x: x[0])  # Seviyeleri sırala
         roles_to_remove = []
         roles_to_add = []
-        
-        # Tüm seviye rollerini kontrol et
-        sorted_levels = sorted(LEVEL_ROLES.items(), key=lambda x: x[0])  # Seviyeleri sırala
         
         current_role = None
         # En yüksek hak kazanılan rolü bul
@@ -159,7 +157,7 @@ class Leveling(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.command(name="top", aliases=["leaderboard", "sıralama"])
+    @commands.command(name="sıralama", aliases=["seviye-sıralama", "level-top"])
     @cooldown(1, 10, BucketType.user)
     async def leaderboard(self, ctx, page: int = 1):
         """Sunucudaki XP sıralamasını gösterir."""
@@ -199,7 +197,7 @@ class Leveling(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(name="xpekle")
-    @has_admin()
+    @has_permissions(administrator=True)
     async def add_xp(self, ctx, member: discord.Member, xp: int):
         """Kullanıcıya XP ekler."""
         guild_id = str(ctx.guild.id)
@@ -237,7 +235,7 @@ class Leveling(commands.Cog):
         self.save_levels()
 
     @commands.command(name="xpsıfırla")
-    @has_admin()
+    @has_permissions(administrator=True)
     async def reset_xp(self, ctx, member: discord.Member):
         """Kullanıcının XP'sini sıfırlar."""
         guild_id = str(ctx.guild.id)
@@ -266,6 +264,77 @@ class Leveling(commands.Cog):
             self.save_levels()
         else:
             await ctx.send(f"{member.mention} kullanıcısının zaten hiç XP'si yok.")
+
+    @commands.command(name="profil", aliases=["kart", "profile"])
+    async def profil(self, ctx, member: discord.Member = None):
+        member = member or ctx.author
+        guild_id = str(ctx.guild.id)
+        user_id = str(member.id)
+
+        if guild_id not in self.user_levels or user_id not in self.user_levels[guild_id]:
+            embed = discord.Embed(
+                title="❌ Seviye Bulunamadı",
+                description=f"{member.mention} henüz hiç XP kazanmamış.",
+                color=0xff0000
+            )
+            await ctx.send(embed=embed)
+            return
+
+        user_data = self.user_levels[guild_id][user_id]
+        current_xp = user_data["xp"]
+        current_level = user_data["level"]
+        xp_for_next = self.calculate_xp_for_level(current_level + 1)
+        xp_for_current = self.calculate_xp_for_level(current_level)
+        progress = (current_xp - xp_for_current) / (xp_for_next - xp_for_current)
+        progress_bar = """`[""" + "█" * int(progress * 18) + "░" * (18 - int(progress * 18)) + f"] {int(progress*100)}%`"""
+
+        badges = user_data.get("badges", [])
+        badge_emoji_map = {
+            "boost": "<:boost:1200000000000000000>",
+            "early": "🌟",
+            "mod": "🛡️",
+            # Kendi özel emojilerinizi ekleyebilirsiniz
+        }
+        badge_text = " ".join([badge_emoji_map.get(b, f"`{b}`") for b in badges]) if badges else "Yok"
+
+        embed = discord.Embed(
+            title=f"✨ {member.display_name} • Profil Kartı",
+            color=discord.Color.blurple(),
+            description=f"**Sunucu:** `{ctx.guild.name}`\n**Katılım:** `{member.joined_at.strftime('%d.%m.%Y') if member.joined_at else 'Bilinmiyor'}`"
+        )
+        embed.set_thumbnail(url=member.display_avatar.url)
+        embed.add_field(
+            name="🆙 Seviye",
+            value=f"`{current_level}`",
+            inline=True
+        )
+        embed.add_field(
+            name="💠 XP",
+            value=f"`{current_xp} / {xp_for_next}`",
+            inline=True
+        )
+        embed.add_field(
+            name="🏅 Rozetler",
+            value=badge_text,
+            inline=False
+        )
+        embed.add_field(
+            name="📊 İlerleme",
+            value=progress_bar,
+            inline=False
+        )
+        embed.add_field(
+            name="🆔 Kullanıcı ID",
+            value=f"`{member.id}`",
+            inline=True
+        )
+        embed.add_field(
+            name=" ",
+            value=" ",
+            inline=True
+        )
+        embed.set_footer(text=f"LunarisBot Seviye Sistemi • {datetime.now().strftime('%d.%m.%Y')}")
+        await ctx.send(embed=embed)
 
 async def setup(bot):
     await bot.add_cog(Leveling(bot))
